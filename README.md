@@ -176,28 +176,80 @@ Am I Responsive has been used for the responsive image at the top of README.md y
 1. [omdb.py](https://omdbpy.readthedocs.io/en/latest/)
     - Python wrapper around The Open Movie Database API (a.k.a. OMDb API): [http://omdbapi.com/](http://omdbapi.com/). Used for the movie search.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+###  keys: 
+-
+ #### Creating keys
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+***
+## Testing
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### Testing is in TESTING.md - [Link to TESTING.md](#) NO LINK
+***
 
-**So….?**
+## Deployment
+***
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
 
-**Can I opt out?**
+### Forking the GitHub Repository
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
 
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/Ed-Whyatt/movie-lounge-ms-3.git)
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. You should now have a copy of the original repository in your GitHub account.
+
+### Making a Local Clone
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/Ed-Whyatt/movie-lounge-ms-3.git)
+2. Under the repository name, click "<> Code" and click the second "code" dropdown menu. 
+3. To clone the repository using HTTPS, click the second "code ▼" dropdown menu, copy the link [HTTPS link](https://github.com/Ed-Whyatt/movie-lounge-ms-3). NO LINK
+4. Open Git Bash
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type `git clone`, and then paste the URL you copied in Step 3.
+
+$ git `clone https://github.com/Ed-Whyatt/movie-lounge-ms-3.git`
+
+7. Press Enter. Your local clone will be created.
+
+```bash
+git clone https://github.com/Ed-Whyatt/movie-lounge-ms-3.git
+Cloning into CI-Clone...
+remote: Counting objects: 10, done.
+remote: Compressing objects: 100% (8/8), done.
+remove: Total 10 (delta 1), reused 10 (delta 1)
+Unpacking objects: 100% (10/10), done.
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
 
-**Anything more?**
+Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
+
+Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://github.com/Ed-Whyatt/movie-lounge-ms-3.git)
+
+
+## Credits
+***
+
+###  Code
+
+   -   [Code Institute](https://codeinstitute.net/): Code Institutes lessons have help with all coding throughout this project.
+
+   -   [Code Institute Sample README.md](https://github.com/Code-Institute-Solutions/SampleREADME): Code Institute Sample README.md has been used to help with readme layout.
+
+   -   [Bootstrap5](https://getbootstrap.com/docs/5.4/getting-started/introduction/): Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System.
+
+   -   [W3 Schools](https://www.w3schools.com/): W3 Schools has been used with some elements in this project.
+
+   -   [Autoprefixer](https://autoprefixer.github.io/): Autoprefixer has been used with the images in css for Crapple/Apple/iOS fallback browsers.
+
+   -   OTHERS
+   -
+   -
+
+ - ### Tutorials used
+    - ####  DOCUMTATION FOR OMDB
+   
+
 
 Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
 
