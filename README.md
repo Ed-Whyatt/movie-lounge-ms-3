@@ -1,4 +1,4 @@
-<h1 align="center"> Movie Lounge</h1>
+git <h1 align="center"> Movie Lounge</h1>
 
 ## A responsive movie lounge website hub for keen movie enthusiast.
 ***
@@ -251,8 +251,12 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
    
 
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### Content
+   -   All content was written by the developer.
 
----
+### Acknowledgments
 
-Happy coding!
+   -	My mentor for continuous helpful feedback.
+   -	Tutor support at Code Institute.
+   -	Support from staff at The City of Bristol collage.
+   -	Members on Code Institutes Slack.
