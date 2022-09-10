@@ -130,11 +130,19 @@
     - This collection hols the users answers to the messages to be displayed in the movie lounge application message board.
     - The answers question id links to the questions id. This will show witch message the user is replying to in the movie lounge message board. 
 
-## FAQ about the uptime script
+# Features
+Am I Responsive has been used for the responsive image at the top of README.md you can view there website below and interact with this project on each device.
+-   ### Responsive on all devices - [view](#) NO LINK
 
-**Why have you added this script?**
+## Interactive elements.
+- Interactive elements
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## Technologies Used
+### Languages Used
+-   [HTML5](https://en.wikipedia.org/wiki/HTML5)
+-   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+-   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+-   [Python](https://www.python.org/)
 
 **How will this affect me?**
 
