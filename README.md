@@ -1,16 +1,44 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align="center"> Movie Lounge</h1>
 
-Welcome USER_NAME,
+## A responsive movie lounge website hub for keen movie enthusiast.
+***
+## Code Institute – HTML, CSS, JavaScript, python+Flask and PostgreSQL -  Milestone Project 3.
+***
+## [Click Here To View The Live Project](#) NO LINK
+***
+## ![Text](#) - responsive image here NO LINK
+***
+## UX user experience
+***
+## User stories
+- ### First time user goals
+    
+    1. As a First time user, I want to easily navigate to register and then log in when first entering the website application.
+    2. As a First Time User, I want to navigate the website easily and interact with the content.
+    3. As a first time user i want to easily navigate to search for movies and add them to my list.
+    4. As a first time user i want to easily navigate to the message board and add a message question or reply to a message.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+- ### Returning user goals
+    1. As a Returning User, I want to edit and delete my messages.
+    2. As a Returning User, I want to edit and delete my movie list.
+    4. As a Returning User, I want to see any new messages.
+    5. As a Returning User, I want to see if anyone has replyed to my questions.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+- ### Frequent user goals
+    1. As a Frequent user, I want to easily reply to any messages or questions.
+    2. As a Frequent user, I want to easily edit and delete my movie list.
+    3. As a Frequent user, I want to easily change my password.
+    4. As a Frequent user, I want to easily edit or delete any messages or questions.
 
-## Gitpod Reminders
+- ### End of user goals
+    1. As a End of User, I want to delete my login details
+    2. As a End of User, I want to delete all my messages and questions.
+    3. As a End of User, I want to delete my movie list.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
+- ### Admin user goals
+    1. As an Admin User, I want access to add questions and edit and delete  all questions on the movie lounge message board.
+    2. As an Admin User, I want access to add movies and edit and delete all users movie lists.
+    3. As an Admin User, I want access to add, edit and delete all categorys and related questions, messages and movie lists.
 
 A blue button should appear to click: _Make Public_,
 
