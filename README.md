@@ -1,4 +1,4 @@
-git <h1 align="center"> Movie Lounge</h1>
+<h1 align="center"> Movie Lounge</h1>
 
 ## A responsive movie lounge website hub for keen movie enthusiast.
 ***
@@ -64,42 +64,50 @@ git <h1 align="center"> Movie Lounge</h1>
 
 - ### Large screens
 
-1. Welcome Home page Wireframe ![text](#)
+1. Welcome Home page Wireframe 
+### ![text](/documentation/wireframes/enter_home_page.png)
 
-2. Loged In Home Page Wireframe ![text](#)
+2. Loged In Home Page Wireframe 
+### ![text](/documentation/wireframes/loged_in_home.png)
 
-3. Log In page Wireframe ![text](#)
+3. Log In page Wireframe 
+### ![text](/documentation/wireframes/log_in.png)
 
-4. Reginster page Wireframe ![text](#)
+4. Register page Wireframe 
+### ![text](/documentation/wireframes/register.png)
 
-5. Message Board Wireframe page ![text](#)
+5. Message Board Wireframe page 
+### ![text](/documentation/wireframes/message_board.png)
 
-6. Add Movie and Search page wireframe ![text](#)
+6. Add Movie and Search page wireframe 
+### ![text](/documentation/wireframes/add_movie_search.png)
 
-7. Select Movie to Add page wirframe ![text](#)
+7. Select Movie to Add page wirframe 
+### ![text](/documentation/wireframes/select_movie.png)
 
-8. Manage Categories page  (admin only ) wirframe ![text](#)
+8. Manage Categories page (admin only ) wirframe
+### ![text](/documentation/wireframes/manage_categories.png)
 
 - ### Medium Screens click to view
 
-1. Medium Welcome Home page Wireframe ![view](#)
-2. Medium Loged In Home Page Wireframe ![view](#)
-3. Medium Log In page Wireframe ![view](#)
-4. Medium Reginster page Wireframe ![view](#)
-5. Medium Message Board Wireframe page ![view](#)
-6. Medium Add Movie and Search page wireframe ![view](#)
-7. Medium Select Movie to Add page wirframe ![view](#)
-8. Medium Manage Categories page  (admin only ) wirframe ![view](#)
+1. ### Medium Welcome Home page Wireframe - ![view](documentation/wireframes/enter_home_medium.png)
+2. Medium Loged In Home Page Wireframe ![view](/documentation/wireframes/loged_in_home_medium.png)
+3. Medium Log In page Wireframe ![view](/documentation/wireframes/log_in_medium.png)
+4. Medium Register page Wireframe ![view](/documentation/wireframes/register.png)
+5. Medium Message Board Wireframe page ![view](/documentation/wireframes/message_board_medium.png)
+6. Medium Add Movie and Search page wireframe ![view](/documentation/wireframes/add_movie_medium.png)
+7. Medium Select Movie to Add page wirframe ![view](/documentation/wireframes/select_movie_medium.png)
+8. Medium Manage Categories page  (admin only ) wirframe ![view](/documentation/wireframes/category_medium.png)
 
 - ### Small Screens click to view
-1. Small Welcome Home page Wireframe ![view](#)
-2. Small Loged In Home Page Wireframe ![view](#)
-3. Small Log In page Wireframe ![view](#)
-4. Small Reginster page Wireframe ![view](#)
-5. Small Message Board Wireframe page ![view](#)
-6. Small Add Movie and Search page wireframe ![view](#)
-7. Small Select Movie to Add page wirframe ![view](#)
-8. Small Manage Categories page  (admin only ) wirframe ![view](#)
+1. Small Welcome Home page Wireframe ![view](/documentation/wireframes/enter_home_small.png)
+2. Small Loged In Home Page Wireframe ![view](/documentation/wireframes/loged_in_home_small.png)
+3. Small Log In page Wireframe ![view](/documentation/wireframes/log_in_small.png)
+4. Small Register page Wireframe ![view](/documentation/wireframes/register_small.png)
+5. Small Message Board Wireframe page ![view](/documentation/wireframes/message_board_small.png)
+6. Small Add Movie and Search page wireframe ![view](/documentation/wireframes/add_movie_small.png)
+7. Small Select Movie to Add page wirframe ![view](/documentation/wireframes/select_movie_small.png)
+8. Small Manage Categories page  (admin only ) wirframe ![view](/documentation/wireframes/category_small.png)
 
 # Data Structure
 - [Mongo DB](https://www.mongodb.com/) is a cloud based storage application, hosting storage for the user movie, messages and message reply data for 
