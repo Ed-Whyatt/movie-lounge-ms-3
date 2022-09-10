@@ -144,7 +144,37 @@ Am I Responsive has been used for the responsive image at the top of README.md y
 -   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 -   [Python](https://www.python.org/)
 
-**How will this affect me?**
+### Frameworks libraries and programming interface
+1. [Bootstrap 5.2.0:](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
+    - Bootstrap was used to assist with the responsiveness and styling of the website.
+1. [Google Fonts:](https://fonts.google.com/)
+    - Google fonts were used to import the 'Lato', 'Poppins' and 'Pacifico' fonts into the style.css file which is used on all pages throughout the project.
+1. [Font Awesome:](https://fontawesome.com/)
+    - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
+1. [jQuery:](https://jquery.com/)
+    - jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript.
+1. [Git](https://git-scm.com/)
+    - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+1. [GitHub:](https://github.com/)
+    - GitHub is used to store the projects code after being pushed from Git.
+1. [Balsamiq:](https://balsamiq.com/)
+    - Balsamiq was used to create the wireframes
+1. [Am I Responsive Design:](http://ami.responsivedesign.is/)
+    - Am I Responsive Design was used for the responsive image in Readme.
+1. [Pymongo](https://pypi.org/project/pymongo/) and [Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)
+    - To connect Python and Flask to the MongoDB databame.
+1. [Flask](https://flask.palletsprojects.com/en/2.2.x/)
+    - To construct and render page templates, and create an instance of the app itself.
+1. [MongoDB Atlas](https://www.mongodb.com/)
+    - A cloud-based Non-Relational backend database hosting service.
+1. [WerKzeug](https://werkzeug.palletsprojects.com/en/2.2.x/)
+    - A WSGI web application library used for hashing user passwords for Python.
+1. [jinja](https://jinja.palletsprojects.com/en/3.1.x/)
+    - Templating language for Python, to simplify displaying data from the backend of this project smoothly and effectively in HTML.
+1. [SQLAlchemy](https://www.sqlalchemy.org/)
+    - Used to filter and search through the database.
+1. [omdb.py](https://omdbpy.readthedocs.io/en/latest/)
+    - Python wrapper around The Open Movie Database API (a.k.a. OMDb API): [http://omdbapi.com/](http://omdbapi.com/). Used for the movie search.
 
 For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
 
