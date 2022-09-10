@@ -21,4 +21,4 @@ mongo = PyMongo(app)
 api_key = os.environ.get("API_KEY")
 client = OMDBClient(apikey=api_key)
 
-from moviemanager import routes  # noqa
+from movielounge import routes  # noqa
