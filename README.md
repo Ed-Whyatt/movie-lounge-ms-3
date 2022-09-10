@@ -40,49 +40,66 @@
     2. As an Admin User, I want access to add movies and edit and delete all users movie lists.
     3. As an Admin User, I want access to add, edit and delete all categorys and related questions, messages and movie lists.
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+# Design
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Design Introduction
+- 
+## Colour Scheme
 
-A blue button should appear to click: _Make Public_,
+- ### [Color Mind](http://colormind.io/) : Colormind has been used to aid the decision the colour scheme for the project.
 
-Another blue button should appear to click: _Open Browser_.
+### The main colours used in this website are:
+- 
+- #### The main colours used for text and backgrounds:
+### ![Text](#) NO LINK
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Typography:
+- ### The fonts use throughout this website are:
+    - 
 
-To log into the Heroku toolbelt CLI:
+## Imagery
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Wireframes
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- ### Large screens
 
-------
+1. Welcome Home page Wireframe ![text](#)
 
-## Release History
+2. Loged In Home Page Wireframe ![text](#)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+3. Log In page Wireframe ![text](#)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+4. Reginster page Wireframe ![text](#)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+5. Message Board Wireframe page ![text](#)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+6. Add Movie and Search page wireframe ![text](#)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+7. Select Movie to Add page wirframe ![text](#)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+8. Manage Categories page  (admin only ) wirframe ![text](#)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+- ### Medium Screens click to view
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+1. Medium Welcome Home page Wireframe ![view](#)
+2. Medium Loged In Home Page Wireframe ![view](#)
+3. Medium Log In page Wireframe ![view](#)
+4. Medium Reginster page Wireframe ![view](#)
+5. Medium Message Board Wireframe page ![view](#)
+6. Medium Add Movie and Search page wireframe ![view](#)
+7. Medium Select Movie to Add page wirframe ![view](#)
+8. Medium Manage Categories page  (admin only ) wirframe ![view](#)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- ### Small Screens click to view
+1. Small Welcome Home page Wireframe ![view](#)
+2. Small Loged In Home Page Wireframe ![view](#)
+3. Small Log In page Wireframe ![view](#)
+4. Small Reginster page Wireframe ![view](#)
+5. Small Message Board Wireframe page ![view](#)
+6. Small Add Movie and Search page wireframe ![view](#)
+7. Small Select Movie to Add page wirframe ![view](#)
+8. Small Manage Categories page  (admin only ) wirframe ![view](#)
 
 **October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
