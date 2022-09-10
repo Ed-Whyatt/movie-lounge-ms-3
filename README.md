@@ -101,19 +101,34 @@
 7. Small Select Movie to Add page wirframe ![view](#)
 8. Small Manage Categories page  (admin only ) wirframe ![view](#)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+# Data Structure
+- [Mongo DB](https://www.mongodb.com/) is a cloud based storage application, hosting storage for the user movie, messages and message reply data for 
+ Movie Lounge.
+- [PostgreSQL](https://www.postgresql.org/) is used for the backend functionality of the application, that allows admin to crate categorys and users to register and log in to the Movie Lounge.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Data Model
+# ![text](#)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- User collection
+   - This collection holds the user name and passwords for the Movie Lounge application.
+   - The user collection user name links this collection to the movie, question, and anwswers collections user created by. This will show witch user has created each input into the collectins.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+- Category collection
+    - This collection holds the category names and can only be changed by admin.
+    - The category collection category name links to questions and movies collection category name. This will show witch category the user has selected for each input into the collections.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- Movies colection
+    - This collection holds the users movies information to be displayed in the Movie Lounge application.
+    - The movies collection category name links to the category category name and the user created by links to the user collections. This will show with user and category the user has selected for each movie input into the movies collections.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- Question colection
+    - This collection holds the users messages to be displayed in the Movie Lounge application message board.
+    - The question collection user created by links to the user user name collecton. This will show witch user has input the message in the movie lounge message board.
+    - The question collection id links to the answers collection question id. This will show witch answers link to the message in the movie loubge message board.   
 
-------
+- Answers colection
+    - This collection hols the users answers to the messages to be displayed in the movie lounge application message board.
+    - The answers question id links to the questions id. This will show witch message the user is replying to in the movie lounge message board. 
 
 ## FAQ about the uptime script
 
