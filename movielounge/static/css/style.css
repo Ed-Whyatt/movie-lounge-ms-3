@@ -1,0 +1,28 @@
+/* Background colors */
+.lounge-main-bg {
+    background-color: #8DC249;
+}
+
+.lounge-white-bg {
+    background-color: #F9FAFA;
+}
+
+.lounge-light-blue-bg {
+    background-color: #82A0AE;
+}
+
+.lounge-blue-bg {
+    background-color: #1D2F59;
+}
+
+/* Text colours */
+.lounge-white-text {
+    color: #F9FAFA;
+}
+.lounge-blue-text {
+    color: #1D2F59;
+}
+
+.nav-link {
+    color: #1D2F59;
+}
