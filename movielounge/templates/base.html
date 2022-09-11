@@ -60,6 +60,12 @@
     <!-- Nav bar end -->
   </header>
 
+  <!-- Block content to be displayed here -->
+  <main class="container">
+      {% block content %}
+      {% endblock %}
+  </main>
+
   <!-- Footer -->
   <footer class="container-fluid fixed-bottom">
     <div class="row">
@@ -69,6 +75,7 @@
       </div>
 
       <div class="col-6">
+        <!-- Bootstrap list css -->
         <ul class="list-group list-group-horizontal float-end">
           <li class="list-group-item">
             <a href="https://www.facebook.com/"
