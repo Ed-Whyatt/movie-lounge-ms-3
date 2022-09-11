@@ -17,6 +17,8 @@
   
   <!-- Movie Lounge css -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+  {% block styles %}
+    {% endblock %}
   <title>Movie Lounge</title>
 </head>
 
@@ -25,17 +27,17 @@
   <header>
 
     <!-- Bootstrap Nav Bar -->
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg lounge-main-bg">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
           aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand mx-auto" href="#">Movie Lounge</a>
+        <a class="navbar-brand mx-auto" href="#"> <h1 class="lounge-blue-text"> Movie Lounge </h1></a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Message Board</a>
@@ -53,7 +55,7 @@
               <a class="nav-link" href="#">Log In</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Register</a>
+              <a class="nav-link" href="{{ url_for('register') }}">Register</a>
             </li>
           </ul>
         </div>
@@ -70,10 +72,10 @@
 
   <!-- Footer -->
   <footer class="container-fluid fixed-bottom">
-    <div class="row">
+    <div class="row lounge-main-bg">
 
       <div class="col-6">
-        <p>&copy; Ed W</p>
+        <p class="lounge-blue-text">&copy; Ed W</p>
       </div>
 
       <div class="col-6">
