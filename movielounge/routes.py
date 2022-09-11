@@ -4,7 +4,19 @@ from movielounge import app, db
 from movielounge.models import Category, Users
 
 
-""" basic home app route """
+# --- basic home app route ---#
 @app.route("/")
 def home():
+    """
+    renders base template
+    """
     return render_template("base.html")
+
+
+# --- Register page ---#
+@app.route("/register")
+def register():
+    """
+    Route for register.html and register form post
+    """
+    return render_template("register.html")
