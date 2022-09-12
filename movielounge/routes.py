@@ -18,7 +18,8 @@ def get_movies():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """
-    Gets register.html register form to Post, then adds the details to the User db
+    Gets register.html template and form to Post,
+    then adds the details to the User db
     """
     if request.method == "POST":
         # Check if username already exists in db
@@ -45,9 +46,35 @@ def register():
     return render_template("register.html")
 
 
+# --- Log In page --- #
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """
-    Gets login.html template
+    Gets login.html template and form to Post,
+    then checks if user is loged in the session
+    then logs them into session.
     """
+    if request.method == "POST":
+        # check if username exists in db
+        existing_user = Users.query.filter(Users.user_name == request.form.get(
+            "username").lower()).all()
+
+        if existing_user:
+            print(request.form.get("username"))
+            # ensure hashed password matches user input
+            if check_password_hash(existing_user[0].password, request.form.get(
+                    "password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for("get_movies"))
+            else:
+                # invalid password match
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            # username doesn't exist
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+
     return render_template("login.html")
