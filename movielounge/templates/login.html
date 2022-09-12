@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="text-center lounge-blue-text">Register</h2>
+<h2 class="text-center lounge-blue-text">Log In</h2>
 
 <!-- Card from bootstrap -->
 <div class="card lounge-white-bg">
     <div class="card-body">
         <!-- Form from bootstrap -->
-        <form method="POST" action="{{ url_for('register') }}">
+        <form method="POST" action="{{ url_for('login') }}">
 
             <!-- Username input id = username -->
             <div class="mb-3">
@@ -16,9 +16,7 @@
                 <input type="text" class="form-control" id="username" name="username" minlength="5" maxlength="30"
                     pattern="^[a-zA-Z0-9]{5,15}$" aria-describedby="usernamehelp" required>
 
-                <div id="usernameHelp" class="form-text">Your User Name must be 5-30 characters long, contain only
-                    letters,
-                    numbers or both, and must not contain special characters, or emojis.</div>
+                <div id="usernameHelp" class="form-text"></div>
             </div>
 
             <!-- Password input id = password-->
@@ -28,12 +26,9 @@
                 pattern="^[a-zA-Z0-9]{5,15}$" class="form-control" aria-describedby="passwordHelpBlock" required>
 
             <div id="passwordHelpBlock" class="form-text">
-                Your Password must be 5-25 characters long, contain letters and numbers, and must not contain spaces,
-                special
-                characters, or emoji.
             </div>
 
-            <button type="submit" class="btn lounge-light-blue-bg lounge-blue-text">Register</button>
+            <button type="submit" class="btn lounge-light-blue-bg lounge-blue-text">Log In</button>
         </form>
         <!-- End of form -->
     </div>
