@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="d-grid gap-2 col-6 mx-auto mt-2 mb-1">
                     <!-- button from bootstrap -->
-                    <a href="#" class="btn lounge-light-blue-bg lounge-blue-text">Add Category</a>
+                    <a href="{{ url_for('add_category') }}" class="btn lounge-light-blue-bg lounge-blue-text">Add Category</a>
                 </div>
                 {% for category in categories %}
                 <div class="col-12">
@@ -24,7 +24,7 @@
                                     <!-- edit and delete buttons from bootstrap -->
                                     <div class="col-6">
                                         <div class="float-end">
-                                        <a href="#" class="btn lounge-blue-text btn-success">Edit</a>
+                                        <a href="{{ url_for('edit_category', category_id=category.id) }}" class="btn lounge-blue-text btn-success">Edit</a>
                                         <a href="#" class="btn lounge-blue-text btn-danger">Delete</a>
                                         </div>
                                     </div>
