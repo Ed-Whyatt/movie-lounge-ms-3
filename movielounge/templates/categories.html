@@ -8,17 +8,18 @@
         <!-- card from bootstrap -->
         <div class="card lounge-white-bg">
             <div class="row">
-                <div class="d-grid gap-2 col-6 mx-auto mt-2">
+                <div class="d-grid gap-2 col-6 mx-auto mt-2 mb-1">
                     <!-- button from bootstrap -->
                     <a href="#" class="btn lounge-light-blue-bg lounge-blue-text">Add Category</a>
                 </div>
+                {% for category in categories %}
                 <div class="col-12">
                     <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-6">
-                                        <p>An Item</p>
+                                        <p>{{ category.category_name }}</p>
                                     </div>
                                     <!-- edit and delete buttons from bootstrap -->
                                     <div class="col-6">
@@ -32,6 +33,7 @@
                         </ul>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
         <!-- card end -->
