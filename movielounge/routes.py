@@ -6,18 +6,19 @@ from movielounge.models import Category, Users
 
 # --- basic home app route ---#
 @app.route("/")
-def home():
+@app.route("/get_movies")
+def get_movies():
     """
-    renders base template
+    renders home page template that will show users movies
     """
-    return render_template("base.html")
+    return render_template("movie.html")
 
 
 # --- Register page ---#
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """
-    Gets register.html register form to Post, then add details to the user db
+    Gets register.html register form to Post, then adds the details to the User db
     """
     if request.method == "POST":
         # Check if username already exists in db
@@ -39,6 +40,6 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("get_movies"))
 
     return render_template("register.html")
