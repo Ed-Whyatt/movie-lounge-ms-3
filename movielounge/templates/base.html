@@ -33,7 +33,7 @@
           aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand mx-auto" href="#"> <h1 class="lounge-blue-text"> Movie Lounge </h1></a>
+        <a class="navbar-brand mx-auto" href="{{ url_for('get_movies') }}"> <h1 class="lounge-blue-text"> Movie Lounge </h1></a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -48,7 +48,7 @@
             </li>
             {% if session.user|lower == "admin"|lower %}
             <li class="nav-item">
-              <a class="nav-link" href="#">Manage Categoties</a>
+              <a class="nav-link" href="{{ url_for('get_categories') }}">Manage Categoties</a>
             </li>
             {% endif %}
             <li class="nav-item">
@@ -68,6 +68,13 @@
     </nav>
     <!-- Nav bar end -->
   </header>
+
+  <!-- Displays user in session -->
+  <div>
+    {% if session.user %}
+    <p class="ms-3 mt-3 lounge-blue-text">You are loged in as {{ session.user }}</p>
+    {% endif %}
+  </div>
 
   <section class="container">
     <!-- flash messages -->
