@@ -14,6 +14,21 @@ def get_movies():
     return render_template("movie.html")
 
 
+# --- admin get Categorys ---#
+@app.route("/get_categories")
+def get_categories():
+    """
+    Gets the categories and displays them for admin only
+    """
+
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to manage categories!")
+        return redirect(url_for("get_tasks"))
+
+    categories = list(Category.query.order_by(Category.category_name).all())
+    return render_template("categories.html", categories=categories)
+
+
 # --- Register page ---#
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -78,3 +93,11 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
