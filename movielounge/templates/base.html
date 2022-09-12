@@ -42,21 +42,26 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Message Board</a>
             </li>
+            {% if session.user %}
             <li class="nav-item">
               <a class="nav-link" href="#">Add Movie</a>
             </li>
+            {% if session.user|lower == "admin"|lower %}
             <li class="nav-item">
               <a class="nav-link" href="#">Manage Categoties</a>
             </li>
+            {% endif %}
             <li class="nav-item">
               <a class="nav-link" href="#">Log Out</a>
             </li>
+            {% else %}
             <li class="nav-item">
-              <a class="nav-link" href="#">Log In</a>
+              <a class="nav-link" href="{{ url_for('login') }}">Log In</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('register') }}">Register</a>
             </li>
+            {% endif %}
           </ul>
         </div>
       </div>
@@ -69,8 +74,8 @@
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
-                <div class="row flashes lounge-blue-bg">
-                    <h4 class="center-align">{{ message }}</h4>
+                <div class="row flashes lounge-main-bg">
+                    <h4 class="center-align lounge-blue-text">{{ message }}</h4>
                 </div>
             {% endfor %}
         {% endif %}
