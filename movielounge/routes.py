@@ -43,3 +43,11 @@ def register():
         return redirect(url_for("get_movies"))
 
     return render_template("register.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    """
+    Gets login.html template
+    """
+    return render_template("login.html")
