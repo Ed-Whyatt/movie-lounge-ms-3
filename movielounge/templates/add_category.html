@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="text-center lounge-blue-text mt-3 mb-3">Log In</h2>
+<h2 class="text-center lounge-blue-text mt-3 mb-3">Add A Catogory</h2>
 
 <div class="row">
     <div class="col-12 col-md-6 offset-md-3">
@@ -9,23 +9,17 @@
 <div class="card lounge-white-bg">
     <div class="card-body">
         <!-- Form from bootstrap -->
-        <form method="POST" action="">
-
-            <!-- Username input id = username -->
-            <div class="mb-3">
-                <label for="username" class="form-label lounge-blue-text">Username</label>
-                <input type="text" class="form-control" id="username" name="username" minlength="5" maxlength="30"
-                    pattern="^[a-zA-Z0-9]{5,15}$" aria-describedby="usernamehelp" required>
-                <div id="usernameHelp" class="form-text"></div>
-            </div>
+        <form method="POST" action="{{ url_for('add_category') }}">
 
             <!-- Password input id = password-->
-            <label for="password" class="form-label lounge-blue-text">Password</label>
-            <input type="password" id="password" name="password" minlength="5" maxlength="25"
-                pattern="^[a-zA-Z0-9]{5,15}$" class="form-control" aria-describedby="passwordHelpBlock" required>
-            <div id="passwordHelpBlock" class="form-text">
+            <label for="category_name" class="form-label lounge-blue-text">Catogory Name</label>
+            <input type="text" id="category_name" name="category_name" minlength="5" maxlength="30"
+             class="form-control" aria-describedby="category_nameHelpBlock" required>
+            <div id="category_nameHelpBlock" class="form-text">
+                Catogory Name must be 5-30 characters long, contain only letters, numbers or both, 
+                and must not contain special characters, or emojis.
             </div>
-            <button type="submit" class="btn lounge-light-blue-bg lounge-blue-text">Log In</button>
+            <button type="submit" class="btn lounge-light-blue-bg lounge-blue-text">Add Category</button>
         </form>
         <!-- End of form -->
     </div>
