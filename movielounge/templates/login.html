@@ -3,7 +3,9 @@
 
 <h2 class="text-center lounge-blue-text mt-3 mb-3">Log In</h2>
 
-<!-- Card from bootstrap -->
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <!-- Card from bootstrap -->
 <div class="card lounge-white-bg">
     <div class="card-body">
         <!-- Form from bootstrap -->
@@ -12,27 +14,35 @@
             <!-- Username input id = username -->
             <div class="mb-3">
                 <label for="username" class="form-label lounge-blue-text">Username</label>
-
                 <input type="text" class="form-control" id="username" name="username" minlength="5" maxlength="30"
                     pattern="^[a-zA-Z0-9]{5,15}$" aria-describedby="usernamehelp" required>
-
                 <div id="usernameHelp" class="form-text"></div>
             </div>
 
             <!-- Password input id = password-->
             <label for="password" class="form-label lounge-blue-text">Password</label>
-
             <input type="password" id="password" name="password" minlength="5" maxlength="25"
                 pattern="^[a-zA-Z0-9]{5,15}$" class="form-control" aria-describedby="passwordHelpBlock" required>
-
             <div id="passwordHelpBlock" class="form-text">
             </div>
-
             <button type="submit" class="btn lounge-light-blue-bg lounge-blue-text">Log In</button>
         </form>
         <!-- End of form -->
     </div>
 </div>
 <!-- End of card -->
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col mt-5">
+        <p class="text-center lounge-blue-text">
+            New Here?
+            <a href="{{ url_for('register') }}" class="lounge-blue-text">Register</a>
+        </p>
+    </div>
+</div>
 
 {% endblock %}
