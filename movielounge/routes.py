@@ -21,12 +21,19 @@ def get_categories():
     Gets the categories and displays them for admin only
     """
 
+    # check user admin is in session
     if "user" not in session or session["user"] != "admin":
         flash("You must be admin to manage categories!")
         return redirect(url_for("get_tasks"))
 
+    # get categories list from database
     categories = list(Category.query.order_by(Category.category_name).all())
     return render_template("categories.html", categories=categories)
+
+
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    return render_template(url_for("add_category.html"))
 
 
 # --- Register page ---#
