@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="text-center lounge-blue-text mt-1">Add Movie</h2>
+
+<div class="row">
+
+    <div class="col-12 col-md-8 offset-md-3">
+
+        <!-- Form start -->
+        <form method="POST" action="{{ url_for('select_movie', movie_title=movie.title) }}">
+
+            <!-- Boostrap card -->
+            <div class="card mb-3 movie-card lounge-main-opaque-bg ">
+
+                <div class="row g-0">
+
+                    <div class="col col-md-4">
+                        <div class="card-body">
+                            <img src="{{ movie.poster }}" class="img-fluid rounded" alt="Movie poster">
+                        </div>
+                    </div>
+
+                    <div class="col col-md-6">
+                        <div class="card-body lounge-blue-text">
+                            <h5 class="card-title">{{ movie.title }}</h5>
+                            <p class="card-text">Director: {{ movie.director }}</p>
+                            <p class="card-text">Genre: {{ movie.genre }}</p>
+                            <p class="card-text">Actors: {{ movie.actors }}</p>
+                            <p class="card-text">Year: {{ movie.released }}</p>
+                            <p class="card-text">Type: {{ movie.type }}</p>
+                            <p class="card-text">Rated: {{ movie.rated }}</p>
+                            <p class="card-text">IMDB Rating: {{ movie.imdb_rating }}</p>
+                            <p class="card-text">Plot: {{ movie.plot }}</p>
+
+                            <select id="category_id" name="category_id" class="form-select" aria-label="Default select example" required>
+                                <option selected>Choose A Category</option>
+                                {% for category in categories %}
+                                <option value="{{ category.id }}">{{ category.category_name }}</option>
+                                {% endfor %}
+                            </select>
+
+                            <select id="user_rating" name="user_rating" class="form-select" aria-label="Default select example">
+                                <option selected>User Rating</option>
+                                <option value="Not Watched">Not Watched</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+
+                            <div class="mb-3">
+                                <label for="user_notes" class="form-label">User Notes:</label>
+                                <textarea class="form-control" id="user_notes" name="user_notes" type="text" minlength="5" maxlength="200" required>None</textarea>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card-body">
+                            <!-- Edit and delete movie buttons -->
+                            <button type="submit" class="btn lounge-light-blue-bg lounge-blue-text">Add This Movie To Your List</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Card End -->
+
+        </form>
+        <!-- Form end -->
+
+    </div>
+</div>
+
+{% endblock %}
