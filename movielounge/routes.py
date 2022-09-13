@@ -22,15 +22,25 @@ def add_movie():
     """
     Gets the add movie template witch contains search for a movie
     """
+    if "user" not in session:
+        flash("You need to be logged in to add a movie")
+        return redirect(url_for("get_movies"))
+
     return render_template("add_movie.html")
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
     """
-    Gets the search query from the search form and searches omdb("client") for 
-    movies, then passes them to the card in the rendered search_results.html template
+    Gets the search query from the search form and searches 
+    omdb("client") for movies, then passes them to the card
+    in the rendered search_results.html template.
     """
+
+    if "user" not in session:
+        flash("You need to be logged in to add a message")
+        return redirect(url_for("get_questions"))
+
     # client is omdb search website and information,
     #  documents can be found at https://pypi.org/project/omdb/
     query = request.form.get("query")
