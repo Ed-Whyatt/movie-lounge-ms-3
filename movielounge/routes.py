@@ -21,7 +21,12 @@ def add_movie():
     """
     Gets the add movie template witch contains search for a movie
     """
-    return render_template("add_mmovie.html")
+    return render_template("add_movie.html")
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    return render_template("search_results.html")
 
 
 # --- admin get categories --- #
