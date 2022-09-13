@@ -81,9 +81,12 @@
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
-                <div class="row lounge-main-opaque-bg mt-4 mb-3">
+                <div class="row">
                   <div clas="col">
-                    <h4 class="text-center lounge-blue-text">{{ message }}</h4>
+                    <!-- Bootstrap alert -->
+                    <div class="lounge-main-opaque-bg mt-4 mb-3 alert" role="alert">
+                      <h4 class="text-center lounge-blue-text">{{ message }}</h4>
+                    </div>
                   </div>
                 </div>
             {% endfor %}
