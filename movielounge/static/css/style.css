@@ -11,12 +11,16 @@
     background-color: #82A0AE;
 }
 
+.lounge-opaque-gray-bg {
+    background-color: rgba(130, 160, 174, 0.7);
+}
+
 .lounge-blue-bg {
     background-color: #1D2F59;
 }
 
-.flashes {
-    background-color: rgba(141, 194, 73, 0.6);
+.lounge-main-opaque-bg {
+    background-color: rgba(141, 194, 73, 0.7);
 }
 
 /* Text colours */
@@ -29,4 +33,9 @@
 
 .nav-link {
     color: #1D2F59;
+}
+
+/* Movie card */
+.movie-card {
+    max-width: 540px;
 }
