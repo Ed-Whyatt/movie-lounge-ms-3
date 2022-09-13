@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block nav_home %}active{% endblock %}
 {% block content %}
 
 <h2 class="text-center lounge-blue-text mt-1">Home</h2>
@@ -8,7 +9,7 @@
 
 <div class="row">
     {% for movie in movies %}
-    <div class="col-4">
+    <div class="col-12 col-md-6 col-xl-4">
 
         <!-- Boostrap card -->
         <div class="card mb-3 movie-card lounge-main-opaque-bg">
@@ -79,7 +80,7 @@
                     <div class="card-body">
                         {% if session.user|lower == movie.created_by|lower or "admin" == session["user"] %}
                         <!-- Edit and delete movie buttons -->
-                        <a href="#" class="card-link btn lounge-blue-text btn-success">Edit</a>
+                        <a href="{{ url_for('edit_movie', movie_id=movie._id) }}" class="card-link btn lounge-blue-text btn-success">Edit</a>
                         <a href="#" class="card-link btn lounge-blue-text btn-danger">Delete</a>
                         {% endif %}
                     </div>

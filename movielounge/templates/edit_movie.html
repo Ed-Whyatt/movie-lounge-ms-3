@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block nav_add_movie %}active{% endblock %}
 {% block content %}
 
 <h2 class="text-center lounge-blue-text mt-1">Add Movie</h2>
@@ -61,7 +62,7 @@
 
                             <div class="mb-3">
                                 <label for="user_notes" class="form-label">User Notes:</label>
-                                <textarea class="form-control" id="user_notes" name="user_notes" type="text" minlength="5" maxlength="200" required>{{- movie.user_notes -}}</textarea>
+                                <textarea class="form-control" id="user_notes" name="user_notes" type="text" minlength="3" maxlength="200" required>{{- movie.user_notes -}}</textarea>
                             </div>
 
                         </div>
