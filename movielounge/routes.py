@@ -97,6 +97,10 @@ def edit_movie(movie_id):
     Replaces the new form data to mongo movies database.
     """
 
+    if "user" not in session:
+        flash("You need to be logged in to add a movie")
+        return redirect(url_for("get_movies"))
+
     movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
 
     if request.method == "POST":
@@ -123,6 +127,24 @@ def edit_movie(movie_id):
     categories = list(Category.query.order_by(Category.category_name).all())
     return render_template(
         "edit_movie.html", movie=movie, categories=categories)
+
+
+@app.route("/delete_movie/<movie_id>")
+def delete_movie(movie_id):
+    """
+    Gets movie id from movies list in movies.html then,
+    Deletes the movie in the mongo movies database.
+    """
+
+    movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
+
+    if "user" not in session or session["user"] != movie["created_by"]:
+        flash("You can only delete your own movie!")
+        return redirect(url_for("get_movies"))
+
+    mongo.db.movies.delete_one({"_id": ObjectId(movie_id)})
+    flash("Movie Successfully Deleted")
+    return redirect(url_for("get_movies"))
 
 
 # --- admin get categories --- #
