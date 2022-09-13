@@ -77,9 +77,11 @@
 
                 <div class="col-12">
                     <div class="card-body">
+                        {% if session.user|lower == movie.created_by|lower or "admin" == session["user"] %}
                         <!-- Edit and delete movie buttons -->
                         <a href="#" class="card-link btn lounge-blue-text btn-success">Edit</a>
                         <a href="#" class="card-link btn lounge-blue-text btn-danger">Delete</a>
+                        {% endif %}
                     </div>
                 </div>
 
