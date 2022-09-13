@@ -39,3 +39,10 @@
 .movie-card {
     max-width: 540px;
 }
+
+/* nav active */
+.active {
+    text-decoration: underline;
+    font-weight: 700 !important;
+    color: #1D2F59 !important;
+}
