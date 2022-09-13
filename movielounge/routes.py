@@ -4,7 +4,7 @@ from movielounge import app, db
 from movielounge.models import Category, Users
 
 
-# --- basic home app route ---#
+# --- basic home app route --- #
 @app.route("/")
 @app.route("/get_movies")
 def get_movies():
@@ -14,7 +14,7 @@ def get_movies():
     return render_template("movie.html")
 
 
-# --- admin get Categorys ---#
+# --- admin get categories --- #
 @app.route("/get_categories")
 def get_categories():
     """
@@ -22,7 +22,7 @@ def get_categories():
     """
 
     # check user admin is in session
-    if "user" not in session or session["user"] != "admin":
+    if session["user"] != "admin":
         flash("You must be admin to manage categories!")
         return redirect(url_for("get_tasks"))
 
@@ -31,6 +31,7 @@ def get_categories():
     return render_template("categories.html", categories=categories)
 
 
+# --- Add categories admin only --- #
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     """
@@ -38,7 +39,7 @@ def add_category():
     Gets the new category name from the form and adds it to categories database
     """
 
-    if "user" not in session or session["user"] != "admin":
+    if session["user"] != "admin":
         flash("You must be admin to manage categories!")
         return redirect(url_for("get_tasks"))
 
@@ -46,10 +47,12 @@ def add_category():
         category = Category(category_name=request.form.get("category_name"))
         db.session.add(category)
         db.session.commit()
+        flash("Category Added Successfully")
         return redirect(url_for("get_categories"))
     return render_template("add_category.html")
 
 
+# --- edit categories --- #
 @app.route("/edit_category/<int:category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
     """
@@ -58,7 +61,7 @@ def edit_category(category_id):
     in the catorys database
     """
 
-    if "user" not in session or session["user"] != "admin":
+    if session["user"] != "admin":
         flash("You must be admin to manage categories!")
         return redirect(url_for("get_tasks"))
 
@@ -66,8 +69,28 @@ def edit_category(category_id):
     if request.method == "POST":
         category.category_name = request.form.get("category_name")
         db.session.commit()
+        flash("Category Edit Successful")
         return redirect(url_for("get_categories"))
     return render_template("edit_category.html", category=category)
+
+
+# --- delete categories admin only --- #
+@app.route("/delete_category/<int:category_id>")
+def delete_category(category_id):
+    """
+    Checks if the user is admin then,
+    deletes selected catogory in the database
+    """
+    if session["user"] != "admin":
+        flash("You must be admin to manage categories!")
+        return redirect(url_for("/get_tasks"))
+
+    category = Category.query.get_or_404(category_id)
+    db.session.delete(category)
+    db.session.commit()
+    # need to add all links messages to this category
+    flash("Category Deleted Successfully")
+    return redirect(url_for("get_categories"))
 
 
 # --- Register page ---#
