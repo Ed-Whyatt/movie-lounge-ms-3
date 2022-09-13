@@ -16,6 +16,14 @@ def get_movies():
     return render_template("movie.html", movies=movies, categories=categories)
 
 
+@app.route("/add_movie")
+def add_movie():
+    """
+    Gets the add movie template witch contains search for a movie
+    """
+    return render_template("add_mmovie.html")
+
+
 # --- admin get categories --- #
 @app.route("/get_categories")
 def get_categories():
