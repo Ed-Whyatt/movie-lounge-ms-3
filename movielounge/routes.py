@@ -29,6 +29,7 @@ def add_movie():
     return render_template("add_movie.html")
 
 
+# --- Movie Search --- #
 @app.route("/search", methods=["GET", "POST"])
 def search():
     """
@@ -46,6 +47,15 @@ def search():
     query = request.form.get("query")
     movies = client.search(query)
     return render_template("search_results.html", movies=movies)
+
+
+# --- Select a movie to add to user list --- #
+@app.route("/select_movie")
+def select_movie():
+    """
+    Select movie page
+    """
+    return render_template("select_this_movie.html")
 
 
 # --- admin get categories --- #
