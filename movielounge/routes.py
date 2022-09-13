@@ -88,6 +88,11 @@ def select_movie(movie_title):
         "select_movie.html", categories=categories, movie=movie)
 
 
+@app.route("/edit_movie", methods=["Get", "POST"])
+def edit_movies():
+    return render_template("edit_movie.html")
+
+
 # --- admin get categories --- #
 @app.route("/get_categories")
 def get_categories():
