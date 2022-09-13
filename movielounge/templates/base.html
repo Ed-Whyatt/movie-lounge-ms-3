@@ -37,18 +37,18 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('get_movies') }}">Home</a>
+              <a class="nav-link {% block nav_home %}{% endblock %}" href="{{ url_for('get_movies') }}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Message Board</a>
+              <a class="nav-link {% block nav_message_board %}{% endblock %}" href="#">Message Board</a>
             </li>
             {% if session.user %}
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('add_movie') }}">Add Movie</a>
+              <a class="nav-link {% block nav_add_movie %}{% endblock %}" href="{{ url_for('add_movie') }}">Add Movie</a>
             </li>
             {% if session.user|lower == "admin"|lower %}
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('get_categories') }}">Manage Categoties</a>
+              <a class="nav-link {% block manage_cat %}{% endblock %}" href="{{ url_for('get_categories') }}">Manage Categties</a>
             </li>
             {% endif %}
             <li class="nav-item">
@@ -56,10 +56,10 @@
             </li>
             {% else %}
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('login') }}">Log In</a>
+              <a class="nav-link {% block nav_log_in %}{% endblock %}" href="{{ url_for('login') }}">Log In</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+              <a class="nav-link {% block nav_register %}{% endblock %}" href="{{ url_for('register') }}">Register</a>
             </li>
             {% endif %}
           </ul>
