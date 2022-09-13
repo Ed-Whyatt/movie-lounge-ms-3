@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="text-center lounge-blue-text mt-1">Home</h2>
-<h3 class="text-center lounge-blue-text mt-2">Users Movies</h3>
+<h2 class="text-center lounge-blue-text mt-1">Add Movie</h2>
+
 
 
 
 <div class="row">
-    {% for movie in movies %}
+    
     <div class="col-4">
 
         <!-- Boostrap card -->
@@ -23,64 +23,20 @@
 
                 <div class="col-8">
                     <div class="card-body lounge-blue-text">
-                        <h5 class="card-title">{{ movie.title }}</h5>
-                        <p class="card-text">Director: {{ movie.director }}</p>
-                        <p class="card-text">Genre: {{ movie.genre }}</p>
-                        <p class="card-text">Year: {{ movie.year }}</p>
-                        <p class="card-text">User: {{ movie.created_by }}</p>
-                        <p class="card-text">User Rating: {{ movie.user_rating }}</p>
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">Director: </p>
+                        <p class="card-text">Genre: </p>
+                        <p class="card-text">Year: </p>
+                        <p class="card-text">User: </p>
+                        <p class="card-text">User Rating: </p>
                     </div>
                 </div>
-
-                <div class="col-12">
-
-                    <!-- bootstrap accordion -->
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingOne">
-                                <!-- jinja loop index used for accordian -->
-                                <button class="accordion-button collapsed lounge-blue-text lounge-main-bg" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ loop.index }}"
-                                    aria-expanded="false" aria-controls="flush-collapseOne">
-                                    Click Here For More Information
-                                </button>
-                            </h2>
-                            <div id="flush-collapse{{ loop.index }}" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-
-                                <div class="accordion-body lounge-opaque-gray-bg">
-                                    <div class="card-body">
-                                        <ul class="list-group list-group-flush rounded">
-                                            <li class="list-group-item lounge-opaque-gray-bg">Plot: {{ movie.plot }}</li>
-                                            <li class="list-group-item lounge-opaque-gray-bg">Actors: {{ movie.actors }}</li>
-                                            <li class="list-group-item lounge-opaque-gray-bg">IMDB Rating: {{ movie.imdb_rating }}</li>
-                                            <li class="list-group-item lounge-opaque-gray-bg">Type: {{ movie.type }}</li>
-                                            <li class="list-group-item lounge-opaque-gray-bg">Rated: {{ movie.rated }}</li>
-
-                                            {% for category in categories %}
-                                            {% if category_id == movie.category_id %}
-                                            <li class="list-group-item lounge-opaque-gray-bg">Movie Lounge Category:
-                                                {{ category.category_name }}</li>
-                                            {% endif %}
-                                            {% endfor %}
-
-                                            <li class="list-group-item lounge-opaque-gray-bg">User Notes: {{ movie.user_notes }}</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Bootstrap accordion end -->
-                </div>
-
 
                 <div class="col-12">
                     <div class="card-body">
                         {% if session.user|lower == movie.created_by|lower or "admin" == session["user"] %}
                         <!-- Edit and delete movie buttons -->
-                        <a href="#" class="card-link btn lounge-blue-text btn-success">Edit</a>
-                        <a href="#" class="card-link btn lounge-blue-text btn-danger">Delete</a>
+                        
                         {% endif %}
                     </div>
                 </div>
@@ -90,7 +46,7 @@
         </div>
         <!-- Card End -->
     </div>
-    {% endfor %}
+    
 </div>
 
 {% endblock %}
