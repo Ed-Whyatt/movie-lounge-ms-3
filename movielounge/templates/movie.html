@@ -4,33 +4,71 @@
 <h2 class="text-center lounge-blue-text mt-1">Home</h2>
 <h3 class="text-center lounge-blue-text mt-2">Users Movies</h3>
 
-<div class="card mb-3" style="max-width: 540px;">
+<!-- Boostrap card -->
+<div class="card mb-3 movie-card">
     <div class="row g-0">
-      <div class="col-md-4">
-        <img src="..." class="img-fluid rounded-start" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                  Accordion Item #1
-                </button>
-              </h2>
-              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-              </div>
-            </div>
+
+        <div class="col-4">
+            <div class="card-body">
+                <img src="https://m.media-amazon.com/images/M/MV5BMmVmODY1MzEtYTMwZC00MzNhLWFkNDMtZjAwM2EwODUxZTA5XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
+                    class="img-fluid rounded" alt="...">
             </div>
         </div>
-      </div>
+
+        <div class="col-8">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Director:</p>
+                <p class="card-text">Genre:</p>
+                <p class="card-text">Year:</p>
+                <p class="card-text">User:</p>
+                <p class="card-text">User Rating:</p>
+            </div>
+        </div>
+
+        <div class="col-12">
+
+            <!-- bootstrap accordion -->
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                      More Information
+                    </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Plot: When a killer shark unleashes chaos on a beach community off Cape Cod, it's up to a local sheriff,
+                                    a marine biologist, and an old seafarer to hunt the beast down.</li>
+                                <li class="list-group-item">Actors:</li>
+                                <li class="list-group-item">IMDB Rating:</li>
+                                <li class="list-group-item">Type:</li>
+                                <li class="list-group-item">Rated:</li>
+                                <li class="list-group-item">Movie Lounge Category:</li>
+                                <li class="list-group-item">User Notes: When a killer shark unleashes chaos on a beach community off Cape Cod, it's up to a local sheriff,
+                                    a marine biologist, and an old seafarer to hunt the beast down.</li>
+                            </ul>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <!-- Bootstrap accordion end -->
+        </div>
+
+
+        <div class="col-12">
+            <div class="card-body">
+                    <!-- Edit and delete movie buttons -->
+                    <a href="#" class="card-link">Edit</a>
+                    <a href="#" class="card-link">Delete</a>
+            </div>
+        </div>
+
     </div>
   </div>
-
-
+  <!-- Card End -->
 
 {% endblock %}
