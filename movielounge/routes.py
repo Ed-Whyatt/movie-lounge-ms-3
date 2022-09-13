@@ -138,7 +138,7 @@ def delete_movie(movie_id):
 
     movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
 
-    if "user" not in session or session["user"] != movie["created_by"]:
+    if session["user"] != "admin" or session["user"] != movie["created_by"]:
         flash("You can only delete your own movie!")
         return redirect(url_for("get_movies"))
 
