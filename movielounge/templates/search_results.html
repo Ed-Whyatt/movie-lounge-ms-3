@@ -6,50 +6,31 @@
 <div class="row">
     <div class="col-12 col-md-6 offset-md-3">
         <!-- Card from bootstrap -->
-<div class="card lounge-white-bg">
-    <div class="card-body">
-        <!-- Form from bootstrap -->
-        <form method="POST" action="{{ url_for('search') }}">
+        <div class="card lounge-main-opaque-bg"">
+            <div class="card-body">
+                <!-- Form from bootstrap -->
+                <form method="POST" action="{{ url_for('search') }}">
 
-            <!-- Password input id = password-->
-            <label for="query" class="form-label lounge-blue-text">Search For a Movie</label>
-            <input type="text" id="query" name="query" minlength="3" maxlength="30"
-             class="form-control" aria-describedby="queryHelpBlock" required>
-            <div id="queryHelpBlock" class="form-text">
+                    <!-- Password input id = password-->
+                    <label for="query" class="form-label lounge-blue-text">Search For a Movie</label>
+                    <input type="text" id="query" name="query" minlength="3" maxlength="30" class="form-control"
+                        aria-describedby="queryHelpBlock" required>
+                    <div id="queryHelpBlock" class="form-text">
+                    </div>
+                    <button type="submit" class="btn lounge-light-blue-bg lounge-blue-text">Search</button>
+                    <a href="{{ url_for('add_movie') }}" class="btn lounge-blue-text btn-success">Reset</a>
+                </form>
+                <!-- End of form -->
             </div>
-            <button type="submit" class="btn lounge-light-blue-bg lounge-blue-text">Search</button>
-            <a href="{{ url_for('add_movie') }}" class="btn lounge-blue-text btn-success">Reset</a>
-        </form>
-        <!-- End of form -->
+        </div>
+        <!-- End of card -->
     </div>
 </div>
-<!-- End of card -->
-    </div>
-</div>
-
-      <!-- Boostrap card -->
-      <div class="card mb-3 movie-card lounge-main-opaque-bg">
-
-        <div class="row g-0">
-
-            <div class="col-4">
-                <div class="card-body">
-                    <img src="{{ movie.poster }}" class="img-fluid rounded" alt="Movie poster">
-                </div>
-            </div>
-
-            <div class="col-8">
-                <div class="card-body lounge-blue-text">
-                    <h5 class="card-title">{{ movie.title }}</h5>
-                    <p class="card-text">Director: {{ movie.director }}</p>
-                    <p class="card-text">Genre: {{ movie.genre }}</p>
-                    <p class="card-text">Year: {{ movie.year }}</p>
-                    <p class="card-text">User: {{ movie.created_by }}</p>
-                    <p class="card-text">User Rating: {{ movie.user_rating }}</p>
-                </div>
-            </div>
-
-                  <!-- Boostrap card -->
+<br>
+<div class="row">
+    {% for movie in movies %}
+    <div class="col-4">
+        <!-- Card from bootstrap -->
         <div class="card mb-3 movie-card lounge-main-opaque-bg">
 
             <div class="row g-0">
@@ -63,16 +44,29 @@
                 <div class="col-8">
                     <div class="card-body lounge-blue-text">
                         <h5 class="card-title">{{ movie.title }}</h5>
-                        <p class="card-text">Director: {{ movie.director }}</p>
-                        <p class="card-text">Genre: {{ movie.genre }}</p>
+                        <p class="card-text">Type: {{ movie.type }}</p>
                         <p class="card-text">Year: {{ movie.year }}</p>
-                        <p class="card-text">User: {{ movie.created_by }}</p>
-                        <p class="card-text">User Rating: {{ movie.user_rating }}</p>
                     </div>
                 </div>
 
                 <div class="col-12">
+                    <div class="card-body">
+                        <!-- Add movie button -->
+                        <a href="#" class="card-link btn lounge-blue-text btn-success">Add this movie to your
+                            lists</a>
+                    </div>
                 </div>
+
+
+            </div>
+
+        </div>
+        <!-- card end -->
+    </div>
+    {% endfor %}
+</div>
+
+
 
 
 {% endblock %}
