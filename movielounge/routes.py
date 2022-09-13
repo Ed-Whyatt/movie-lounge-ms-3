@@ -1,6 +1,6 @@
 from flask import flash, render_template, request, redirect, session, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
-from movielounge import app, db
+from movielounge import app, db, mongo
 from movielounge.models import Category, Users
 
 
@@ -9,7 +9,7 @@ from movielounge.models import Category, Users
 @app.route("/get_movies")
 def get_movies():
     """
-    renders home page template that will show users movies
+    Gets movies from mongo database and displays them in the movie.html page
     """
     return render_template("movie.html")
 
