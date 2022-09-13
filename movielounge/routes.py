@@ -1,6 +1,6 @@
 from flask import flash, render_template, request, redirect, session, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
-from movielounge import app, db, mongo
+from movielounge import app, db, mongo, client
 from movielounge.models import Category, Users
 
 
@@ -16,6 +16,7 @@ def get_movies():
     return render_template("movie.html", movies=movies, categories=categories)
 
 
+# --- Add movie search page page ---#
 @app.route("/add_movie")
 def add_movie():
     """
@@ -26,7 +27,15 @@ def add_movie():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    return render_template("search_results.html")
+    """
+    Gets the search query from the search form and searches omdb("client") for 
+    movies, then passes them to the card in the rendered search_results.html template
+    """
+    # client is omdb search website and information,
+    #  documents can be found at https://pypi.org/project/omdb/
+    query = request.form.get("query")
+    movies = client.search(query)
+    return render_template("search_results.html", movies=movies)
 
 
 # --- admin get categories --- #
