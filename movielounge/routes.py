@@ -11,7 +11,9 @@ def get_movies():
     """
     Gets movies from mongo database and displays them in the movie.html page
     """
-    return render_template("movie.html")
+    movies = mongo.db.movies.find()
+    categories = list(Category.query.order_by(Category.category_name).all())
+    return render_template("movie.html", movies=movies, categories=categories)
 
 
 # --- admin get categories --- #
