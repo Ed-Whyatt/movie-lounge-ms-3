@@ -4,71 +4,91 @@
 <h2 class="text-center lounge-blue-text mt-1">Home</h2>
 <h3 class="text-center lounge-blue-text mt-2">Users Movies</h3>
 
-<!-- Boostrap card -->
-<div class="card mb-3 movie-card">
-    <div class="row g-0">
 
-        <div class="col-4">
-            <div class="card-body">
-                <img src="https://m.media-amazon.com/images/M/MV5BMmVmODY1MzEtYTMwZC00MzNhLWFkNDMtZjAwM2EwODUxZTA5XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
-                    class="img-fluid rounded" alt="...">
-            </div>
-        </div>
 
-        <div class="col-8">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Director:</p>
-                <p class="card-text">Genre:</p>
-                <p class="card-text">Year:</p>
-                <p class="card-text">User:</p>
-                <p class="card-text">User Rating:</p>
-            </div>
-        </div>
+<div class="row">
+    {% for movie in movies %}
+    <div class="col-4">
 
-        <div class="col-12">
+        <!-- Boostrap card -->
+        <div class="card mb-3 movie-card lounge-main-opaque-bg">
 
-            <!-- bootstrap accordion -->
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                      More Information
-                    </button>
-                  </h2>
-                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                        <div class="card-body">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Plot: When a killer shark unleashes chaos on a beach community off Cape Cod, it's up to a local sheriff,
-                                    a marine biologist, and an old seafarer to hunt the beast down.</li>
-                                <li class="list-group-item">Actors:</li>
-                                <li class="list-group-item">IMDB Rating:</li>
-                                <li class="list-group-item">Type:</li>
-                                <li class="list-group-item">Rated:</li>
-                                <li class="list-group-item">Movie Lounge Category:</li>
-                                <li class="list-group-item">User Notes: When a killer shark unleashes chaos on a beach community off Cape Cod, it's up to a local sheriff,
-                                    a marine biologist, and an old seafarer to hunt the beast down.</li>
-                            </ul>
+            <div class="row g-0">
+
+                <div class="col-4">
+                    <div class="card-body">
+                        <img src="{{ movie.poster }}" class="img-fluid rounded" alt="Movie poster">
+                    </div>
+                </div>
+
+                <div class="col-8">
+                    <div class="card-body lounge-blue-text">
+                        <h5 class="card-title">{{ movie.title }}</h5>
+                        <p class="card-text">Director: {{ movie.director }}</p>
+                        <p class="card-text">Genre: {{ movie.genre }}</p>
+                        <p class="card-text">Year: {{ movie.year }}</p>
+                        <p class="card-text">User: {{ movie.created_by }}</p>
+                        <p class="card-text">User Rating: {{ movie.user_rating }}</p>
+                    </div>
+                </div>
+
+                <div class="col-12">
+
+                    <!-- bootstrap accordion -->
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <!-- jinja loop index used for accordian -->
+                                <button class="accordion-button collapsed lounge-blue-text lounge-main-bg" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ loop.index }}"
+                                    aria-expanded="false" aria-controls="flush-collapseOne">
+                                    Click Here For More Information
+                                </button>
+                            </h2>
+                            <div id="flush-collapse{{ loop.index }}" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+
+                                <div class="accordion-body lounge-opaque-gray-bg">
+                                    <div class="card-body">
+                                        <ul class="list-group list-group-flush rounded">
+                                            <li class="list-group-item lounge-opaque-gray-bg">Plot: {{ movie.plot }}</li>
+                                            <li class="list-group-item lounge-opaque-gray-bg">Actors: {{ movie.actors }}</li>
+                                            <li class="list-group-item lounge-opaque-gray-bg">IMDB Rating: {{ movie.imdb_rating }}</li>
+                                            <li class="list-group-item lounge-opaque-gray-bg">Type: {{ movie.type }}</li>
+                                            <li class="list-group-item lounge-opaque-gray-bg">Rated: {{ movie.rated }}</li>
+
+                                            {% for category in categories %}
+                                            {% if category_id == movie.category_id %}
+                                            <li class="list-group-item lounge-opaque-gray-bg">Movie Lounge Category:
+                                                {{ category.category_name }}</li>
+                                            {% endif %}
+                                            {% endfor %}
+
+                                            <li class="list-group-item lounge-opaque-gray-bg">User Notes: {{ movie.user_notes }}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                  </div>
+                    <!-- Bootstrap accordion end -->
                 </div>
+
+
+                <div class="col-12">
+                    <div class="card-body">
+                        <!-- Edit and delete movie buttons -->
+                        <a href="#" class="card-link btn lounge-blue-text btn-success">Edit</a>
+                        <a href="#" class="card-link btn lounge-blue-text btn-danger">Delete</a>
+                    </div>
+                </div>
+
             </div>
-            <!-- Bootstrap accordion end -->
+
         </div>
-
-
-        <div class="col-12">
-            <div class="card-body">
-                    <!-- Edit and delete movie buttons -->
-                    <a href="#" class="card-link">Edit</a>
-                    <a href="#" class="card-link">Delete</a>
-            </div>
-        </div>
-
+        <!-- Card End -->
     </div>
-  </div>
-  <!-- Card End -->
+    {% endfor %}
+</div>
 
 {% endblock %}
