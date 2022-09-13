@@ -50,12 +50,42 @@ def search():
 
 
 # --- Select a movie to add to user list --- #
-@app.route("/select_movie")
-def select_movie():
+@app.route("/select_movie/<movie_title>", methods=["GET", "POST"])
+def select_movie(movie_title):
     """
-    Select movie page
+    Checks if a user is loged in then,
+    Gets the movie tile from movie search results then,
+    Adds search results and form data to the mongo movies database.
     """
-    return render_template("select_this_movie.html")
+    if "user" not in session:
+        flash("You need to be logged in to add a movie")
+        return redirect(url_for("get_movies"))
+
+    movie = client.get(title=movie_title, fullplot=False, tomatoes=True)
+    if request.method == "POST":
+        task = {
+            "category_id": request.form.get("category_id"),
+            "user_rating": request.form.get("user_rating"),
+            "user_notes": request.form.get("user_notes"),
+            "title": movie.get("title"),
+            "poster": movie.get("poster"),
+            "director": movie.get("director"),
+            "genre": movie.get("genre"),
+            "actors": movie.get("actors"),
+            "year": movie.get("year"),
+            "type": movie.get("type"),
+            "rated": movie.get("rated"),
+            "imdb_rating": movie.get("imdb_rating"),
+            "plot": movie.get("plot"),
+            "created_by": session["user"]
+        }
+        mongo.db.movies.insert_one(task)
+        flash("Movie Successfully Added")
+        return redirect(url_for("get_movies"))
+
+    categories = list(Category.query.order_by(Category.category_name).all())
+    return render_template(
+        "select_movie.html", categories=categories, movie=movie)
 
 
 # --- admin get categories --- #
