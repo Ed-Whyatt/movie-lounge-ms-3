@@ -44,7 +44,7 @@
             </li>
             {% if session.user %}
             <li class="nav-item">
-              <a class="nav-link" href="#">Add Movie</a>
+              <a class="nav-link" href="{{ url_for('add_movie') }}">Add Movie</a>
             </li>
             {% if session.user|lower == "admin"|lower %}
             <li class="nav-item">
@@ -81,7 +81,7 @@
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
-                <div class="row flashes mt-4 mb-3">
+                <div class="row lounge-main-opaque-bg mt-4 mb-3">
                   <div clas="col">
                     <h4 class="text-center lounge-blue-text">{{ message }}</h4>
                   </div>
@@ -98,7 +98,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="container-fluid fixed-bottom">
+  <footer class="container-fluid">
     <div class="row lounge-main-bg">
 
       <div class="col-6">
