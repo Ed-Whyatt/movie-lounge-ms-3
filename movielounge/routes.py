@@ -89,9 +89,40 @@ def select_movie(movie_title):
         "select_movie.html", categories=categories, movie=movie)
 
 
-@app.route("/edit_movie", methods=["Get", "POST"])
-def edit_movies():
-    return render_template("edit_movie.html")
+@app.route("/edit_movie/<movie_id>", methods=["GET", "POST"])
+def edit_movie(movie_id):
+    """
+    Checks if a user is loged in then,
+    Gets the movie id from movie.html then,
+    Replaces the new form data to mongo movies database.
+    """
+
+    movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
+
+    if request.method == "POST":
+        submit = {
+            "category_id": request.form.get("category_id"),
+            "user_rating": request.form.get("user_rating"),
+            "user_notes": request.form.get("user_notes"),
+            "title": movie.get("title"),
+            "poster": movie.get("poster"),
+            "director": movie.get("director"),
+            "genre": movie.get("genre"),
+            "actors": movie.get("actors"),
+            "year": movie.get("year"),
+            "type": movie.get("type"),
+            "rated": movie.get("rated"),
+            "imdb_rating": movie.get("imdb_rating"),
+            "plot": movie.get("plot"),
+            "created_by": session["user"]
+        }
+        mongo.db.movies.replace_one({"_id": ObjectId(movie_id)}, submit)
+        flash("Movie Successfully Updated")
+        return redirect("/get_movies")
+
+    categories = list(Category.query.order_by(Category.category_name).all())
+    return render_template(
+        "edit_movie.html", movie=movie, categories=categories)
 
 
 # --- admin get categories --- #
