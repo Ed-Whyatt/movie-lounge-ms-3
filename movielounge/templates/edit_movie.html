@@ -8,7 +8,7 @@
     <div class="col-12 col-md-8 offset-md-3">
 
         <!-- Form start -->
-        <form method="POST" action="{{ url_for('select_movie', movie_title=movie.title) }}">
+        <form method="POST" action="{{ url_for('edit_movie', movie_id=movie._id) }}">
 
             <!-- Boostrap card -->
             <div class="card mb-3 movie-card lounge-main-opaque-bg ">
@@ -36,12 +36,16 @@
                             <select id="category_id" name="category_id" class="form-select" aria-label="Default select example" required>
                                 <option selected>Choose A Category</option>
                                 {% for category in categories %}
+                                {% if category.id == movie.category_id | int %}
+                                <option value="{{ category.id }}" selected>{{ category.category_name }}</option>
+                                {% else %}
                                 <option value="{{ category.id }}">{{ category.category_name }}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
 
                             <select id="user_rating" name="user_rating" class="form-select" aria-label="Default select example">
-                                <option selected>User Rating</option>
+                                <option selected>{{ movie.user_rating }}</option>
                                 <option value="Not Watched">Not Watched</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -57,7 +61,7 @@
 
                             <div class="mb-3">
                                 <label for="user_notes" class="form-label">User Notes:</label>
-                                <textarea class="form-control" id="user_notes" name="user_notes" type="text" minlength="5" maxlength="200" required>None</textarea>
+                                <textarea class="form-control" id="user_notes" name="user_notes" type="text" minlength="5" maxlength="200" required>{{- movie.user_notes -}}</textarea>
                             </div>
 
                         </div>
@@ -66,7 +70,7 @@
                     <div class="col">
                         <div class="card-body">
                             <!-- Edit and delete movie buttons -->
-                            <button type="submit" class="btn lounge-light-blue-bg lounge-blue-text">Add This Movie To Your List</button>
+                            <button type="submit" class="btn lounge-light-blue-bg lounge-blue-text">Edit This Movie In Your List</button>
                         </div>
                     </div>
 
