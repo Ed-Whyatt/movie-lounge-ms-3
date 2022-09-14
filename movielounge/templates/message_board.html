@@ -5,98 +5,106 @@
 <h2 class="text-center lounge-blue-text mt-1">Message Board</h2>
 
 <div class="row">
+    <div class="d-grid gap-2 col-6 mx-auto mt-2 mb-3">
+        <!-- button from bootstrap -->
+        <a href="" class="btn lounge-opaque-gray-bg lounge-blue-text">
+            Add Question
+        </a>
+    </div>
+</div>
 
-    <div class="col col-md-10 offset-md-1">
+<div class="row">
+        {% for question in questions %}
+        <div class="col col-md-10 offset-md-1">
 
-        <!-- Bootstrap accordian for messages-->
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-                <div class="accordion-header" id="headingOne">
+                <!-- Bootstrap accordian for messages-->
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <div class="accordion-header" id="headingOne">
 
-                    
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 
-                        <div class="row">
+                                <div class="row">
 
-                           
+                                    <div class="col-4">
+                                        <!-- Bootstrap list groupe for message details -->
+                                        <ul class="list-group list-group-horizontal">
+                                            <li class="list-group-item">Category:</li>
+                                            <li class="list-group-item"> {{ question.category_name }} </li>
 
-                            <div class="col-3">
-                                <!-- Bootstrap list groupe for message details -->
-                                <ul class="list-group list-group-horizontal">
-                                    <li class="list-group-item">Category:</li>   
-                                    <li class="list-group-item">Name</li>
-                                    
-                                </ul>
-                                <ul class="list-group list-group-horizontal mt-1">
-                                    <li class="list-group-item">From:</li>
-                                    <li class="list-group-item">Name</li>
-                                    
-                                </ul>
-                                
-                            </div>
+                                        </ul>
+                                        <ul class="list-group list-group-horizontal mt-1">
+                                            <li class="list-group-item">From:</li>
+                                            <li class="list-group-item"> {{ question.created_by }} </li>
 
-                            <div class="col-9">
-                                 <!-- Bootstrap list groupe for message details -->
-                                 <ul class="list-group list-group-horizontal">
-                                    <li class="list-group-item">Message: </li>
-                                    <li class="list-group-item">User Message: ihdiuhaqd ohaddsah 9ahd qo audh u uaqdhquahxd auhdu9hwqa xhhdxuaw9qh 9uahxcdw whh chuwhsc uashc
-                                        ahduhsufhuhs auhducihuoisuh aiuhcuishc
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="btn lounge-blue-text btn-success mt-1 float-end">Reply</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="btn lounge-blue-text btn-success mt-1">Delete</a>
-                                        <a href="#" class="btn lounge-blue-text btn-success mt-1">Edit</a>
-                                    </li>
-                                </ul>
-                                
-                            </div>
-                        </div>
-                    </button>
+                                        </ul>
+                                    </div>
 
-                </div>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
+                                    <div class="col-8 float-end">
+                                        <!-- Bootstrap list groupe for message details -->
+                                        <ul class="list-group list-group-horizontal float-end">
+                                            <li class="list-group-item">Message: </li>
+                                            <li class="list-group-item"> {{ question.question_description }}
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="#" class="btn lounge-blue-text btn-success mt-1">Reply</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="#" class="btn lounge-blue-text btn-success mt-1">Delete</a>
+                                                <a href="#" class="btn lounge-blue-text btn-success mt-1">Edit</a>
+                                            </li>
+                                        </ul>
 
-                        <div class="row">
-
-                            <div class="col-3">
-                                <!-- Bootstrap list groupe for reply message -->
-                                <ul class="list-group list-group-horizontal">
-                                    <li class="list-group-item">From:</li>
-                                    <li class="list-group-item">Name</li>
-                                </ul>
-                            </div>
-
-                            <div class="col-9">
-                                 <!-- Bootstrap list groupe for reply message -->
-                                 <ul class="list-group list-group-horizontal">
-                                    <li class="list-group-item">Message Reply: </li>
-                                    <li class="list-group-item">User Message: ihdiuhaqd ohaddsah 9ahd qo audh u uaqdhquahxd auhdu9hwqa xhhdxuaw9qh 9uahxcdw whh chuwhsc uashc
-                                        ahduhsufhuhs auhducihuoisuh aiuhcuishc
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="btn lounge-blue-text btn-success mt-1 float-end">Reply</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="btn lounge-blue-text btn-success mt-1">Delete</a>
-                                        <a href="#" class="btn lounge-blue-text btn-success mt-1">Edit</a>
-                                    </li>
-                                </ul>
-                            </div>
+                                    </div>
+                                </div>
+                            </button>
 
                         </div>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
 
+                                <div class="row">
+                                {% for answer in answers %}
+                                    {% if answer.question_id|lower == question._id|lower %}
+                                        <div class="col-4">
+                                            <!-- Bootstrap list groupe for reply message -->
+                                            <ul class="list-group list-group-horizontal">
+                                                <li class="list-group-item">From:</li>
+                                                <li class="list-group-item">{{ answer.created_by }}</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-8">
+                                            <!-- Bootstrap list groupe for reply message -->
+                                            <ul class="list-group list-group-horizontal">
+                                                <li class="list-group-item">Message Reply: </li>
+                                                <li class="list-group-item">{{ answer.answer_message }}
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <a href="#" class="btn lounge-blue-text btn-success mt-1 float-end">Reply</a>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <a href="#" class="btn lounge-blue-text btn-success mt-1">Delete</a>
+                                                    <a href="#" class="btn lounge-blue-text btn-success mt-1">Edit</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+
+                                {% endfor %}
+
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Accordian end -->
+                <!-- Accordian end -->
 
-    </div>
+        </div>
+        {% endfor %}
 </div>
 
 {% endblock %}
