@@ -5,7 +5,7 @@ from movielounge import app, db, mongo, client
 from movielounge.models import Category, Users
 
 
-# --- basic home app route --- #
+# --- Home app route displays all user movies --- #
 @app.route("/")
 @app.route("/get_movies")
 def get_movies():
@@ -15,6 +15,12 @@ def get_movies():
     movies = mongo.db.movies.find()
     categories = list(Category.query.order_by(Category.category_name).all())
     return render_template("movie.html", movies=movies, categories=categories)
+
+
+# --- Get messgaes for message_board.html page --- #
+@app.route("/get_questions")
+def get_questions():
+    return render_template("message_board.html")
 
 
 # --- Add movie search page page ---#
@@ -44,7 +50,7 @@ def search():
         return redirect(url_for("get_questions"))
 
     # client is omdb search website and information,
-    #  documents can be found at https://pypi.org/project/omdb/
+    # documentation can be found at https://pypi.org/project/omdb/
     query = request.form.get("query")
     movies = client.search(query)
     return render_template("search_results.html", movies=movies)
