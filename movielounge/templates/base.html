@@ -40,7 +40,7 @@
               <a class="nav-link {% block nav_home %}{% endblock %}" href="{{ url_for('get_movies') }}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {% block nav_message_board %}{% endblock %}" href="#">Message Board</a>
+              <a class="nav-link {% block nav_message_board %}{% endblock %}" href="{{ url_for('get_questions') }}">Message Board</a>
             </li>
             {% if session.user %}
             <li class="nav-item">
