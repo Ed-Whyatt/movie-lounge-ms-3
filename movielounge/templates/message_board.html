@@ -4,19 +4,80 @@
 
 <h2 class="text-center lounge-blue-text mt-1">Message Board</h2>
 
-<div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Accordion Item #1
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+<div class="row">
+
+    <div class="col col-md-10 offset-md-1">
+
+        <!-- Bootstrap accordian for messages-->
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <div class="accordion-header" id="headingOne">
+
+                    
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+
+                        <div class="row">
+
+                            <div class="col">
+                                <!-- Bootstrap list groupe for message details -->
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="list-group-item">Category:</li>
+                                    <li class="list-group-item">Name</li>
+                                </ul>
+                                <ul class="list-group list-group-horizontal mt-3">
+                                    <li class="list-group-item">User:</li>
+                                    <li class="list-group-item">Name</li>
+                                </ul>
+
+                            </div>
+                            <div class="col">
+                                 <!-- Bootstrap list groupe for message details -->
+                                 <ul class="list-group list-group-horizontal">
+                                    <li class="list-group-item">Message:</li>
+                                    <li class="list-group-item">User Message: ihdiuhaqd ohaddsah 9ahd qo audh u uaqdhquahxd auhdu9hwqa xhhdxuaw9qh 9uahxcdw whh chuwhsc uashc
+                                        ahduhsufhuhs auhducihuoisuh aiuhcuishc
+                                    </li>
+ 
+                                </ul>
+                            </div>
+                        </div>
+                    </button>
+
+                </div>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+
+                        <div class="row">
+
+                            <div class="col">
+                                <!-- Bootstrap list groupe for reply message -->
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="list-group-item">User:</li>
+                                    <li class="list-group-item">Name</li>
+                                </ul>
+                            </div>
+
+                            <div class="col">
+                                 <!-- Bootstrap list groupe for reply message -->
+                                 <ul class="list-group list-group-horizontal">
+                                    <li class="list-group-item">Message Reply:</li>
+                                    <li class="list-group-item">User Message: ihdiuhaqd ohaddsah 9ahd qo audh u uaqdhquahxd auhdu9hwqa xhhdxuaw9qh 9uahxcdw whh chuwhsc uashc
+                                        ahduhsufhuhs auhducihuoisuh aiuhcuishc
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+        <!-- Accordian end -->
+
     </div>
-  </div>
+</div>
 
 {% endblock %}
