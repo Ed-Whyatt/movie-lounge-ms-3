@@ -7,14 +7,14 @@
 <div class="row">
     <div class="col-12 col-md-6 offset-md-3">
         <!-- Card from bootstrap -->
-        <div class="card lounge-main-opaque-bg"">
+        <div class="card lounge-main-opaque-bg">
             <div class="card-body">
                 <!-- Form from bootstrap -->
                 <form method="POST" action="{{ url_for('search') }}">
 
                     <!-- Password input id = password-->
                     <label for="query" class="form-label lounge-blue-text">Search For a Movie</label>
-                    <input type="text" id="query" name="query" minlength="3" maxlength="30" class="form-control"
+                    <input type="text" id="query" name="query" minlength="3" maxlength="30" class="form-control lounge-opaque-gray-bg"
                         aria-describedby="queryHelpBlock" required>
                     <div id="queryHelpBlock" class="form-text">
                     </div>
@@ -30,7 +30,7 @@
 <br>
 <div class="row">
     {% for movie in movies %}
-    <div class="col-4">
+    <div class="col-md-6 col-lg-4">
         <!-- Card from bootstrap -->
         <div class="card mb-3 movie-card lounge-main-opaque-bg">
 
@@ -38,7 +38,11 @@
 
                 <div class="col-4">
                     <div class="card-body">
+                        {% if movie.poster|lower == "N/A"|lower %}
+                        <img src="{{ url_for('static', filename='image/placehoder.png') }}" class="img-fluid rounded" alt="Movie poster">
+                        {% else %}
                         <img src="{{ movie.poster }}" class="img-fluid rounded" alt="Movie poster">
+                        {% endif %}
                     </div>
                 </div>
 
@@ -54,7 +58,7 @@
                     <div class="card-body">
                         <!-- Add movie button -->
                         <a href="{{ url_for('select_movie', movie_title=movie.title) }}" class="card-link btn lounge-blue-text btn-success">
-                            Add this movie to yourlists
+                            Add this movie to your lists
                         </a>
                     </div>
                 </div>
