@@ -7,7 +7,7 @@
 <div class="row">
     <div class="d-grid gap-2 col-6 mx-auto mt-2 mb-3">
         <!-- button from bootstrap -->
-        <a href="" class="btn lounge-opaque-gray-bg lounge-blue-text">
+        <a href="#" class="btn lounge-opaque-gray-bg lounge-blue-text">
             Add Question
         </a>
     </div>
@@ -24,20 +24,20 @@
                 <div class="accordion-header" id="headingOne">
 
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapse{{ loop.index }}" aria-expanded="true" aria-controls="collapseone">
+                        data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapseone">
 
                         <div class="row">
 
                             <div class="col-sm-12 col-md-6">
                                 <!-- Bootstrap list groupe for message details -->
                                 <ul class="list-group list-group-horizontal mt-1">
-                                    <li class="list-group-item">Category:</li>
-                                    <li class="list-group-item"> {{ question.category_name }} </li>
+                                    <li class="list-group-item lounge-main-opaque-bg lounge-blue-text">Category:</li>
+                                    <li class="list-group-item lounge-main-opaque-bg lounge-blue-text"> {{ question.category_name }} </li>
 
                                 </ul>
                                 <ul class="list-group list-group-horizontal mt-1">
-                                    <li class="list-group-item">From:</li>
-                                    <li class="list-group-item"> {{ question.created_by }} </li>
+                                    <li class="list-group-item lounge-main-opaque-bg lounge-blue-text">From:</li>
+                                    <li class="list-group-item lounge-main-opaque-bg lounge-blue-text"> {{ question.created_by }} </li>
 
                                 </ul>
                             </div>
@@ -46,7 +46,7 @@
                                 <!-- Bootstrap list groupe for message details -->
                                 <ul class="list-group list-group-horizontal mt-1">
 
-                                    <li class="list-group-item"> {{ question.question_description }}
+                                    <li class="list-group-item lounge-main-opaque-bg lounge-blue-text"> {{ question.question_description }}
                                     </li>
 
                                 </ul>
@@ -55,17 +55,17 @@
                             <div class="col-sm-12">
 
                                 <ul class="list-group list-group-horizontal mt-1">
-                                    <li class="list-group-item">
-                                        <a href="#" class="btn lounge-blue-text btn-success">Reply</a>
+                                    <li class="list-group-item lounge-main-opaque-bg">
+                                        <a href="#" class="btn btn-success">Reply</a>
                                     </li>
-                                    <li class="list-group-item">
+                                    <li class="list-group-item lounge-main-opaque-bg">
                                             <div class="col-sm-6">
-                                                <a href="#" class="btn lounge-blue-text btn-success">Delete</a>
+                                                <a href="#" class="btn btn-success">Delete</a>
                                             </div>
                                     </li>
-                                    <li class="list-group-item">
+                                    <li class="list-group-item lounge-main-opaque-bg">
                                         <div class="col-sm-6">
-                                            <a href="#" class="btn lounge-blue-text btn-success">Edit</a>
+                                            <a href="#" class="btn btn-success">Edit</a>
                                         </div>
                                     </li>
                                         
@@ -80,7 +80,7 @@
                 <!-- Booots strap accordian open body for message question answers -->
                 <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="headingOne"
                     data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
+                    <div class="accordion-body lounge-main-opaque-bg ">
 
                         <div class="row">
                             <!-- for loop for message answers -->
@@ -90,35 +90,35 @@
 
                             <div class="col-12">
                                 <!-- boostrap card for message answers -->
-                                <div class="card">
+                                <div class="card lounge-main-opaque-bg">
                                     <div class="card-body mt-1">
                                         <!-- Bootstrap list groupe for reply message -->
                                         <div class="row">
                                             <div class="col-sm-12 col-md-6">
                                                 <ul class="list-group list-group-horizontal">
-                                                    <li class="list-group-item">From:</li>
-                                                    <li class="list-group-item">{{ answer.created_by }}</li>
+                                                    <li class="list-group-item lounge-blue-text lounge-main-opaque-bg ">From:</li>
+                                                    <li class="list-group-item lounge-blue-text lounge-main-opaque-bg ">{{ answer.created_by }}</li>
                                                 </ul>
                                             </div>
                                             <div class="col-sm-12 col-md-6">
                                                 <ul class="list-group list-group-horizontal mt-1">
-                                                    <li class="list-group-item">{{ answer.answer_message }}</li>
+                                                    <li class="list-group-item lounge-blue-text lounge-main-opaque-bg ">{{ answer.answer_message }}</li>
                                                 </ul>
                                             </div>
                                             <div class="col-sm-12">
 
                                                 <ul class="list-group list-group-horizontal mt-1">
-                                                    <li class="list-group-item">
-                                                        <a href="#" class="btn lounge-blue-text btn-success">Reply</a>
+                                                    <li class="list-group-item lounge-main-opaque-bg">
+                                                        <a href="#" class="btn btn-success">Reply</a>
                                                     </li>
-                                                    <li class="list-group-item">
+                                                    <li class="list-group-item lounge-main-opaque-bg ">
                                                             <div class="">
-                                                                <a href="#" class="btn lounge-blue-text btn-success">Delete</a>
+                                                                <a href="#" class="btn btn-success">Delete</a>
                                                             </div>
                                                     </li>
-                                                    <li class="list-group-item">
+                                                    <li class="list-group-item lounge-main-opaque-bg ">
                                                         <div>
-                                                            <a href="#" class="btn lounge-blue-text btn-success">Edit</a>
+                                                            <a href="#" class="btn btn-success">Edit</a>
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -133,11 +133,18 @@
                             {% endif %}
                             <!-- Answers forloop end -->
                             {% endfor %}
-                            <div class="col-12 col-md-10 offset-md-2 mt-1">
-                                <ul class="list-group list-group-horizontal">
-                                    <li class="list-group-item">
-                                        <a href="#" class="btn lounge-blue-text btn-success mt-1">Reply</a>
-                                    </li>
+                           
+                            <div class="col-12">
+                                <div class="card lounge-main-opaque-bg">
+                                    <div class="card-body">
+                                        <ul class="list-group list-group-horizontal">
+                                            <li class="list-group-item lounge-main-opaque-bg ">
+                                                <a href="#" class="btn lounge-blue-text btn-success mt-1">Reply</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                               
                             </div>
                         </div>
                     </div>
