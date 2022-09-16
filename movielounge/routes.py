@@ -20,7 +20,20 @@ def get_movies():
 # --- Get messgaes for message_board.html page --- #
 @app.route("/get_questions")
 def get_questions():
-    return render_template("message_board.html")
+    """
+    Gets all message questions and ancers and
+    displayes them in message_bored.html
+    """
+
+    questions = (mongo.db.questions.find())
+    answers = list(mongo.db.answers.find())
+    return render_template(
+        "message_board.html", questions=questions, answers=answers)
+
+
+@app.route("add_question", method=["GET", "POST"])
+def add_question():
+    return render_template("add_question.html")
 
 
 # --- Add movie search page page ---#
