@@ -60,6 +60,7 @@
                                         <a href="#" class="btn btn-success">Reply</a>
                                     </li>
                                     {% endif %}
+                                    {% if session.user|lower == question.created_by|lower or "admin" == session["user"] %}
                                     <li class="list-group-item lounge-main-opaque-bg">
                                             <div class="col-sm-6">
                                                 <a href="#" class="btn btn-success">Delete</a>
@@ -70,6 +71,7 @@
                                             <a href="#" class="btn btn-success">Edit</a>
                                         </div>
                                     </li>
+                                    {% endif %}
                                         
                                 </ul>
                             </div>
