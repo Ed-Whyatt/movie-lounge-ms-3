@@ -109,11 +109,13 @@
                                                 </ul>
                                             </div>
                                             <div class="col-sm-12">
-
+                                                {% if session["user"] in session or session["user"] == "admin" %}
                                                 <ul class="list-group list-group-horizontal mt-1">
                                                     <li class="list-group-item lounge-main-opaque-bg">
                                                         <a href="#" class="btn btn-success">Reply</a>
                                                     </li>
+                                                    {% endif %}
+                                                    {% if session.user|lower == answer.created_by|lower %}
                                                     <li class="list-group-item lounge-main-opaque-bg ">
                                                             <div class="">
                                                                 <a href="#" class="btn btn-success">Delete</a>
@@ -124,6 +126,7 @@
                                                             <a href="#" class="btn btn-success">Edit</a>
                                                         </div>
                                                     </li>
+                                                    {% endif %}
                                                 </ul>
                                             </div>
                                         </div>
@@ -136,7 +139,8 @@
                             {% endif %}
                             <!-- Answers forloop end -->
                             {% endfor %}
-                           
+                            
+                            {% if session["user"] in session or session["user"] == "admin" %}
                             <div class="col-12">
                                 <div class="card lounge-opaque-lite-gray-bg">
                                     <div class="card-body">
@@ -147,8 +151,8 @@
                                         </ul>
                                     </div>
                                 </div>
-                               
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
