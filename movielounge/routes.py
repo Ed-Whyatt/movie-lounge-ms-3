@@ -59,10 +59,15 @@ def add_question():
 
 @app.route("/edit_question/<question_id>", methods=["GET", "POST"])
 def edit_question(question_id):
+    """
+    Checks if a user is loged in then,
+    Gets the new message details from the form and edits the 
+    message question in mongo database.
+    """
 
     question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
     if "user" not in session:
-        flash("You can only edit your own tasks!")
+        flash("You can only edit your own messages")
         return redirect(url_for("get_questions"))
 
     if request.method == "POST":
@@ -78,6 +83,24 @@ def edit_question(question_id):
     categories = list(Category.query.order_by(Category.category_name).all())
     return render_template(
         "/edit_question.html", question=question, categories=categories)
+
+
+@app.route("/delete_question/<question_id>")
+def delete_question(question_id):
+    """
+    Checks if user and the message created user is loged in then,
+    Deletes the question message in the mongo database
+    """
+
+    question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
+
+    if "user" not in session or session["user"] != question["created_by"]:
+        flash("You can only delete your own message!")
+        return redirect(url_for("get_questions"))
+
+    mongo.db.questions.delete_one({"_id": ObjectId(question_id)})
+    flash("Question Successfully Deleted")
+    return redirect(url_for("get_questions"))
 
 
 # --- Add movie search page page ---#
