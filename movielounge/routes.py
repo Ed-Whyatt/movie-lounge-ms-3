@@ -57,10 +57,27 @@ def add_question():
     return render_template("add_question.html", categories=categories)
 
 
-@pp.route("/edit_question", methods=["GET", "POST"])
-def edit_question():
+@app.route("/edit_question/<question_id>", methods=["GET", "POST"])
+def edit_question(question_id):
+
+    question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
+    if "user" not in session:
+        flash("You can only edit your own tasks!")
+        return redirect(url_for("get_questions"))
+
+    if request.method == "POST":
+        submit = {
+            "category_name": question.get("category_name"),
+            "question_description": request.form.get("question_description"),
+            "created_by": session["user"]
+        }
+        mongo.db.questions.replace_one({"_id": ObjectId(question_id)}, submit)
+        flash("Message Successfully Updated")
+        return redirect(url_for("get_questions"))
+
     categories = list(Category.query.order_by(Category.category_name).all())
-    return render_template("/edit_question.html")
+    return render_template(
+        "/edit_question.html", question=question, categories=categories)
 
 
 # --- Add movie search page page ---#
