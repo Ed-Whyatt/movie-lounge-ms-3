@@ -55,9 +55,11 @@
                             <div class="col-sm-12">
 
                                 <ul class="list-group list-group-horizontal mt-1">
+                                    {% if session["user"] in session or session["user"] == "admin" %}
                                     <li class="list-group-item lounge-main-opaque-bg">
                                         <a href="#" class="btn btn-success">Reply</a>
                                     </li>
+                                    {% endif %}
                                     <li class="list-group-item lounge-main-opaque-bg">
                                             <div class="col-sm-6">
                                                 <a href="#" class="btn btn-success">Delete</a>
@@ -69,7 +71,6 @@
                                         </div>
                                     </li>
                                         
-
                                 </ul>
                             </div>
 
