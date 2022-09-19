@@ -31,9 +31,30 @@ def get_questions():
         "message_board.html", questions=questions, answers=answers)
 
 
-@app.route("add_question", method=["GET", "POST"])
+@app.route("/add_question", methods=["GET", "POST"])
 def add_question():
-    return render_template("add_question.html")
+    """
+    Checks if user is loged in if not returns to message bord page,
+    If the user is loged in then returns add question template then,
+    Add the new question info from the form to the mongo database.
+    """
+
+    if "user" not in session:
+        flash("You have to be loged in to add a message")
+        return redirect("get_questions")
+
+    if request.method == "POST":
+        questions = {
+            "category_name": request.form.get("category_name"),
+            "question_description": request.form.get("question_description"),
+            "created_by": session["user"]
+        }
+        mongo.db.questions.insert_one(questions)
+        flash("Message Successfully Added")
+        return redirect("get_questions")
+
+    categories = list(Category.query.order_by(Category.category_name).all())
+    return render_template("add_question.html", categories=categories)
 
 
 # --- Add movie search page page ---#
