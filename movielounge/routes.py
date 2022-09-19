@@ -57,6 +57,12 @@ def add_question():
     return render_template("add_question.html", categories=categories)
 
 
+@pp.route("/edit_question", methods=["GET", "POST"])
+def edit_question():
+    categories = list(Category.query.order_by(Category.category_name).all())
+    return render_template("/edit_question.html")
+
+
 # --- Add movie search page page ---#
 @app.route("/add_movie")
 def add_movie():
