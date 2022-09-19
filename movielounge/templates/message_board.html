@@ -6,6 +6,7 @@
 
 <div class="row">
     <div class="d-grid gap-2 col-6 mx-auto mt-2 mb-3">
+        
         <!-- button from bootstrap -->
         <a href="{{ url_for('add_question') }}" class="btn lounge-opaque-gray-bg lounge-blue-text">
             Add Question
@@ -55,11 +56,15 @@
                             <div class="col-sm-12">
 
                                 <ul class="list-group list-group-horizontal mt-1">
-                                    {% if session["user"] in session or session["user"] == "admin" %}
-                                    <li class="list-group-item lounge-main-opaque-bg">
-                                        <a href="#" class="btn btn-success">Reply</a>
-                                    </li>
-                                    {% endif %}
+                                            {% if session["user"] %}
+                                            <li class="list-group-item lounge-main-opaque-bg ">
+                                                <a href="#" class="btn lounge-blue-text btn-success mt-1">Reply</a>
+                                            </li>
+                                            {% else %}
+                                            <li class="list-group-item lounge-main-opaque-bg ">
+                                                <p class="lounge-blue-text">You have to be loged in to reply to a message!</p>
+                                            </li>
+                                            {% endif %}
                                     {% if session.user|lower == question.created_by|lower or "admin" == session["user"] %}
                                     <li class="list-group-item lounge-main-opaque-bg">
                                             <div class="col-sm-6">
@@ -109,10 +114,10 @@
                                                 </ul>
                                             </div>
                                             <div class="col-sm-12">
-                                                {% if session["user"] in session or session["user"] == "admin" %}
+                                                {% if session["user"] %}
                                                 <ul class="list-group list-group-horizontal mt-1">
                                                     <li class="list-group-item lounge-main-opaque-bg">
-                                                        <a href="#" class="btn btn-success">Reply</a>
+                                                        <a href="#" class="btn lounge-blue-text btn-success mt-1">Reply</a>
                                                     </li>
                                                     {% endif %}
                                                     {% if session.user|lower == answer.created_by|lower %}
@@ -140,19 +145,25 @@
                             <!-- Answers forloop end -->
                             {% endfor %}
                             
-                            {% if session["user"] in session or session["user"] == "admin" %}
+                            
                             <div class="col-12">
                                 <div class="card lounge-opaque-lite-gray-bg">
                                     <div class="card-body">
                                         <ul class="list-group list-group-horizontal">
+                                            {% if session["user"] %}
                                             <li class="list-group-item lounge-main-opaque-bg ">
                                                 <a href="#" class="btn lounge-blue-text btn-success mt-1">Reply</a>
                                             </li>
+                                            {% else %}
+                                            <li class="list-group-item lounge-main-opaque-bg ">
+                                                <p class="lounge-blue-text">You have to be loged in to reply to a message!</p>
+                                            </li>
+                                            {% endif %}
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            {% endif %}
+                            
                         </div>
                     </div>
                 </div>
