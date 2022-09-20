@@ -31,6 +31,7 @@ def get_questions():
         "message_board.html", questions=questions, answers=answers)
 
 
+# --- Add a question to messge board --- #
 @app.route("/add_question", methods=["GET", "POST"])
 def add_question():
     """
@@ -57,6 +58,7 @@ def add_question():
     return render_template("add_question.html", categories=categories)
 
 
+# --- Edit a question on message board --- #
 @app.route("/edit_question/<question_id>", methods=["GET", "POST"])
 def edit_question(question_id):
     """
@@ -66,6 +68,7 @@ def edit_question(question_id):
     """
 
     question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
+
     if "user" not in session:
         flash("You can only edit your own messages")
         return redirect(url_for("get_questions"))
@@ -85,6 +88,7 @@ def edit_question(question_id):
         "/edit_question.html", question=question, categories=categories)
 
 
+# --- Delete a question on message board --- #
 @app.route("/delete_question/<question_id>")
 def delete_question(question_id):
     """
@@ -92,15 +96,23 @@ def delete_question(question_id):
     Deletes the question message in the mongo database
     """
 
-    question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
-
-    if "user" not in session or session["user"] != question["created_by"]:
+    if "user" not in session:
         flash("You can only delete your own message!")
         return redirect(url_for("get_questions"))
 
     mongo.db.questions.delete_one({"_id": ObjectId(question_id)})
     flash("Question Successfully Deleted")
     return redirect(url_for("get_questions"))
+
+
+# --- Add a answer to a question on message board --- #
+@app.route("/add_reply/<question_id>", methods=["GET", "POST"])
+def add_reply(question_id):
+    answers = list(mongo.db.answers.find())
+    question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
+
+    return render_template(
+        "add_reply.html", question=question, answers=answers)
 
 
 # --- Add movie search page page ---#
@@ -126,7 +138,7 @@ def search():
     """
 
     if "user" not in session:
-        flash("You need to be logged in to add a message")
+        flash("You need to be logged in to add a movie")
         return redirect(url_for("get_questions"))
 
     # client is omdb search website and information,
@@ -144,6 +156,7 @@ def select_movie(movie_title):
     Gets the movie tile from movie search results then,
     Adds search results and form data to the mongo movies database.
     """
+
     if "user" not in session:
         flash("You need to be logged in to add a movie")
         return redirect(url_for("get_movies"))
@@ -222,9 +235,7 @@ def delete_movie(movie_id):
     Deletes the movie in the mongo movies database.
     """
 
-    movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
-
-    if session["user"] != "admin" or session["user"] != movie["created_by"]:
+    if "user" not in session:
         flash("You can only delete your own movie!")
         return redirect(url_for("get_movies"))
 
