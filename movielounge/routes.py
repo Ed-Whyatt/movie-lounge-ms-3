@@ -108,8 +108,26 @@ def delete_question(question_id):
 # --- Add a answer to a question on message board --- #
 @app.route("/add_reply/<question_id>", methods=["GET", "POST"])
 def add_reply(question_id):
+    """
+    Checks if user is loged in then, gets the information from the
+    form for a new answer message and adds it to the mongo database.
+    """
     answers = list(mongo.db.answers.find())
     question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
+
+    if "user" not in session:
+        flash("You need to be logged in to add a message")
+        return redirect(url_for("get_questions"))
+
+    if request.method == "POST":
+        reply = {
+            "answer_message": request.form.get("answer_message"),
+            "question_id": question_id,
+            "created_by": session["user"]
+        }
+        mongo.db.answers.insert_one(reply)
+        flash("Message Successfully Added")
+        return redirect(url_for("get_questions"))
 
     return render_template(
         "add_reply.html", question=question, answers=answers)
