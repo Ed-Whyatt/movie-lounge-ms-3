@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col">
 
-            <!-- Boostrap card -->
+            <!-- Boostrap card for question -->
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -38,16 +38,41 @@
                     
                     {% for answer in answers %}
                     {% if answer.question_id|lower == question._id|lower %}
-                    
-                    
+                    <div class="col">
+                        <!-- Bootstrap card for answers -->
+                        <div class="card mt-1">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <!-- Bootstrap list groupe for message details -->
+                                        <ul class="list-group list-group-horizontal">
+                                            <li
+                                                class="list-group-item lounge-blue-text lounge-main-opaque-bg ">
+                                                From:</li>
+                                            <li
+                                                class="list-group-item lounge-blue-text lounge-main-opaque-bg ">
+                                                {{ answer.created_by }}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <!-- Bootstrap list groupe for message details -->
+                                        <ul class="list-group list-group-horizontal">
+                                            <li
+                                                class="list-group-item lounge-blue-text lounge-main-opaque-bg ">
+                                                {{ answer.answer_message }}</li>
+                                        </ul>
+                                    </div>
+    
+                                    {% if session.user|lower == answer.created_by|lower %}
+                                    message buttons
+                                    {% endif %}
 
-                        {% if session.user|lower == answer.created_by|lower %}
-                        message buttons
-                        {% endif %}
-                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     {% endif %}
-
-                {% endfor %}
+                    {% endfor %}
 
                 </div>
             </div>
@@ -55,31 +80,6 @@
         </div>
     </div>
 </form>
-
-<div class="col">
-    <div class="card">
-        <div class="card-body">
-            <div class="col-sm-12 col-md-6">
-                <ul class="list-group list-group-horizontal">
-                    <li
-                        class="list-group-item lounge-blue-text lounge-main-opaque-bg ">
-                        From:</li>
-                    <li
-                        class="list-group-item lounge-blue-text lounge-main-opaque-bg ">
-                        {{ answer.created_by }}</li>
-                </ul>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <ul class="list-group list-group-horizontal mt-1">
-                    <li
-                        class="list-group-item lounge-blue-text lounge-main-opaque-bg ">
-                        {{ answer.answer_message }}</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 
 {% endblock %}
