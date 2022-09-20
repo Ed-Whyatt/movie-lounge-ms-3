@@ -133,6 +133,25 @@ def add_reply(question_id):
         "add_reply.html", question=question, answers=answers)
 
 
+# Edit a answer reply on message board
+@app.route("/edit_reply/<answer_id>", methods=["GET", "POST"])
+def edit_reply(answer_id):
+    """ explation """
+    answer = mongo.db.answers.find_one({"_id": ObjectId(answer_id)})
+
+    answer_question_id = answer.get("question_id")
+    question = mongo.db.questions.find_one(
+        {"_id": ObjectId(answer_question_id)}
+        )
+    answer_reply = list(mongo.db.answers.find())
+    return render_template(
+        "edit_reply.html",
+        answer=answer,
+        question=question,
+        answer_reply=answer_reply
+        )
+
+
 # --- Add movie search page page ---#
 @app.route("/add_movie")
 def add_movie():
