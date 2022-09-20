@@ -173,6 +173,18 @@ def edit_reply(answer_id):
         )
 
 
+# Delete reply
+@app.route("/delete_reply/<answer_id>")
+def delete_reply(answer_id):
+    """
+    Gets the answer message and deletes it in the mongo database
+    """
+
+    mongo.db.answers.delete_one({"_id": ObjectId(answer_id)})
+    flash("Question Successfully Deleted")
+    return redirect(url_for("get_questions"))
+
+
 # --- Add movie search page page ---#
 @app.route("/add_movie")
 def add_movie():
