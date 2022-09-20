@@ -101,6 +101,7 @@ def delete_question(question_id):
         return redirect(url_for("get_questions"))
 
     mongo.db.questions.delete_one({"_id": ObjectId(question_id)})
+    mongo.db.answers.delete_many({"question_id": (question_id)})
     flash("Question Successfully Deleted")
     return redirect(url_for("get_questions"))
 
@@ -138,6 +139,19 @@ def add_reply(question_id):
 def edit_reply(answer_id):
     """ explation """
     answer = mongo.db.answers.find_one({"_id": ObjectId(answer_id)})
+
+    if request.method == "POST":
+        print("clear 0")
+        submit = {
+            "answer_message": request.form.get("answer_message"),
+            "question_id": answer.get("question_id"),
+            "created_by": session["user"]
+        }
+        print("clear 1")
+        mongo.db.answers.replace_one({"_id": ObjectId(answer_id)}, submit)
+        print("clear 2")
+        flash("Reply Successfully Updated")
+        return redirect(url_for("get_questions"))
 
     answer_question_id = answer.get("question_id")
     question = mongo.db.questions.find_one(
