@@ -137,19 +137,26 @@ def add_reply(question_id):
 # Edit a answer reply on message board
 @app.route("/edit_reply/<answer_id>", methods=["GET", "POST"])
 def edit_reply(answer_id):
-    """ explation """
+    """
+    Checks user is in session then, Gets related answer questions
+    and answers and adds them to the form then, Gets the new edited
+    answer information from the form and posts it to update the
+    mongo database.
+    """
+
+    if "user" not in session:
+        flash("You need to be logged in to edit a message")
+        return redirect(url_for("get_questions"))
+
     answer = mongo.db.answers.find_one({"_id": ObjectId(answer_id)})
 
     if request.method == "POST":
-        print("clear 0")
         submit = {
             "answer_message": request.form.get("answer_message"),
             "question_id": answer.get("question_id"),
             "created_by": session["user"]
         }
-        print("clear 1")
         mongo.db.answers.replace_one({"_id": ObjectId(answer_id)}, submit)
-        print("clear 2")
         flash("Reply Successfully Updated")
         return redirect(url_for("get_questions"))
 
@@ -369,7 +376,7 @@ def delete_category(category_id):
     category = Category.query.get_or_404(category_id)
     db.session.delete(category)
     db.session.commit()
-    # need to add all links messages to this category
+    mongo.db.movies.delete_many({"category_id": str(category_id)})
     flash("Category Deleted Successfully")
     return redirect(url_for("get_categories"))
 
