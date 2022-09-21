@@ -41,7 +41,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingOne">
                                 <!-- jinja loop index used for accordian -->
-                                <button class="accordion-button collapsed lounge-blue-text accordian-lounge" type="button"
+                                <button class="accordion-button accordion-movie collapsed lounge-blue-text accordian-lounge" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ loop.index }}"
                                     aria-expanded="false" aria-controls="flush-collapseOne">
                                     Click Here For More Information
@@ -63,14 +63,8 @@
                                             </li>
                                             <li class="list-group-item lounge-opaque-gray-bg">Rated: {{ movie.rated }}
                                             </li>
-
-                                            {% for category in categories %}
-                                            {% if category_id == movie.category_id %}
                                             <li class="list-group-item lounge-opaque-gray-bg">Movie Lounge Category:
-                                                {{ category.category_name }}</li>
-                                            {% endif %}
-                                            {% endfor %}
-
+                                                {{ movie.category_name }}</li>
                                             <li class="list-group-item lounge-opaque-gray-bg">User Notes:
                                                 {{ movie.user_notes }}</li>
                                         </ul>
@@ -86,8 +80,8 @@
                     <div class="card-body">
                         {% if session.user|lower == movie.created_by|lower or "admin" == session["user"] %}
 
-                        <!-- bootstrap modal for deleting catgory -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        <!-- bootstrap modal for deleting movie -->
+                        <div class="modal fade" id="exampleModal-{{ movie._id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content lounge-white-bg">
@@ -115,7 +109,7 @@
                         <a href="{{ url_for('edit_movie', movie_id=movie._id) }}"
                             class="card-link btn lounge-blue-text btn-success">Edit</a>
                         <button type="button" class="btn lounge-blue-text btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
+                            data-bs-target="#exampleModal-{{ movie._id}}">
                             Delete
                         </button>
                         {% endif %}
