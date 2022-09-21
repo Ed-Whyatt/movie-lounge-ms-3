@@ -124,6 +124,7 @@ def add_reply(question_id):
         reply = {
             "answer_message": request.form.get("answer_message"),
             "question_id": question_id,
+            "category_name": question.get("category_name"),
             "created_by": session["user"]
         }
         mongo.db.answers.insert_one(reply)
@@ -234,7 +235,7 @@ def select_movie(movie_title):
     movie = client.get(title=movie_title, fullplot=False, tomatoes=True)
     if request.method == "POST":
         task = {
-            "category_id": request.form.get("category_id"),
+            "category_name": request.form.get("category_name"),
             "user_rating": request.form.get("user_rating"),
             "user_notes": request.form.get("user_notes"),
             "title": movie.get("title"),
@@ -274,7 +275,7 @@ def edit_movie(movie_id):
 
     if request.method == "POST":
         submit = {
-            "category_id": request.form.get("category_id"),
+            "category_name": request.form.get("category_name"),
             "user_rating": request.form.get("user_rating"),
             "user_notes": request.form.get("user_notes"),
             "title": movie.get("title"),
@@ -388,7 +389,11 @@ def delete_category(category_id):
     category = Category.query.get_or_404(category_id)
     db.session.delete(category)
     db.session.commit()
-    mongo.db.movies.delete_many({"category_id": str(category_id)})
+    mongo.db.movies.delete_many({"category_name": str(category.category_name)})
+    mongo.db.questions.delete_many(
+        {"category_name": str(category.category_name)}
+        )
+    mongo.db.answers.delete_many({"category_name": str(category.category_name)})
     flash("Category Deleted Successfully")
     return redirect(url_for("get_categories"))
 
