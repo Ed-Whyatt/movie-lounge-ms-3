@@ -19,7 +19,7 @@
     {% for question in questions %}
 
     <!-- bootstrap modal for deleting a question -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal-{{ question._id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content lounge-white-bg">
                 <div class="modal-header">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary lounge-blue-text"
-                        data-bs-dismiss="modal">Close</button>
+                        data-bs-dismiss="modal">Cancel</button>
                     <a href="{{ url_for('delete_question', question_id=question._id) }}"
                         class="btn lounge-blue-text btn-danger">Delete</a>
                 </div>
@@ -92,7 +92,7 @@
                             <li class="list-group-item lounge-main-opaque-bg">
                                 <div class="col-sm-6">
                                     <button type="button" class="btn lounge-blue-text btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
+                                        data-bs-target="#exampleModal-{{ question._id }}">
                                         Delete
                                     </button>
                                 </div>
@@ -166,12 +166,12 @@
                                                             </li>
                                                             {% endif %}
                                                             {% if session.user|lower == answer.created_by|lower %}
-                                                            <li class="list-group-item lounge-main-opaque-bg ">
-                                                                <div class="">
-                                                                    <a href="#" class="btn btn-success">Delete</a>
+                                                            <li class="list-group-item lounge-main-opaque-bg">
+                                                                <div>
+                                                                    <a href="{{ url_for('delete_reply', answer_id=answer._id) }}" class="btn btn-success">Delete</a>
                                                                 </div>
                                                             </li>
-                                                            <li class="list-group-item lounge-main-opaque-bg ">
+                                                            <li class="list-group-item lounge-main-opaque-bg">
                                                                 <div>
                                                                     <a href="{{ url_for('edit_reply', answer_id=answer._id) }}" class="btn btn-success">Edit</a>
                                                                 </div>

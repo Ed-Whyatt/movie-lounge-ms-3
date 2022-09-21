@@ -17,47 +17,52 @@
                 </div>
                 {% for category in categories %}
 
-                <!-- bootstrap modal for deleting catgory -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content lounge-white-bg">
-                            <div class="modal-header">
-                                <h5 class="modal-title lounge-blue-text" id="exampleModalLabel">Delete Category</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body lounge-blue-text">
-                                Are you sure you want to delete that Catogory you will delete all messages and movies associated with it!
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary lounge-blue-text" data-bs-dismiss="modal">Close</button>
-                                <a href="{{ url_for('delete_category', category_id=category.id) }}"
-                                    class="btn lounge-blue-text btn-danger">Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- modal end -->
-
                 <div class="col-12">
                     <div class="card-body">
                         <ul class="list-group">
-                                                         <!-- category box -->
+                            <!-- category box -->
                             <li class="list-group-item lounge-main-opaque-bg">
                                 <div class="row">
                                     <div class="col-6">
                                         <p>{{ category.category_name }}</p>
                                     </div>
+
+                                    <!-- bootstrap modal for deleting catgory -->
+                                    <div class="modal fade" id="exampleModal-{{ category._id }}" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content lounge-white-bg">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title lounge-blue-text" id="exampleModalLabel">
+                                                        Delete Category</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body lounge-blue-text">
+                                                    Are you sure you want to delete that Catogory you will delete all
+                                                    messages and movies associated with it!
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary lounge-blue-text"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <a href="{{ url_for('delete_category', category_id=category.id) }}"
+                                                        class="btn lounge-blue-text btn-danger">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- modal end -->
+
                                     <!-- edit and delete buttons from bootstrap -->
                                     <div class="col-6">
                                         <div class="float-end">
                                             <a href="{{ url_for('edit_category', category_id=category.id) }}"
                                                 class="btn lounge-blue-text btn-success">Edit</a>
-                                            <button type="button" class="btn lounge-blue-text btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal">
+                                            <button type="button" class="btn lounge-blue-text btn-danger"
+                                                data-bs-toggle="modal" data-bs-target="#exampleModal-{{ category._id }}">
                                                 Delete
                                             </button>
+
                                         </div>
                                     </div>
                                 </div>
