@@ -170,7 +170,7 @@
                                                             {% if session.user|lower == answer.created_by|lower %}
 
                                                             <!-- bootstrap modal for deleting a answer -->
-                                                            <div class="modal fade" id="exampleModal-{{ question._id }}"
+                                                            <div class="modal fade" id="exampleModal-{{ answer._id }}"
                                                                 tabindex="-1" aria-labelledby="exampleModalLabel"
                                                                 aria-hidden="true">
                                                                 <div class="modal-dialog">
@@ -186,16 +186,15 @@
                                                                         </div>
                                                                         <div class="modal-body lounge-blue-text">
                                                                             Are you sure you want to delete this
-                                                                            question, it will delete all related
-                                                                            messages, There's no going
+                                                                            message, There's no going
                                                                             back!
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="button"
                                                                                 class="btn btn-secondary lounge-blue-text"
                                                                                 data-bs-dismiss="modal">Cancel</button>
-                                                                            <a href="{{ url_for('delete_question', question_id=question._id) }}"
-                                                                                class="btn lounge-blue-text btn-danger">Delete</a>
+                                                                            <a href="{{ url_for('delete_reply', answer_id=answer._id) }}"
+                                                                                class="btn btn-success">Delete</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -203,8 +202,10 @@
 
                                                             <li class="list-group-item lounge-main-opaque-bg">
                                                                 <div>
-                                                                    <a href="{{ url_for('delete_reply', answer_id=answer._id) }}"
-                                                                        class="btn btn-success">Delete</a>
+                                                                    <button type="button" class="btn lounge-blue-text btn-danger" data-bs-toggle="modal"
+                                                                    data-bs-target="#exampleModal-{{ answer._id }}">
+                                                                    Delete
+                                                                    </button>
                                                                 </div>
                                                             </li>
                                                             <li class="list-group-item lounge-main-opaque-bg">
