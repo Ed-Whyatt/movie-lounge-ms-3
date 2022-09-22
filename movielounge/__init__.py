@@ -19,6 +19,9 @@ app.config["API_KEY"] = os.environ.get("API_KEY")
 db = SQLAlchemy(app)
 mongo = PyMongo(app)
 api_key = os.environ.get("API_KEY")
+
+# omdb movie search key
+# documentation can be found at https://pypi.org/project/omdb/
 client = OMDBClient(apikey=api_key)
 
 from movielounge import routes  # noqa
