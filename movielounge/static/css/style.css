@@ -23,6 +23,10 @@ body {
     background-color: rgba(130, 160, 174, 0.7);
 }
 
+.lounge-opaque-lite-gray-bg {
+    background-color: rgba(130, 160, 174, 0.4);
+}
+
 .lounge-blue-bg {
     background-color: #1D2F59;
 }
@@ -43,6 +47,11 @@ body {
     color: #1D2F59;
 }
 
+/* Forms */
+option:focus {
+    box-shadow: inherit;
+}
+
 /* Movie card */
 .movie-card {
     max-width: 540px;
@@ -55,7 +64,33 @@ body {
     color: #1D2F59 !important;
 }
 
-  footer {
+footer {
     position: absolute;
     bottom: 0;
   }
+
+/* Buttons */
+
+.accordian-lounge {
+    background-color: rgba(130, 160, 174, 0.7) !important;
+    color: #1D2F59;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(130, 160, 174, 0.7) !important;
+    color: #1D2F59;
+}
+
+.accordion-button:not(.collapsed):hover, .accordion-button:hover {
+    background-color: #1D2F59 !important;
+    color: #F9FAFA;
+}
+
+.accordion-movie:not(.collapsed) {
+    background-color: #1D2F59 !important;
+    color: #F9FAFA;
+}
+
+.accordion-button:focus {
+    box-shadow: inherit;
+}
