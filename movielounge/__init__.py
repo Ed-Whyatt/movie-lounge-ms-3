@@ -16,6 +16,8 @@ app.config["API_KEY"] = os.environ.get("API_KEY")
 
 if os.environ.get("DEVelopment") == "True":
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
+else:
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 
 db = SQLAlchemy(app)
 mongo = PyMongo(app)
