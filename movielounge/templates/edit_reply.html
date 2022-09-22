@@ -4,7 +4,7 @@
 
 <h2 class="text-center lounge-blue-text mt-1">Message Reply</h2>
 
-<form method="POST" action="{{ url_for('add_reply', question_id=question._id) }}">
+<form method="POST" action="{{ url_for('edit_reply', answer_id=answer._id) }}">
 
     <div class="row">
         <div class="col-12 col-md-10 offset-md-1 mt-2 mb-1">
@@ -36,38 +36,43 @@
                         </div>
                     </div>
                     
-                    {% for answer in answers %}
-                    {% if answer.question_id|lower == question._id|lower %}
-                    <div class="col">
-                        <!-- Bootstrap card for answers -->
-                        <div class="card mt-1">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <!-- Bootstrap list groupe for message details -->
-                                        <ul class="list-group list-group-horizontal">
-                                            <li
-                                                class="list-group-item lounge-blue-text lounge-main-opaque-bg ">
-                                                From:</li>
-                                            <li
-                                                class="list-group-item lounge-blue-text lounge-main-opaque-bg ">
-                                                {{ answer.created_by }}</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <!-- Bootstrap list groupe for message details -->
-                                        <ul class="list-group list-group-horizontal">
-                                            <li
-                                                class="list-group-item lounge-blue-text lounge-main-opaque-bg ">
-                                                {{ answer.answer_message }}</li>
-                                        </ul>
-                                    </div>
+                    <!-- For loop for question answer replys -->
+                    {% for answer_replys in answer_reply %}
+                        <!-- Check if question answer replys id match question id -->
+                        {% if answer_replys.question_id|lower == question._id|lower %}
+                            <!-- Check that answers displayed are not the answer to be edited -->
+                            {% if answer_replys._id != answer._id %}
+                                <div class="col">
+                                    <!-- Bootstrap card for answers -->
+                                    <div class="card mt-1">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <!-- Bootstrap list groupe for message details -->
+                                                    <ul class="list-group list-group-horizontal">
+                                                        <li
+                                                            class="list-group-item lounge-blue-text lounge-main-opaque-bg ">
+                                                            From:</li>
+                                                        <li
+                                                            class="list-group-item lounge-blue-text lounge-main-opaque-bg ">
+                                                            {{ answer_replys.created_by }}</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <!-- Bootstrap list groupe for message details -->
+                                                    <ul class="list-group list-group-horizontal">
+                                                        <li
+                                                            class="list-group-item lounge-blue-text lounge-main-opaque-bg ">
+                                                            {{ answer_replys.answer_message }}</li>
+                                                    </ul>
+                                                </div>
 
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endif %}
+                            {% endif %}
+                        {% endif %}
                     {% endfor %}
 
                     <div class="col">
@@ -77,11 +82,11 @@
                                 <div class="mb-3">
                                     <label for="answer_message" class="form-label ">Message: </label>
                                     <textarea class="form-control lounge-white-bg" id="answer_message" name="answer_message" 
-                                    type="text" minlength="3" maxlength="200" row="10" col="8" required>None</textarea>
+                                    type="text" minlength="3" maxlength="200" row="10" col="8" required>{{- answer.answer_message -}}</textarea>
                                 </div>
                                 <div class="card-body d-grid gap-2 col-6 mx-auto">
                                     <!-- Add message button -->
-                                    <button type="submit" class="btn lounge-light-blue-bg lounge-blue-text">Add Message</button>
+                                    <button type="submit" class="btn lounge-light-blue-bg lounge-blue-text">Edit Message</button>
                                 </div>
                             </div>
                         </div>

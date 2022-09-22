@@ -8,7 +8,7 @@
     <div class="d-grid gap-2 col-6 mx-auto mt-2 mb-3">
 
         <!-- button from bootstrap -->
-        <a href="{{ url_for('add_question') }}" class="btn lounge-opaque-gray-bg lounge-blue-text">
+        <a href="{{ url_for('add_question') }}" class="btn btn-secondary lounge-opaque-gray-bg lounge-blue-text">
             Add Question
         </a>
     </div>
@@ -102,7 +102,7 @@
                             <li class="list-group-item lounge-main-opaque-bg">
                                 <div class="col-sm-6">
                                     <a href="{{ url_for('edit_question', question_id=question._id) }}"
-                                        class="btn btn-success">Edit</a>
+                                        class="btn btn-success lounge-blue-text">Edit</a>
                                 </div>
                             </li>
                             {% endif %}
@@ -121,7 +121,7 @@
                             <button class="accordion-button accordian-lounge accordian-message" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}"
                                 aria-expanded="false" aria-controls="collapseone">
-                                Click Here For Message Replys
+                                Click Here For Message Replies
                             </button>
 
                         </div>
@@ -211,7 +211,7 @@
                                                             <li class="list-group-item lounge-main-opaque-bg">
                                                                 <div>
                                                                     <a href="{{ url_for('edit_reply', answer_id=answer._id) }}"
-                                                                        class="btn btn-success">Edit</a>
+                                                                        class="btn btn-success lounge-blue-text">Edit</a>
                                                                 </div>
                                                             </li>
                                                             {% endif %}

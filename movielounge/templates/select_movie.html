@@ -35,10 +35,10 @@
                             <p class="card-text">IMDB Rating: {{ movie.imdb_rating }}</p>
                             <p class="card-text">Plot: {{ movie.plot }}</p>
 
-                            <select id="category_id" name="category_id" class="form-select lounge-opaque-gray-bg" aria-label="Default select example" required>
+                            <select id="category_name" name="category_name" class="form-select lounge-opaque-gray-bg" aria-label="Default select example" required>
                                 <option selected>Choose A Category</option>
                                 {% for category in categories %}
-                                <option value="{{ category.id }}">{{ category.category_name }}</option>
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                                 {% endfor %}
                             </select>
 
