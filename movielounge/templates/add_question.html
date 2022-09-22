@@ -19,7 +19,7 @@
                     <div class="col">
                         <div class="card-body lounge-blue-text">
 
-                            <select id="category_id" name="category_id" class="form-select lounge-white-bg" aria-label="Default select example" required>
+                            <select id="category_name" name="category_name" class="form-select lounge-white-bg" aria-label="Default select example" required>
                                 <option selected>Choose A Category</option>
                                 {% for category in categories %}
                                 <option value="{{ category.category_name }}">{{ category.category_name }}</option>
