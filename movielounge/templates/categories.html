@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="d-grid gap-2 col-6 mx-auto mt-2 mb-1">
                     <!-- button from bootstrap -->
-                    <a href="{{ url_for('add_category') }}" class="btn lounge-opaque-gray-bg lounge-blue-text">
+                    <a href="{{ url_for('add_category') }}" class="btn btn-secondary lounge-opaque-gray-bg lounge-blue-text">
                         Add Category
                     </a>
                 </div>
@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <ul class="list-group">
                             <!-- category box -->
-                            <li class="list-group-item lounge-main-opaque-bg">
+                            <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-6">
                                         <p>{{ category.category_name }}</p>
