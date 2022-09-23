@@ -1,10 +1,10 @@
-<h1 align="center"> Movie Lounge</h1>
+<h1 align="center">Movie Lounge</h1>
 
 ## A responsive movie lounge website hub for keen movie enthusiast.
 ***
 ## Code Institute – HTML, CSS, JavaScript, python+Flask and PostgreSQL -  Milestone Project 3.
 ***
-## [Click Here To View The Live Project](#) NO LINK
+## [Click Here To View The Live Project](https://movie-lounge-ms-3.herokuapp.com)
 ***
 ## ![Text](#) - responsive image here NO LINK
 ***
@@ -52,7 +52,7 @@
 ### The main colours used in this website are:
 - 
 - #### The main colours used for text and backgrounds:
-### ![Text](#) NO LINK
+### ![Text](/documentation/colours/colours.png)
 
 ## Typography:
 - ### The fonts use throughout this website are:
@@ -115,7 +115,7 @@
 - [PostgreSQL](https://www.postgresql.org/) is used for the backend functionality of the application, that allows admin to crate categorys and users to register and log in to the Movie Lounge.
 
 ## Data Model
-# ![text](#)
+# ![text](/documentation/data_model/data-model.png)
 
 - User collection
    - This collection holds the user name and passwords for the Movie Lounge application.
