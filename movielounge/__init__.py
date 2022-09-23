@@ -15,7 +15,7 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config["API_KEY"] = os.environ.get("API_KEY")
 
 if os.environ.get("DEVELOPMENT") == "True":
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL") #local
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")  # local
 else:
     uri = os.environ.get("DATABASE_URL")
     if uri.startswith("postgres://"):
