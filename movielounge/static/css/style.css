@@ -94,3 +94,9 @@ footer {
 .accordion-button:focus {
     box-shadow: inherit;
 }
+
+/* footer */
+.footer li a span {
+    font-size: 30px;
+    color: #1D2F59;
+}
