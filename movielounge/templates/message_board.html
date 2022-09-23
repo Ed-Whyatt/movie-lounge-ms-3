@@ -4,6 +4,7 @@
 
 <h2 class="text-center lounge-blue-text mt-1">Message Board</h2>
 
+{% if session["user"] %}
 <div class="row">
     <div class="d-grid gap-2 col-6 mx-auto mt-2 mb-3">
 
@@ -13,11 +14,12 @@
         </a>
     </div>
 </div>
+{% endif %}
 
 <div class="row">
     <!-- Messages questtions display for loop -->
     {% for question in questions %}
-
+    {% if session.user|lower == question.created_by|lower or session["user"] == "admin" %}
     <!-- bootstrap modal for deleting a question -->
     <div class="modal fade" id="exampleModal-{{ question._id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -34,14 +36,17 @@
                     back!
                 </div>
                 <div class="modal-footer">
+                
                     <button type="button" class="btn btn-secondary lounge-blue-text"
                         data-bs-dismiss="modal">Cancel</button>
+                    
                     <a href="{{ url_for('delete_question', question_id=question._id) }}"
                         class="btn lounge-blue-text btn-danger">Delete</a>
                 </div>
             </div>
         </div>
     </div>
+    {% endif %}
 
     <div class="col-12 col-md-10 offset-md-1 mt-2">
 
@@ -53,14 +58,14 @@
                     <div class="col-sm-12 col-md-6">
                         <!-- Bootstrap list groupe for message details -->
                         <ul class="list-group list-group-horizontal mt-1">
-                            <li class="list-group-item lounge-main-opaque-bg lounge-blue-text">Category:</li>
-                            <li class="list-group-item lounge-main-opaque-bg lounge-blue-text">
+                            <li class="list-group-item lounge-blue-text">Category:</li>
+                            <li class="list-group-item lounge-blue-text">
                                 {{ question.category_name }} </li>
 
                         </ul>
                         <ul class="list-group list-group-horizontal mt-1">
-                            <li class="list-group-item lounge-main-opaque-bg lounge-blue-text">From:</li>
-                            <li class="list-group-item lounge-main-opaque-bg lounge-blue-text">
+                            <li class="list-group-item lounge-blue-text">From:</li>
+                            <li class="list-group-item lounge-blue-text">
                                 {{ question.created_by }} </li>
 
                         </ul>
@@ -70,7 +75,7 @@
                         <!-- Bootstrap list groupe for message details -->
                         <ul class="list-group list-group-horizontal mt-1">
 
-                            <li class="list-group-item lounge-main-opaque-bg lounge-blue-text">
+                            <li class="list-group-item lounge-blue-text">
                                 {{ question.question_description }}
                             </li>
 
@@ -81,17 +86,17 @@
 
                         <ul class="list-group list-group-horizontal mt-1">
                             {% if session["user"] %}
-                            <li class="list-group-item lounge-main-opaque-bg ">
+                            <li class="list-group-item">
                                 <a href="{{ url_for('add_reply', question_id=question._id) }}"
                                     class="btn lounge-blue-text btn-success mt-1">Reply</a>
                             </li>
                             {% else %}
-                            <li class="list-group-item lounge-main-opaque-bg ">
+                            <li class="list-group-item">
                                 <p class="lounge-blue-text">You have to be loged in to reply to a message!</p>
                             </li>
                             {% endif %}
                             {% if session.user|lower == question.created_by|lower or "admin" == session["user"] %}
-                            <li class="list-group-item lounge-main-opaque-bg">
+                            <li class="list-group-item">
                                 <div class="col-sm-6">
                                     <button type="button" class="btn lounge-blue-text btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal-{{ question._id }}">
@@ -99,7 +104,7 @@
                                     </button>
                                 </div>
                             </li>
-                            <li class="list-group-item lounge-main-opaque-bg">
+                            <li class="list-group-item">
                                 <div class="col-sm-6">
                                     <a href="{{ url_for('edit_question', question_id=question._id) }}"
                                         class="btn btn-success lounge-blue-text">Edit</a>
@@ -113,9 +118,9 @@
                 </div>
 
                 <!-- Bootstrap accordian for messages-->
-                <div class="accordion mt-1" id="accordionExample">
+                <div class="accordion mt-1" id="accordionExample{{ loop.index }}">
                     <div class="accordion-item">
-                        <div class="accordion-header" id="headingOne">
+                        <div class="accordion-header" id="headingOne{{ loop.index }}">
 
                             <!-- Accordian button -->
                             <button class="accordion-button accordian-lounge accordian-message" type="button"
@@ -127,7 +132,7 @@
                         </div>
                         <!-- Booots strap accordian open body for message question answers -->
                         <div id="collapse{{ loop.index }}" class="accordion-collapse collapse"
-                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            aria-labelledby="headingOne{{ loop.index }}" data-bs-parent="#accordionExample{{ loop.index }}">
                             <div class="accordion-body lounge-opaque-lite-gray-bg">
 
                                 <div class="row">
@@ -145,28 +150,28 @@
                                                     <div class="col-sm-12 col-md-6">
                                                         <ul class="list-group list-group-horizontal">
                                                             <li
-                                                                class="list-group-item lounge-blue-text lounge-main-opaque-bg">
+                                                                class="list-group-item lounge-blue-text">
                                                                 From:</li>
                                                             <li
-                                                                class="list-group-item lounge-blue-text lounge-main-opaque-bg">
+                                                                class="list-group-item lounge-blue-text">
                                                                 {{ answer.created_by }}</li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-sm-12 col-md-6">
                                                         <ul class="list-group list-group-horizontal mt-1">
                                                             <li
-                                                                class="list-group-item lounge-blue-text lounge-main-opaque-bg">
+                                                                class="list-group-item lounge-blue-text">
                                                                 {{ answer.answer_message }}</li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-sm-12">
                                                         {% if session["user"] %}
                                                         <ul class="list-group list-group-horizontal mt-1">
-                                                            <li class="list-group-item lounge-main-opaque-bg">
+                                                            <li class="list-group-item">
                                                                 <a href="{{ url_for('add_reply', question_id=question._id) }}"
                                                                     class="btn lounge-blue-text btn-success mt-1">Reply</a>
                                                             </li>
-                                                            {% endif %}
+                                                            
                                                             {% if session.user|lower == answer.created_by|lower %}
 
                                                             <!-- bootstrap modal for deleting a answer -->
@@ -200,7 +205,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <li class="list-group-item lounge-main-opaque-bg">
+                                                            <li class="list-group-item">
                                                                 <div>
                                                                     <button type="button" class="btn lounge-blue-text btn-danger" data-bs-toggle="modal"
                                                                     data-bs-target="#exampleModal-{{ answer._id }}">
@@ -208,7 +213,7 @@
                                                                     </button>
                                                                 </div>
                                                             </li>
-                                                            <li class="list-group-item lounge-main-opaque-bg">
+                                                            <li class="list-group-item">
                                                                 <div>
                                                                     <a href="{{ url_for('edit_reply', answer_id=answer._id) }}"
                                                                         class="btn btn-success lounge-blue-text">Edit</a>
@@ -216,6 +221,7 @@
                                                             </li>
                                                             {% endif %}
                                                         </ul>
+                                                        {% endif %}
                                                     </div>
                                                 </div>
                                                 <!-- List end -->
@@ -235,12 +241,12 @@
                                             <div class="card-body">
                                                 <ul class="list-group list-group-horizontal">
                                                     {% if session["user"] %}
-                                                    <li class="list-group-item lounge-main-opaque-bg ">
+                                                    <li class="list-group-item">
                                                         <a href="{{ url_for('add_reply', question_id=question._id) }}"
                                                             class="btn lounge-blue-text btn-success mt-1">Reply</a>
                                                     </li>
                                                     {% else %}
-                                                    <li class="list-group-item lounge-main-opaque-bg ">
+                                                    <li class="list-group-item">
                                                         <p class="lounge-blue-text">You have to be loged in to reply to
                                                             a message!</p>
                                                     </li>
