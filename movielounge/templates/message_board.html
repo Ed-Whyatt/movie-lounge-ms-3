@@ -37,11 +37,11 @@
                 </div>
                 <div class="modal-footer">
                 
-                    <button type="button" class="btn btn-secondary lounge-blue-text"
+                    <button type="button" class="btn btn-secondary lounge-white-text"
                         data-bs-dismiss="modal">Cancel</button>
                     
                     <a href="{{ url_for('delete_question', question_id=question._id) }}"
-                        class="btn lounge-blue-text btn-danger">Delete</a>
+                        class="btn lounge-white-text btn-danger">Delete</a>
                 </div>
             </div>
         </div>
@@ -88,7 +88,7 @@
                             {% if session["user"] %}
                             <li class="list-group-item">
                                 <a href="{{ url_for('add_reply', question_id=question._id) }}"
-                                    class="btn lounge-blue-text btn-success mt-1">Reply</a>
+                                    class="btn lounge-white-text btn-success mt-1">Reply</a>
                             </li>
                             {% else %}
                             <li class="list-group-item">
@@ -98,7 +98,7 @@
                             {% if session.user|lower == question.created_by|lower or "admin" == session["user"] %}
                             <li class="list-group-item">
                                 <div class="col-sm-6">
-                                    <button type="button" class="btn lounge-blue-text btn-danger" data-bs-toggle="modal"
+                                    <button type="button" class="btn lounge-white-text btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal-{{ question._id }}">
                                         Delete
                                     </button>
@@ -107,7 +107,7 @@
                             <li class="list-group-item">
                                 <div class="col-sm-6">
                                     <a href="{{ url_for('edit_question', question_id=question._id) }}"
-                                        class="btn btn-success lounge-blue-text">Edit</a>
+                                        class="btn btn-success lounge-white-text">Edit</a>
                                 </div>
                             </li>
                             {% endif %}
@@ -169,7 +169,7 @@
                                                         <ul class="list-group list-group-horizontal mt-1">
                                                             <li class="list-group-item">
                                                                 <a href="{{ url_for('add_reply', question_id=question._id) }}"
-                                                                    class="btn lounge-blue-text btn-success mt-1">Reply</a>
+                                                                    class="btn lounge-white-text btn-success mt-1">Reply</a>
                                                             </li>
                                                             
                                                             {% if session.user|lower == answer.created_by|lower %}
@@ -196,7 +196,7 @@
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="button"
-                                                                                class="btn btn-secondary lounge-blue-text"
+                                                                                class="btn btn-secondary lounge-white-text"
                                                                                 data-bs-dismiss="modal">Cancel</button>
                                                                             <a href="{{ url_for('delete_reply', answer_id=answer._id) }}"
                                                                                 class="btn btn-success">Delete</a>
@@ -207,7 +207,7 @@
 
                                                             <li class="list-group-item">
                                                                 <div>
-                                                                    <button type="button" class="btn lounge-blue-text btn-danger" data-bs-toggle="modal"
+                                                                    <button type="button" class="btn lounge-white-text btn-danger" data-bs-toggle="modal"
                                                                     data-bs-target="#exampleModal-{{ answer._id }}">
                                                                     Delete
                                                                     </button>
@@ -216,7 +216,7 @@
                                                             <li class="list-group-item">
                                                                 <div>
                                                                     <a href="{{ url_for('edit_reply', answer_id=answer._id) }}"
-                                                                        class="btn btn-success lounge-blue-text">Edit</a>
+                                                                        class="btn btn-success lounge-white-text">Edit</a>
                                                                 </div>
                                                             </li>
                                                             {% endif %}
@@ -243,7 +243,7 @@
                                                     {% if session["user"] %}
                                                     <li class="list-group-item">
                                                         <a href="{{ url_for('add_reply', question_id=question._id) }}"
-                                                            class="btn lounge-blue-text btn-success mt-1">Reply</a>
+                                                            class="btn lounge-white-text btn-success mt-1">Reply</a>
                                                     </li>
                                                     {% else %}
                                                     <li class="list-group-item">
