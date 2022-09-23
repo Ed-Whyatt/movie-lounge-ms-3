@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
 body {
     min-height: 100vh;
     position: relative;
     margin: 0;
     padding-bottom: 100px;
     box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
   }
 
 /* Background colors */
