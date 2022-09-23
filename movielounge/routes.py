@@ -63,7 +63,7 @@ def add_question():
 def edit_question(question_id):
     """
     Checks if a user is loged in then,
-    Gets the new message details from the form and edits the 
+    Gets the new message details from the form and edits the
     message question in mongo database.
     """
 
@@ -203,7 +203,7 @@ def add_movie():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     """
-    Gets the search query from the search form and searches 
+    Gets the search query from the search form and searches
     omdb("client") for movies, then passes them to the card
     in the rendered search_results.html template.
     """
@@ -393,7 +393,8 @@ def delete_category(category_id):
     mongo.db.questions.delete_many(
         {"category_name": str(category.category_name)}
         )
-    mongo.db.answers.delete_many({"category_name": str(category.category_name)})
+    mongo.db.answers.delete_many(
+        {"category_name": str(category.category_name)})
     flash("Category Deleted Successfully")
     return redirect(url_for("get_categories"))
 
