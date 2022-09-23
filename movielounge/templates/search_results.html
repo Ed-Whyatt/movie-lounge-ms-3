@@ -38,10 +38,10 @@
 
                 <div class="col-4">
                     <div class="card-body">
-                        {% if movie.poster|lower == "N/A"|lower %}
-                        <img src="{{ url_for('static', filename='image/placehoder.png') }}" class="img-fluid rounded" alt="Movie poster">
-                        {% else %}
+                        {% if movie.poster != "N/A" %}
                         <img src="{{ movie.poster }}" class="img-fluid rounded" alt="Movie poster">
+                        {% else %}
+                        <img src="{{ url_for('static', filename='image/placeholder.png') }}" class="img-fluid rounded" alt="Movie poster">
                         {% endif %}
                     </div>
                 </div>

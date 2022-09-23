@@ -19,7 +19,11 @@
                     <div class="col-md-4">
                         <div class="card-body">
                             <h3 class="card-title text-center">{{ movie.title }}</h3>
-                            <img src="{{ movie.poster }}" class="img-fluid rounded ms-xl-5" alt="Movie poster">
+                            {% if movie.poster != "N/A" %}
+                            <img src="{{ movie.poster }}" class="img-fluid rounded" alt="Movie poster">
+                            {% else %}
+                            <img src="{{ url_for('static', filename='image/placeholder.png') }}" class="img-fluid rounded" alt="Movie poster">
+                            {% endif %}
                         </div>
                     </div>
 
