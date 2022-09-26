@@ -56,9 +56,11 @@
 
 ## Typography:
 - ### The fonts use throughout this website are:
-    - 
+    - Google fonts 'Lato'with a fallback of sans-serif.
 
 ## Imagery
+- ### The main images used are from the omdb api and are used for the movie poster images and the links to the poster images are stored in the user movie database to display user movies. 
+- ### The only image used from the movielounge static image folder is a placeholder image of popcorn for if an ondb poster image is not avaliable.
 
 ## Wireframes
 
