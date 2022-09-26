@@ -18,8 +18,8 @@
                         aria-describedby="queryHelpBlock" required>
                     <div id="queryHelpBlock" class="form-text">
                     </div>
-                    <button type="submit" class="btn lounge-light-blue-bg lounge-blue-text">Search</button>
-                    <a href="{{ url_for('add_movie') }}" class="btn lounge-blue-text btn-success">Reset</a>
+                    <button type="submit" class="btn btn-secondary lounge-light-blue-bg lounge-blue-text">Search</button>
+                    <a href="{{ url_for('add_movie') }}" class="btn lounge-white-text btn-success">Reset</a>
                 </form>
                 <!-- End of form -->
             </div>
@@ -57,7 +57,7 @@
                 <div class="col-12">
                     <div class="card-body">
                         <!-- Add movie button -->
-                        <a href="{{ url_for('select_movie', movie_title=movie.title) }}" class="card-link btn lounge-blue-text btn-success">
+                        <a href="{{ url_for('select_movie', movie_title=movie.title) }}" class="card-link btn btn-secondary lounge-light-blue-bg lounge-blue-text">
                             Add this movie to your lists
                         </a>
                     </div>
