@@ -6,7 +6,7 @@
 ***
 ## [Click Here To View The Live Project](https://movie-lounge-ms-3.herokuapp.com)
 ***
-## ![Text](#) - responsive image here NO LINK
+## ![Text](/documentation/i-am-responsive/i-am-responsive.png) - responsive image here NO LINK
 ***
 ## UX user experience
 ***
@@ -141,7 +141,7 @@
 
 # Features
 Am I Responsive has been used for the responsive image at the top of README.md you can view there website below and interact with this project on each device.
--   ### Responsive on all devices - [view](#) NO LINK
+-   ### Responsive on all devices - [view](https://ui.dev/amiresponsive?url=https://movie-lounge-ms-3.herokuapp.com)
 
 ## Interactive elements.
 - Interactive elements
