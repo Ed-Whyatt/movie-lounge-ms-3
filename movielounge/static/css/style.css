@@ -98,6 +98,14 @@ footer {
     box-shadow: inherit;
 }
 
+.btn-success:hover {
+    background-color: #1D2F59 !important;
+}
+
+.btn-danger:hover {
+    background-color: #1D2F59 !important;
+}
+
 /* footer */
 .footer li a span {
     font-size: 30px;
