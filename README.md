@@ -6,7 +6,7 @@
 ***
 ## [Click Here To View The Live Project](https://movie-lounge-ms-3.herokuapp.com)
 ***
-## ![Text](/documentation/i-am-responsive/i-am-responsive.png) - responsive image here NO LINK
+## ![Text](/documentation/i-am-responsive/i-am-responsive.png)
 ***
 ## UX user experience
 ***
@@ -27,11 +27,9 @@
 - ### Frequent user goals
     1. As a Frequent user, I want to easily reply to any messages or questions.
     2. As a Frequent user, I want to easily edit and delete my movie list.
-    3. As a Frequent user, I want to easily change my password.
     4. As a Frequent user, I want to easily edit or delete any messages or questions.
 
 - ### End of user goals
-    1. As a End of User, I want to delete my login details
     2. As a End of User, I want to delete all my messages and questions.
     3. As a End of User, I want to delete my movie list.
 
@@ -144,7 +142,33 @@ Am I Responsive has been used for the responsive image at the top of README.md y
 -   ### Responsive on all devices - [view](https://ui.dev/amiresponsive?url=https://movie-lounge-ms-3.herokuapp.com)
 
 ## Interactive elements.
-- Interactive elements
+- Navgation
+    - Navgation on large screens
+    - Navgation on small screens
+- Footer
+    - Links to social media 
+- Home screen
+    - Movie viem more information
+    - Movie edit and delete user movies
+- Message board
+    - Add, Reply, Edit Delete question
+    - Add questioin page
+    - Edit question page
+    - Delete question modal
+    - view replys
+    - Add edit delete replys
+    - Add reply page
+    - Edit reply page
+    - Delete question modal
+- Manage categorys
+    - Add Edit Delete categorys
+    - Add category page
+    - Edit category page
+    - Delete category modal
+- Log in
+   - Log in page
+   - User loged in display name
+- Register
 
 ## Technologies Used
 ### Languages Used
