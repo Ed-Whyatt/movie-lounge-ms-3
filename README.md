@@ -50,7 +50,6 @@
 - ### [Color Mind](http://colormind.io/) : Colormind has been used to aid the decision the colour scheme for the project.
 
 ### The main colours used in this website are:
-- 
 - #### The main colours used for text and backgrounds:
 ### ![Text](/documentation/colours/colours.png)
 
@@ -60,7 +59,7 @@
 
 ## Imagery
 - ### The main images used are from the omdb api and are used for the movie poster images and the links to the poster images are stored in the user movie database to display user movies. 
-- ### The only image used from the movielounge static image folder is a placeholder image of popcorn for if an ondb poster image is not avaliable.
+- ### The only image used from the movielounge static image folder is a placeholder image of popcorn for if an ondb poster image is not avaliable. The link to image of [popcorn](https://pixabay.com/photos/popcorn-food-carton-container-1085072/) is from [https://pixabay.com](https://pixabay.com).
 
 ## Wireframes
 
@@ -92,24 +91,24 @@
 
 - ### Medium Screens click to view
 
-1. ### Medium Welcome Home page Wireframe - ![view](documentation/wireframes/enter_home_medium.png)
-2. Medium Loged In Home Page Wireframe ![view](/documentation/wireframes/loged_in_home_medium.png)
-3. Medium Log In page Wireframe ![view](/documentation/wireframes/log_in_medium.png)
-4. Medium Register page Wireframe ![view](/documentation/wireframes/register.png)
-5. Medium Message Board Wireframe page ![view](/documentation/wireframes/message_board_medium.png)
-6. Medium Add Movie and Search page wireframe ![view](/documentation/wireframes/add_movie_medium.png)
-7. Medium Select Movie to Add page wirframe ![view](/documentation/wireframes/select_movie_medium.png)
-8. Medium Manage Categories page  (admin only ) wirframe ![view](/documentation/wireframes/category_medium.png)
+1. Medium Welcome Home page Wireframe [view](/documentation/wireframes/enter_home_medium.png)
+2. Medium Loged In Home Page Wireframe [view](/documentation/wireframes/loged_in_home_medium.png)
+3. Medium Log In page Wireframe [view](/documentation/wireframes/log_in_medium.png)
+4. Medium Register page Wireframe [view](/documentation/wireframes/register.png)
+5. Medium Message Board Wireframe page [view](/documentation/wireframes/message_board_medium.png)
+6. Medium Add Movie and Search page wireframe [view](/documentation/wireframes/add_movie_medium.png)
+7. Medium Select Movie to Add page wirframe [view](/documentation/wireframes/select_movie_medium.png)
+8. Medium Manage Categories page  (admin only ) wirframe [view](/documentation/wireframes/category_medium.png)
 
 - ### Small Screens click to view
-1. Small Welcome Home page Wireframe ![view](/documentation/wireframes/enter_home_small.png)
-2. Small Loged In Home Page Wireframe ![view](/documentation/wireframes/loged_in_home_small.png)
-3. Small Log In page Wireframe ![view](/documentation/wireframes/log_in_small.png)
-4. Small Register page Wireframe ![view](/documentation/wireframes/register_small.png)
-5. Small Message Board Wireframe page ![view](/documentation/wireframes/message_board_small.png)
-6. Small Add Movie and Search page wireframe ![view](/documentation/wireframes/add_movie_small.png)
-7. Small Select Movie to Add page wirframe ![view](/documentation/wireframes/select_movie_small.png)
-8. Small Manage Categories page  (admin only ) wirframe ![view](/documentation/wireframes/category_small.png)
+1. Small Welcome Home page Wireframe [view](/documentation/wireframes/enter_home_small.png)
+2. Small Loged In Home Page Wireframe [view](/documentation/wireframes/loged_in_home_small.png)
+3. Small Log In page Wireframe [view](/documentation/wireframes/log_in_small.png)
+4. Small Register page Wireframe [view](/documentation/wireframes/register_small.png)
+5. Small Message Board Wireframe page [view](/documentation/wireframes/message_board_small.png)
+6. Small Add Movie and Search page wireframe [view](/documentation/wireframes/add_movie_small.png)
+7. Small Select Movie to Add page wirframe [view](/documentation/wireframes/select_movie_small.png)
+8. Small Manage Categories page  (admin only ) wirframe [view](/documentation/wireframes/category_small.png)
 
 # Data Structure
 - [Mongo DB](https://www.mongodb.com/) is a cloud based storage application, hosting storage for the user movie, messages and message reply data for 
