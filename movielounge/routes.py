@@ -323,9 +323,9 @@ def get_categories():
     """
 
     # check user admin is in session
-    if session["user"] != "admin":
+    if "user" not in session or session["user"] != "admin":
         flash("You must be admin to manage categories!")
-        return redirect(url_for("get_tasks"))
+        return redirect(url_for("get_movies"))
 
     # get categories list from database
     categories = list(Category.query.order_by(Category.category_name).all())
@@ -340,9 +340,9 @@ def add_category():
     Gets the new category name from the form and adds it to categories database
     """
 
-    if session["user"] != "admin":
+    if "user" not in session or session["user"] != "admin":
         flash("You must be admin to manage categories!")
-        return redirect(url_for("get_tasks"))
+        return redirect(url_for("get_movies"))
 
     if request.method == "POST":
         category = Category(category_name=request.form.get("category_name"))
@@ -362,9 +362,9 @@ def edit_category(category_id):
     in the catorys database
     """
 
-    if session["user"] != "admin":
+    if "user" not in session or session["user"] != "admin":
         flash("You must be admin to manage categories!")
-        return redirect(url_for("get_tasks"))
+        return redirect(url_for("get_movies"))
 
     category = Category.query.get_or_404(category_id)
     if request.method == "POST":
@@ -382,9 +382,9 @@ def delete_category(category_id):
     Checks if the user is admin then,
     deletes selected catogory in the database
     """
-    if session["user"] != "admin":
+    if "user" not in session or session["user"] != "admin":
         flash("You must be admin to manage categories!")
-        return redirect(url_for("/get_tasks"))
+        return redirect(url_for("get_movies"))
 
     category = Category.query.get_or_404(category_id)
     db.session.delete(category)
