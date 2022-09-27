@@ -7,7 +7,13 @@ body {
     padding-bottom: 100px;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
-  }
+}
+
+img {
+    min-width: 40px;
+    min-height: 40px;
+    background-color: #1D2F59;
+}
 
 /* Background colors */
 .lounge-main-bg {
