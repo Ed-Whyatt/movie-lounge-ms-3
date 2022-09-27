@@ -21,14 +21,14 @@
     {% for question in questions %}
     {% if session.user|lower == question.created_by|lower or session["user"] == "admin" %}
     <!-- bootstrap modal for deleting a question -->
-    <div class="modal fade" id="exampleModal-{{ question._id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="exampleModal-{{ question._id }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ loop.index }}"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content lounge-white-bg">
                 <div class="modal-header">
-                    <h5 class="modal-title lounge-blue-text" id="exampleModalLabel">
+                    <h3 class="modal-title lounge-blue-text" id="exampleModalLabel{{ loop.index }}">
                         Delete Movie
-                    </h5>
+                    </h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body lounge-blue-text">
@@ -176,15 +176,15 @@
 
                                                             <!-- bootstrap modal for deleting a answer -->
                                                             <div class="modal fade" id="exampleModal-{{ answer._id }}"
-                                                                tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                                tabindex="-1" aria-labelledby="answerModalLabel{{ loop.index }}"
                                                                 aria-hidden="true">
                                                                 <div class="modal-dialog">
                                                                     <div class="modal-content lounge-white-bg">
                                                                         <div class="modal-header">
-                                                                            <h5 class="modal-title lounge-blue-text"
-                                                                                id="exampleModalLabel">
+                                                                            <h4 class="modal-title lounge-blue-text"
+                                                                                id="answerModalLabel{{ loop.index }}">
                                                                                 Delete Movie
-                                                                            </h5>
+                                                                            </h4>
                                                                             <button type="button" class="btn-close"
                                                                                 data-bs-dismiss="modal"
                                                                                 aria-label="Close"></button>
@@ -199,7 +199,7 @@
                                                                                 class="btn btn-secondary lounge-white-text"
                                                                                 data-bs-dismiss="modal">Cancel</button>
                                                                             <a href="{{ url_for('delete_reply', answer_id=answer._id) }}"
-                                                                                class="btn btn-success">Delete</a>
+                                                                                class="btn btn-danger">Delete</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
