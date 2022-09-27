@@ -21,17 +21,17 @@
 - ### Returning user goals
     1. As a Returning User, I want to edit and delete my messages.
     2. As a Returning User, I want to edit and delete my movie list.
-    4. As a Returning User, I want to see any new messages.
-    5. As a Returning User, I want to see if anyone has replyed to my questions.
+    3. As a Returning User, I want to see any new messages.
+    4. As a Returning User, I want to see if anyone has replyed to my questions.
 
 - ### Frequent user goals
     1. As a Frequent user, I want to easily reply to any messages or questions.
     2. As a Frequent user, I want to easily edit and delete my movie list.
-    4. As a Frequent user, I want to easily edit or delete any messages or questions.
+    3. As a Frequent user, I want to easily edit or delete any messages or questions.
 
 - ### End of user goals
-    2. As a End of User, I want to delete all my messages and questions.
-    3. As a End of User, I want to delete my movie list.
+    1. As a End of User, I want to delete all my messages and questions.
+    2. As a End of User, I want to delete my movie list.
 
 - ### Admin user goals
     1. As an Admin User, I want access to add questions and edit and delete  all questions on the movie lounge message board.
@@ -124,16 +124,16 @@
     - This collection holds the category names and can only be changed by admin.
     - The category collection category name links to questions and movies collection category name. This will show witch category the user has selected for each input into the collections.
 
-- Movies colection
+- Movies collection
     - This collection holds the users movies information to be displayed in the Movie Lounge application.
     - The movies collection category name links to the category category name and the user created by links to the user collections. This will show with user and category the user has selected for each movie input into the movies collections.
 
-- Question colection
+- Question collection
     - This collection holds the users messages to be displayed in the Movie Lounge application message board.
     - The question collection user created by links to the user user name collecton. This will show witch user has input the message in the movie lounge message board.
     - The question collection id links to the answers collection question id. This will show witch answers link to the message in the movie loubge message board.   
 
-- Answers colection
+- Answers collection
     - This collection hols the users answers to the messages to be displayed in the movie lounge application message board.
     - The answers question id links to the questions id. This will show witch message the user is replying to in the movie lounge message board. 
 
@@ -144,31 +144,66 @@ Am I Responsive has been used for the responsive image at the top of README.md y
 ## Interactive elements.
 - Navgation
     - Navgation on large screens
+    ### ![text](/documentation/introactive-images/nav.png)
     - Navgation on small screens
+    ### ![text](/documentation/introactive-images/nav-small.png)
+    - Navagation small screens open
+    ### ![text](/documentation/introactive-images/nav-small-open.png)
 - Footer
-    - Links to social media 
+    - Links to social media
+    ### ![text](/documentation/introactive-images/footer.png)
 - Home screen
-    - Movie viem more information
     - Movie edit and delete user movies
+    ### ![text](/documentation/introactive-images/movie-info-before.png)
+    - Movie view more information
+    ### ![text](/documentation/introactive-images/movie-info-after.png)
+    - Movie edit page
+    ### ![text](/documentation/introactive-images/edit-movie.png)
+    - Movie delete modal
+    ### ![text](/documentation/introactive-images/del-movie-modal.png)
 - Message board
-    - Add, Reply, Edit Delete question
+    - Add, Reply and Edit Delete question
+    ### ![text](/documentation/introactive-images/add-edi-del-msg.png)
     - Add questioin page
+    ### ![text](/documentation/introactive-images/add-msg.png)
     - Edit question page
+    ### ![text](/documentation/introactive-images/edit-msg-page.png)
     - Delete question modal
-    - view replys
-    - Add edit delete replys
-    - Add reply page
+    ### ![text](/documentation/introactive-images/del-msg-modal.png)
+     - View, edit and delete replies
+    ### ![text](/documentation/introactive-images/msg-reply-open.png)
+    - Add replys
+    ### ![text](/documentation/introactive-images/mas-reply-page.png)
     - Edit reply page
-    - Delete question modal
+    ### ![text](/documentation/introactive-images/edit-reply-msg.png)
+    - Delete reply message modal
+    ### ![text](/documentation/introactive-images/del-reply-modal.png)
+- Add Movie
+    - Movie search
+    ### ![text](/documentation/introactive-images/movie-search.png)
+    - Movie search results select movie
+    ### ![text](/documentation/introactive-images/movie-results.png)
+    - Add movie selected
+    ### ![text](/documentation/introactive-images/movie-add.png)
 - Manage categorys
     - Add Edit Delete categorys
+    ### ![text](/documentation/introactive-images/add-cat.png)
     - Add category page
+    ### ![text](/documentation/introactive-images/add-a-cat.png)
     - Edit category page
+    ### ![text](/documentation/introactive-images/edit-cat.png)
     - Delete category modal
+    ### ![text](/documentation/introactive-images/del-cat.png)
 - Log in
    - Log in page
-   - User loged in display name
+   ### ![text](/documentation/introactive-images/login.png)
 - Register
+### ![text](/documentation/introactive-images/register.png)
+- User loged in display name
+    - User loged in
+    ### ![text](/documentation/introactive-images/user-loged-in.png)
+    - User not loged in
+    ### ![text](/documentation/introactive-images/login-msg.png)
 
 ## Technologies Used
 ### Languages Used
@@ -273,7 +308,6 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
    -   [W3 Schools](https://www.w3schools.com/): W3 Schools has been used with some elements in this project.
 
-   -   [Autoprefixer](https://autoprefixer.github.io/): Autoprefixer has been used with the images in css for Crapple/Apple/iOS fallback browsers.
 
    -   OTHERS
    -
