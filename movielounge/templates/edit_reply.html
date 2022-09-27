@@ -60,7 +60,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <!-- Bootstrap list groupe for message details -->
-                                                    <ul class="list-group list-group-horizontal">
+                                                    <ul class="list-group list-group-horizontal mt-1">
                                                         <li
                                                             class="list-group-item lounge-blue-text">
                                                             {{ answer_replys.answer_message }}</li>
@@ -82,11 +82,12 @@
                                 <div class="mb-3">
                                     <label for="answer_message" class="form-label ">Message: </label>
                                     <textarea class="form-control lounge-white-bg" id="answer_message" name="answer_message" 
-                                    type="text" minlength="3" maxlength="200" row="10" col="8" required>{{- answer.answer_message -}}</textarea>
+                                    type="text" minlength="3" maxlength="200" row="10" col="20" required>{{- answer.answer_message -}}</textarea>
                                 </div>
                                 <div class="card-body d-grid gap-2 col-6 mx-auto">
                                     <!-- Add message button -->
                                     <button type="submit" class="btn btn-secondary lounge-blue-bg lounge-white-text">Edit Message</button>
+                                    <a href="{{ url_for('get_questions') }}" class="btn lounge-white-text btn-success">Cancel</a>
                                 </div>
                             </div>
                         </div>
