@@ -28,7 +28,7 @@
                                     </div>
 
                                     <!-- bootstrap modal for deleting catgory -->
-                                    <div class="modal fade" id="exampleModal-{{ category._id }}" tabindex="-1"
+                                    <div class="modal fade" id="exampleModal-{{ category.id }}" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content lounge-white-bg">
@@ -59,7 +59,7 @@
                                             <a href="{{ url_for('edit_category', category_id=category.id) }}"
                                                 class="btn lounge-white-text btn-success">Edit</a>
                                             <button type="button" class="btn lounge-white-text btn-danger"
-                                                data-bs-toggle="modal" data-bs-target="#exampleModal-{{ category._id }}">
+                                                data-bs-toggle="modal" data-bs-target="#exampleModal-{{ category.id }}">
                                                 Delete
                                             </button>
 
