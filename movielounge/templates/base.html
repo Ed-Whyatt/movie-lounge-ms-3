@@ -79,6 +79,11 @@
   <div>
     {% if session.user %}
     <p class="ms-3 mt-3 lounge-blue-text">You are loged in as {{ session.user }}</p>
+    {% else %}
+    <p class="ms-3 mt-3 lounge-blue-text">
+      New Here?
+      <a href="{{ url_for('register') }}" class="lounge-blue-text">Register</a>
+  </p>
     {% endif %}
   </div>
 
