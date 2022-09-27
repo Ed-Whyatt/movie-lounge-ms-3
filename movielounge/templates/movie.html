@@ -25,7 +25,7 @@
 
                 <div class="col-8">
                     <div class="card-body lounge-blue-text">
-                        <h5 class="card-title">{{ movie.title }}</h5>
+                        <h3 class="card-title">{{ movie.title }}</h3>
                         <p class="card-text">Director: {{ movie.director }}</p>
                         <p class="card-text">Genre: {{ movie.genre }}</p>
                         <p class="card-text">Year: {{ movie.year }}</p>
@@ -81,12 +81,12 @@
                         {% if session.user|lower == movie.created_by|lower or "admin" == session["user"] %}
 
                         <!-- bootstrap modal for deleting movie -->
-                        <div class="modal fade" id="exampleModal-{{ movie._id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        <div class="modal fade" id="exampleModal-{{ movie._id }}" tabindex="-1" aria-labelledby="movieModalLabel{{ loop.index }}"
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content lounge-white-bg">
                                     <div class="modal-header">
-                                        <h5 class="modal-title lounge-blue-text" id="exampleModalLabel">
+                                        <h5 class="modal-title lounge-blue-text" id="movieModalLabel{{ loop.index }}">
                                             Delete Movie
                                         </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
