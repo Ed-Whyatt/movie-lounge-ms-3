@@ -95,7 +95,7 @@
                                 <p class="lounge-blue-text">You have to be loged in to reply to a message!</p>
                             </li>
                             {% endif %}
-                            {% if session.user|lower == question.created_by|lower or "admin" == session["user"] %}
+                            {% if session.user|lower == question.created_by|lower or session["user"] == "admin" %}
                             <li class="list-group-item">
                                 <div class="col-sm-6">
                                     <button type="button" class="btn lounge-white-text btn-danger"
@@ -170,7 +170,7 @@
                                                                     class="btn lounge-white-text btn-success mt-1">Reply</a>
                                                             </li>
 
-                                                            {% if session.user|lower == answer.created_by|lower %}
+                                                            {% if session.user|lower == answer.created_by|lower or session["user"] == "admin" %}
 
                                                             <!-- bootstrap modal for deleting a answer -->
                                                             <div class="modal fade" id="exampleModal-{{ answer._id }}"
