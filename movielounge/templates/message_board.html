@@ -17,12 +17,12 @@
 {% endif %}
 
 <div class="row">
-    <!-- Messages questtions display for loop -->
+    <!-- Messages questions display for loop -->
     {% for question in questions %}
     {% if session.user|lower == question.created_by|lower or session["user"] == "admin" %}
     <!-- bootstrap modal for deleting a question -->
-    <div class="modal fade" id="exampleModal-{{ question._id }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ loop.index }}"
-        aria-hidden="true">
+    <div class="modal fade" id="exampleModal-{{ question._id }}" tabindex="-1"
+        aria-labelledby="exampleModalLabel{{ loop.index }}" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content lounge-white-bg">
                 <div class="modal-header">
@@ -36,10 +36,10 @@
                     back!
                 </div>
                 <div class="modal-footer">
-                
+
                     <button type="button" class="btn btn-secondary lounge-white-text"
                         data-bs-dismiss="modal">Cancel</button>
-                    
+
                     <a href="{{ url_for('delete_question', question_id=question._id) }}"
                         class="btn lounge-white-text btn-danger">Delete</a>
                 </div>
@@ -56,7 +56,7 @@
                 <div class="row">
 
                     <div class="col-sm-12 col-md-6">
-                        <!-- Bootstrap list groupe for message details -->
+                        <!-- Bootstrap list group for message details -->
                         <ul class="list-group list-group-horizontal mt-1">
                             <li class="list-group-item lounge-blue-text">Category:</li>
                             <li class="list-group-item lounge-blue-text">
@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="col-sm-12 col-md-6">
-                        <!-- Bootstrap list groupe for message details -->
+                        <!-- Bootstrap list group for message details -->
                         <ul class="list-group list-group-horizontal mt-1">
 
                             <li class="list-group-item lounge-blue-text">
@@ -98,8 +98,8 @@
                             {% if session.user|lower == question.created_by|lower or "admin" == session["user"] %}
                             <li class="list-group-item">
                                 <div class="col-sm-6">
-                                    <button type="button" class="btn lounge-white-text btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal-{{ question._id }}">
+                                    <button type="button" class="btn lounge-white-text btn-danger"
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal-{{ question._id }}">
                                         Delete
                                     </button>
                                 </div>
@@ -117,12 +117,12 @@
 
                 </div>
 
-                <!-- Bootstrap accordian for messages-->
+                <!-- Bootstrap accordion for messages-->
                 <div class="accordion mt-1" id="accordionExample{{ loop.index }}">
                     <div class="accordion-item">
                         <div class="accordion-header" id="headingOne{{ loop.index }}">
 
-                            <!-- Accordian button -->
+                            <!-- Accordion button -->
                             <button class="accordion-button accordian-lounge accordian-message" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}"
                                 aria-expanded="false" aria-controls="collapseone">
@@ -130,37 +130,35 @@
                             </button>
 
                         </div>
-                        <!-- Booots strap accordian open body for message question answers -->
+                        <!-- Bootstrap accordion open body for message question answers -->
                         <div id="collapse{{ loop.index }}" class="accordion-collapse collapse"
-                            aria-labelledby="headingOne{{ loop.index }}" data-bs-parent="#accordionExample{{ loop.index }}">
+                            aria-labelledby="headingOne{{ loop.index }}"
+                            data-bs-parent="#accordionExample{{ loop.index }}">
                             <div class="accordion-body lounge-opaque-lite-gray-bg">
 
                                 <div class="row">
                                     <!-- for loop for message answers -->
                                     {% for answer in answers %}
-                                    <!-- If statment to check messages answer id is the same as the answers question id -->
+                                    <!-- If statement to check messages answer id is the same as the answers question id -->
                                     {% if answer.question_id|lower == question._id|lower %}
 
                                     <div class="col-12">
-                                        <!-- boostrap card for message answers -->
+                                        <!-- bootstrap card for message answers -->
                                         <div class="card lounge-opaque-lite-gray-bg">
                                             <div class="card-body mt-1">
                                                 <!-- Bootstrap list groupe for reply message -->
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-6">
                                                         <ul class="list-group list-group-horizontal">
-                                                            <li
-                                                                class="list-group-item lounge-blue-text">
+                                                            <li class="list-group-item lounge-blue-text">
                                                                 From:</li>
-                                                            <li
-                                                                class="list-group-item lounge-blue-text">
+                                                            <li class="list-group-item lounge-blue-text">
                                                                 {{ answer.created_by }}</li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-sm-12 col-md-6">
                                                         <ul class="list-group list-group-horizontal mt-1">
-                                                            <li
-                                                                class="list-group-item lounge-blue-text">
+                                                            <li class="list-group-item lounge-blue-text">
                                                                 {{ answer.answer_message }}</li>
                                                         </ul>
                                                     </div>
@@ -171,12 +169,13 @@
                                                                 <a href="{{ url_for('add_reply', question_id=question._id) }}"
                                                                     class="btn lounge-white-text btn-success mt-1">Reply</a>
                                                             </li>
-                                                            
+
                                                             {% if session.user|lower == answer.created_by|lower %}
 
                                                             <!-- bootstrap modal for deleting a answer -->
                                                             <div class="modal fade" id="exampleModal-{{ answer._id }}"
-                                                                tabindex="-1" aria-labelledby="answerModalLabel{{ loop.index }}"
+                                                                tabindex="-1"
+                                                                aria-labelledby="answerModalLabel{{ loop.index }}"
                                                                 aria-hidden="true">
                                                                 <div class="modal-dialog">
                                                                     <div class="modal-content lounge-white-bg">
@@ -207,9 +206,11 @@
 
                                                             <li class="list-group-item">
                                                                 <div>
-                                                                    <button type="button" class="btn lounge-white-text btn-danger" data-bs-toggle="modal"
-                                                                    data-bs-target="#exampleModal-{{ answer._id }}">
-                                                                    Delete
+                                                                    <button type="button"
+                                                                        class="btn lounge-white-text btn-danger"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#exampleModal-{{ answer._id }}">
+                                                                        Delete
                                                                     </button>
                                                                 </div>
                                                             </li>
@@ -261,11 +262,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- Accordian end -->
+                <!-- Accordion end -->
             </div>
         </div>
-
-
 
     </div>
     <!-- Question for loop end -->

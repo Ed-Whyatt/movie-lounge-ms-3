@@ -14,11 +14,12 @@
 
                     <!-- Password input id = password-->
                     <label for="query" class="form-label lounge-blue-text">Search For a Movie</label>
-                    <input type="text" id="query" name="query" minlength="3" maxlength="30" class="form-control lounge-white-bg"
-                        aria-describedby="queryHelpBlock" required>
+                    <input type="text" id="query" name="query" minlength="3" maxlength="30"
+                        class="form-control lounge-white-bg" aria-describedby="queryHelpBlock" required>
                     <div id="queryHelpBlock" class="form-text">
                     </div>
-                    <button type="submit" class="btn btn-secondary lounge-light-blue-bg lounge-blue-text">Search</button>
+                    <button type="submit"
+                        class="btn btn-secondary lounge-light-blue-bg lounge-blue-text">Search</button>
                     <a href="{{ url_for('add_movie') }}" class="btn lounge-white-text btn-success">Reset</a>
                 </form>
                 <!-- End of form -->
@@ -41,7 +42,8 @@
                         {% if movie.poster != "N/A" %}
                         <img src="{{ movie.poster }}" class="img-fluid rounded" alt="Movie poster">
                         {% else %}
-                        <img src="{{ url_for('static', filename='image/placeholder.png') }}" class="img-fluid rounded" alt="Movie poster">
+                        <img src="{{ url_for('static', filename='image/placeholder.png') }}" class="img-fluid rounded"
+                            alt="Movie poster">
                         {% endif %}
                     </div>
                 </div>
@@ -57,12 +59,12 @@
                 <div class="col-12">
                     <div class="card-body">
                         <!-- Add movie button -->
-                        <a href="{{ url_for('select_movie', movie_title=movie.title) }}" class="card-link btn btn-secondary lounge-light-blue-bg lounge-blue-text">
+                        <a href="{{ url_for('select_movie', movie_title=movie.title) }}"
+                            class="card-link btn btn-secondary lounge-light-blue-bg lounge-blue-text">
                             Add this movie to your lists
                         </a>
                     </div>
                 </div>
-
 
             </div>
 

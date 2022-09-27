@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="This is a app website for users to log in add movies to there list and leave messages to the other users.">
+  <meta name="description"
+    content="This is a app website for users to log in add movies to there list and leave messages to the other users.">
 
   <!-- Font Awesome 5.15 CDN link -->
   <script src="https://use.fontawesome.com/5cd5cccaa1.js"></script>
@@ -13,13 +14,13 @@
   <!-- Bootstrap 5.2 css CDN link -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  
+
   <!-- Movie Lounge css -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
   {% block styles %}
-    {% endblock %}
+  {% endblock %}
   <title>Movie Lounge</title>
-  
+
 </head>
 
 <body>
@@ -33,22 +34,27 @@
           aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand mx-auto" href="{{ url_for('get_movies') }}"> <h1 class="lounge-blue-text"> Movie Lounge </h1></a>
+        <a class="navbar-brand mx-auto" href="{{ url_for('get_movies') }}">
+          <h1 class="lounge-blue-text"> Movie Lounge </h1>
+        </a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link {% block nav_home %}{% endblock %}" href="{{ url_for('get_movies') }}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {% block nav_message_board %}{% endblock %}" href="{{ url_for('get_questions') }}">Message Board</a>
+              <a class="nav-link {% block nav_message_board %}{% endblock %}"
+                href="{{ url_for('get_questions') }}">Message Board</a>
             </li>
             {% if session.user %}
             <li class="nav-item">
-              <a class="nav-link {% block nav_add_movie %}{% endblock %}" href="{{ url_for('add_movie') }}">Add Movie</a>
+              <a class="nav-link {% block nav_add_movie %}{% endblock %}" href="{{ url_for('add_movie') }}">Add
+                Movie</a>
             </li>
             {% if session.user|lower == "admin"|lower %}
             <li class="nav-item">
-              <a class="nav-link {% block manage_cat %}{% endblock %}" href="{{ url_for('get_categories') }}">Manage Categties</a>
+              <a class="nav-link {% block manage_cat %}{% endblock %}" href="{{ url_for('get_categories') }}">Manage
+                Categties</a>
             </li>
             {% endif %}
             <li class="nav-item">
@@ -79,25 +85,25 @@
   <section class="container">
     <!-- flash messages -->
     {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="row">
-                  <div clas="col">
-                    <!-- Bootstrap alert -->
-                    <div class="lounge-main-opaque-bg mt-4 mb-3 alert" role="alert">
-                      <h4 class="text-center lounge-blue-text">{{ message }}</h4>
-                    </div>
-                  </div>
-                </div>
-            {% endfor %}
-        {% endif %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="row">
+      <div clas="col">
+        <!-- Bootstrap alert -->
+        <div class="lounge-main-opaque-bg mt-4 mb-3 alert" role="alert">
+          <h4 class="text-center lounge-blue-text">{{ message }}</h4>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
     {% endwith %}
-</section>
+  </section>
 
   <!-- Block content to be displayed here -->
   <main class="container">
-      {% block content %}
-      {% endblock %}
+    {% block content %}
+    {% endblock %}
   </main>
 
   <!-- Footer -->
@@ -112,28 +118,27 @@
         <!-- Bootstrap list css -->
         <ul class="list-inline float-end footer">
           <li class="list-inline-item">
-            <a href="https://www.facebook.com/"
-              aria-label="Go to our facebook page (opens in new tab)" target="_blank">
+            <a href="https://www.facebook.com/" aria-label="Go to our facebook page (opens in new tab)" target="_blank">
               <span>
-                <i class="fa fa-facebook-square" aria-hidden="true"></i> 
+                <i class="fa fa-facebook-square" aria-hidden="true"></i>
               </span>
             </a>
           </li>
           <li class="list-inline-item">
-            <a href="https://www.instagram.com/"
-              aria-label="Go to our instagram page (opens in new tab)" target="_blank">
+            <a href="https://www.instagram.com/" aria-label="Go to our instagram page (opens in new tab)"
+              target="_blank">
               <span>
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </span>
             </a>
           </li>
           <li class="list-inline-item">
-            <a href="https://twitter.com/?lang=en-gb"
-              aria-label="Go to our twitter page (opens in new tab)" target="_blank">
-            <span>
-              <i class="fa fa-twitter-square" aria-hidden="true"></i>
-            </span>
-          </a>
+            <a href="https://twitter.com/?lang=en-gb" aria-label="Go to our twitter page (opens in new tab)"
+              target="_blank">
+              <span>
+                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+              </span>
+            </a>
           </li>
         </ul>
       </div>

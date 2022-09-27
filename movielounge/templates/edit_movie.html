@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block nav_add_movie %}active{% endblock %}
+{% block nav_home %}active{% endblock %}
 {% block content %}
 
 <h2 class="text-center lounge-blue-text mt-1">Edit Movie</h2>
@@ -38,11 +38,12 @@
                                 aria-label="Default select example" required>
                                 <option selected>Choose A Category</option>
                                 {% for category in categories %}
-                                    {% if category.category_name == movie.category_name %}
-                                    <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
-                                    {% else %}
-                                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                                    {% endif %}
+                                {% if category.category_name == movie.category_name %}
+                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}
+                                </option>
+                                {% else %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                {% endif %}
                                 {% endfor %}
                             </select>
 

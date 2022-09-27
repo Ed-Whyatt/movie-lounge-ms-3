@@ -19,7 +19,8 @@
                     <div class="col">
                         <div class="card-body lounge-blue-text">
 
-                            <select id="category_name" name="category_name" class="form-select lounge-white-bg" aria-label="Default select example" required>
+                            <select id="category_name" name="category_name" class="form-select lounge-white-bg"
+                                aria-label="Default select example" required>
                                 <option selected>Choose A Category</option>
                                 {% for category in categories %}
                                 <option value="{{ category.category_name }}">{{ category.category_name }}</option>
@@ -28,13 +29,17 @@
 
                             <div class="mb-3">
                                 <label for="question_description" class="form-label ">Message: </label>
-                                <textarea class="form-control lounge-white-bg" id="question_description" name="question_description" type="text" minlength="3" maxlength="200" row="10" col="8" required>None</textarea>
+                                <textarea class="form-control lounge-white-bg" id="question_description"
+                                    name="question_description" type="text" minlength="3" maxlength="200" row="10"
+                                    col="8" required>None</textarea>
                             </div>
 
                             <div class="card-body d-grid gap-2 col-6 mx-auto">
                                 <!-- Edit and delete movie buttons -->
-                                <button type="submit" class="btn btn-secondary lounge-light-blue-bg lounge-blue-text">Add Message</button>
-                                <a href="{{ url_for('get_questions') }}" class="btn lounge-white-text btn-success">Cancel</a>
+                                <button type="submit"
+                                    class="btn btn-secondary lounge-light-blue-bg lounge-blue-text">Add Message</button>
+                                <a href="{{ url_for('get_questions') }}"
+                                    class="btn lounge-white-text btn-success">Cancel</a>
                             </div>
 
                         </div>

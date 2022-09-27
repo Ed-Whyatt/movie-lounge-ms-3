@@ -5,14 +5,12 @@
 <h2 class="text-center lounge-blue-text mt-1">Home</h2>
 <h3 class="text-center lounge-blue-text mt-2">Users Movies</h3>
 
-
-
 <div class="row">
     {% for movie in movies %}
 
     <div class="col-12 col-md-6 col-xl-4">
 
-        <!-- Boostrap card -->
+        <!-- Bootstrap card -->
         <div class="card mb-3 movie-card lounge-main-opaque-bg">
 
             <div class="row g-0">
@@ -41,14 +39,17 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingOne{{ loop.index }}">
                                 <!-- jinja loop index used for accordian -->
-                                <button class="accordion-button accordion-movie collapsed lounge-blue-text accordian-lounge" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ loop.index }}"
-                                    aria-expanded="false" aria-controls="flush-headingOne{{ loop.index }}">
+                                <button
+                                    class="accordion-button accordion-movie collapsed lounge-blue-text accordian-lounge"
+                                    type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapse{{ loop.index }}" aria-expanded="false"
+                                    aria-controls="flush-headingOne{{ loop.index }}">
                                     Click Here For More Information
                                 </button>
                             </h2>
                             <div id="flush-collapse{{ loop.index }}" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingOne{{ loop.index }}" data-bs-parent="#accordionFlushExample{{ loop.index }}">
+                                aria-labelledby="flush-headingOne{{ loop.index }}"
+                                data-bs-parent="#accordionFlushExample{{ loop.index }}">
 
                                 <div class="accordion-body lounge-opaque-gray-bg">
                                     <div class="card-body">
@@ -75,14 +76,13 @@
                     </div>
                 </div>
 
-
                 <div class="col-12">
                     <div class="card-body">
                         {% if session.user|lower == movie.created_by|lower or "admin" == session["user"] %}
 
                         <!-- bootstrap modal for deleting movie -->
-                        <div class="modal fade" id="exampleModal-{{ movie._id }}" tabindex="-1" aria-labelledby="movieModalLabel{{ loop.index }}"
-                            aria-hidden="true">
+                        <div class="modal fade" id="exampleModal-{{ movie._id }}" tabindex="-1"
+                            aria-labelledby="movieModalLabel{{ loop.index }}" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content lounge-white-bg">
                                     <div class="modal-header">
@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary lounge-white-text"
-                                            data-bs-dismiss="modal">Close</button>
+                                            data-bs-dismiss="modal">Cancel</button>
                                         <a href="{{ url_for('delete_movie', movie_id=movie._id) }}"
                                             class="btn lounge-white-text btn-danger">Delete</a>
                                     </div>
