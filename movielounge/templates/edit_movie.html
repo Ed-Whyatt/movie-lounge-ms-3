@@ -34,19 +34,19 @@
                             <p class="card-text">IMDB Rating: {{ movie.imdb_rating }}</p>
                             <p class="card-text">Plot: {{ movie.plot }}</p>
 
-                            <select id="category_id" name="category_id" class="form-select lounge-opaque-gray-bg"
+                            <select id="category_name" name="category_name" class="form-select lounge-opaque-gray-bg"
                                 aria-label="Default select example" required>
                                 <option selected>Choose A Category</option>
                                 {% for category in categories %}
-                                {% if category.id == movie.category_id | int %}
-                                <option value="{{ category.id }}" selected>{{ category.category_name }}</option>
-                                {% else %}
-                                <option value="{{ category.id }}">{{ category.category_name }}</option>
-                                {% endif %}
+                                    {% if category.category_name == movie.category_name %}
+                                    <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                                    {% else %}
+                                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                    {% endif %}
                                 {% endfor %}
                             </select>
 
-                            <select id="user_rating" name="user_rating" class="form-select lounge-opaque-gray-bg"
+                            <select id="user_rating" name="user_rating" class="form-select lounge-opaque-gray-bg mt-1"
                                 aria-label="Default select example">
                                 <option selected>{{ movie.user_rating }}</option>
                                 <option value="Not Watched">Not Watched</option>
