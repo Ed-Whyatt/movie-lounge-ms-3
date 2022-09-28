@@ -320,16 +320,98 @@ You will need to go to MonGoDB Atlas and create an accout first, Details on how 
 ### - movies
 ![text](/documentation/mongo-db-documents-images/movies.png)
 ***
-## Setting up Prosgres local Database
-1. Open the terminal in your gidpod workspace
-2. Type:
+## Setting up Prosgres local Database and Setting up Flask Development env.py file with vars and keys for mongo database, prosgres database and omdb api wrapper.
+1. First navigate to [http://www.omdbapi.com/](http://www.omdbapi.com/) select the api key tab and fill in the form for your key.
+2. Open the terminal in your gitpod workspace.
+3. To istall the framworks to work with progress database and omdb wrapper type in the terminal:
 ```bash
-pip3 install Flask-SQLAlchemy psycopg2
+pip3 install Flask-SQLAlchemy psycopg2 omdb
 ```
+4. Next, we will be storing some sensitive data, and we need to hide them using environment variables hidden within a new file called 'env.py'.
+5. Create a new env.py in the terminal by typeing:
+```bash
+touch env.py
+```
+6. Make sure yo have a '.gitignore' if not create one and that env.py is in the list so that this will not be pushed to your git hub repo.
+```bash
+touch .gitignore
+```
+7. Within your env.py file put in the following with your relevent keys information.
+```python
+import os
 
-***
-Setting up Flask Development env.py file with vars and key.
-***
+os.environ.setdefault("IP", "e.g. 0.0.0.0")
+os.environ.setdefault("PORT", "e.g. 5000")
+os.environ.setdefault("SECRET_KEY", "your_own_secret_key")
+os.environ.setdefault("DEBUG", "True")
+os.environ.setdefault("DEVELOPMENT", "True")
+os.environ.setdefault("DB_URL", "postgresql:/// name of your database here ")
+os.environ.setdefault("MONGO_URI", " name of your mongo uri here")
+os.environ.setdefault("MONGO_DBNAME", " your mongo database name")
+os.environ.setdefault("API_KEY", " your omdb key here ")
+```
+9. Next create a folder for your app e.g. movielounge and within that folder create a ```__init__.py``` This will make sure to initialize our taskmanager application as a package, allowing us to use
+our own imports, as well as any standard imports.
+```bash
+__init__.py
+```
+10. Now we can create an instance of the imported Flask() class, and that will be stored in
+a variable called 'app', which takes the default Flask __name__ module.
+Then, we need to specify two app configuration variables, and these will both come from our environment variables.
+app.config SECRET_KEY and app.config SQLALCHEMY_DATABASE_URI, both wrapped in square brackets and quotes.
+Each of these will be set to get their respective environment variable, which is SECRET_KEY,
+and the short and sweet DB_URL for the database location which we'll set up later.
+Then, we need to create an instance of the imported SQLAlchemy() class, which will be
+assigned to a variable of 'db', and set to the instance of our Flask 'app'.
+Finally, from our movielounge package, we will be importing a file called 'routes' which is allready create in the repo.
+Within your ```__init__.py``` file type the following.
+```python
+import os
+import re
+from flask import Flask
+from flask_pymongo import PyMongo
+from flask_sqlalchemy import SQLAlchemy
+from omdb import OMDBClient
+if os.path.exists("env.py"):
+    import env  # noqa
+
+
+app = Flask(__name__)
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.config["API_KEY"] = os.environ.get("API_KEY")
+
+
+db = SQLAlchemy(app)
+mongo = PyMongo(app)
+api_key = os.environ.get("API_KEY")
+client = OMDBClient(apikey=api_key)
+
+from moviemanager import routes  # noqa
+
+```
+11. Now it's time to create the main Python file that will actually run the entire application.
+This will be at the root level of our workspace, not part of the moviemanage package itself.
+Since it will run the whole application, let's just call it run.py in that case.
+```bash
+touch run.py
+```
+12. Use the same details located in the repo run.py file.
+```python
+import os
+from movielounge import app
+
+
+if __name__ == "__main__":
+    app.run(
+        host=os.environ.get("IP"),
+        port=int(os.environ.get("PORT")),
+        debug=os.environ.get("DEBUG")
+    )
+
+```
 
 ## Deployment on Heroku and linking git repo
 
