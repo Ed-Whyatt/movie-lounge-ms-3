@@ -244,10 +244,6 @@ Am I Responsive has been used for the responsive image at the top of README.md y
 1. [Heroku](https://id.heroku.com/login)
     - A cloud based platform for hosting python web aplications. 
 
-###  keys: 
--
- #### Creating keys
-
 ***
 ## Testing
 
@@ -319,9 +315,12 @@ You will need to go to MonGoDB Atlas and create an accout first, Details on how 
 ![text](/documentation/mongo-db-documents-images/questions.png)
 ### - movies
 ![text](/documentation/mongo-db-documents-images/movies.png)
+
 ***
-## Setting up Prosgres local Database and Setting up Flask Development env.py file with vars and keys for mongo database, prosgres database and omdb api wrapper.
-1. First navigate to [http://www.omdbapi.com/](http://www.omdbapi.com/) select the api key tab and fill in the form for your key.
+
+## Setting up Flask Development env.py file with vars and keys for mongo database, prosgres database and omdb api wrapper.
+
+1. First navigate to [http://www.omdbapi.com/](http://www.omdbapi.com/) select the api key tab and fill in the form to recive your ondb via email. this will go in the env.py file shown in step 7.
 2. Open the terminal in your gitpod workspace.
 3. To istall the framworks to work with progress database and omdb wrapper type in the terminal:
 ```bash
@@ -355,7 +354,8 @@ our own imports, as well as any standard imports.
 ```bash
 __init__.py
 ```
-10. Now we can create an instance of the imported Flask() class, and that will be stored in
+10. 
+- Now we can create an instance of the imported Flask() class, and that will be stored in
 a variable called 'app', which takes the default Flask __name__ module.
 Then, we need to specify two app configuration variables, and these will both come from our environment variables.
 app.config SECRET_KEY and app.config SQLALCHEMY_DATABASE_URI, both wrapped in square brackets and quotes.
@@ -363,8 +363,10 @@ Each of these will be set to get their respective environment variable, which is
 and the short and sweet DB_URL for the database location which we'll set up later.
 Then, we need to create an instance of the imported SQLAlchemy() class, which will be
 assigned to a variable of 'db', and set to the instance of our Flask 'app'.
-Finally, from our movielounge package, we will be importing a file called 'routes' which is allready create in the repo.
-Within your ```__init__.py``` file type the following.
+
+- Finally, from our movielounge package, we will be importing a file called 'routes' which is allready create in the movie-lounge-ms-3 repo. 
+- Within your ```__init__.py``` file should look like the following.
+
 ```python
 import os
 import re
@@ -389,16 +391,16 @@ mongo = PyMongo(app)
 api_key = os.environ.get("API_KEY")
 client = OMDBClient(apikey=api_key)
 
-from moviemanager import routes  # noqa
+from movielounge import routes  # noqa
 
 ```
 11. Now it's time to create the main Python file that will actually run the entire application.
-This will be at the root level of our workspace, not part of the moviemanage package itself.
+This will be at the root level of our workspace, not part of the movielounge package itself.
 Since it will run the whole application, let's just call it run.py in that case.
 ```bash
 touch run.py
 ```
-12. Use the same details located in the repo run.py file.
+12. Use the same details located in the movie-lounge-ms-3 repo run.py file.
 ```python
 import os
 from movielounge import app
@@ -411,6 +413,122 @@ if __name__ == "__main__":
         debug=os.environ.get("DEBUG")
     )
 
+```
+***
+Setting up Prosgres local Database
+***
+Using the models.py file in the movie-lounge-ms-3 repo. This file will create the Users and Categorys in the posgress database.
+- models.py file
+```python
+from movielounge import db
+
+
+class Category(db.Model):
+    # schema for the Category model
+    id = db.Column(db.Integer, primary_key=True)
+    category_name = db.Column(db.String(30), unique=True, nullable=False)
+
+    def __repr__(self):
+        # __repr__ to represent itself in the form of a string
+        return self.category_name
+
+
+class Users(db.Model):
+    # schema for the Task model
+    id = db.Column(db.Integer, primary_key=True)
+    user_name = db.Column(db.String(50), unique=True, nullable=False)
+    password = db.Column(db.String(260), nullable=False)
+
+    def __repr__(self):
+        # __repr__ to represent itself in the form of a string
+        return self.user_name
+```
+1. Open the terminal in your gitpod workspace and type the following and hit enter.
+```bash
+set_pg
+```
+2. Then
+```bash
+psql
+```
+You should see the follwing:
+```psql
+psql (12.12 (Ubuntu 12.12-1.pgdg20.04+1))
+Type "help" for help.
+
+postgres=# 
+```
+3. To create the database type the follwing and hit enter:
+```psql
+postgres=# CREATE DATABASE movielounge;
+```
+4. To check it has worked type
+```psql
+postgres=# \c movielounge;
+```
+- You should now see the new psql movielounge database in the cli as follows.
+```psql
+movielounge=#
+```
+5. Now exit psql cli by typing \q and hit enter.
+```psql 
+movielounge=#\q
+```
+6. Next, we need to use Python to generate and migrate our models into this new database.
+This will take the models that we've created for Category and Users, and build the database schema using the details we've provided.
+By typing python3 enter in the gitpod workspace terminal.
+```bash
+python3
+```
+- you shold now be in the python interpreter
+```psql
+Python 3.8.11 (default, Sep  7 2022, 11:13:18) 
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+````
+7. From here, we need to import our 'db' variable found within the movielounge package, so type:
+from movielounge import db
+```psql
+Python 3.8.11 (default, Sep  7 2022, 11:13:18) 
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from movielounge import db
+````
+8. Now, using db, we need to perform the .create_all() method:
+```psql
+Python 3.8.11 (default, Sep  7 2022, 11:13:18) 
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from movielounge import db
+>>> db.create_all()
+````
+9. That's it, pretty simple enough, our Postgres database should be populated with these two tables and their respective columns and relationships.
+10. Type exit() to exit the python interpreter.
+```psql
+>>> exit()
+````
+11. Finaly to check everything worked you can check the psql movielounge by typing.
+```psql
+psql -d movielounge
+```
+- Then type
+```psql
+\dt
+```
+- You should see the tables and there relevent collums.
+```psql
+psql (12.12 (Ubuntu 12.12-1.pgdg20.04+1))
+Type "help" for help.
+movielounge-# \dt
+         List of relations
+ Schema |   Name   | Type  | Owner  
+--------+----------+-------+--------
+ public | category | table | gitpod
+ public | users    | table | gitpod
+(2 rows)
+
+movielounge-# 
 ```
 
 ## Deployment on Heroku and linking git repo
