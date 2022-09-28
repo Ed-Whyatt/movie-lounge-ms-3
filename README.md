@@ -42,7 +42,8 @@
 # Design
 
 ## Design Introduction
-- 
+- This wbsite application is designed for users who are intrested in joinig the movie lounge comunity. Users will be able to search for movies and add there own commemts and ratings to them witch will be displayed on the home page. The users will be able to create questions and reply to them in on the message bored once they have created an accout and loged in. 
+
 ## Colour Scheme
 
 - ### [Color Mind](http://colormind.io/) : Colormind has been used to aid the decision the colour scheme for the project.
@@ -195,10 +196,9 @@ Am I Responsive has been used for the responsive image at the top of README.md y
     - Delete category modal
     ### ![text](/documentation/introactive-images/del-cat.png)
 - Log in
-   - Log in page
    ### ![text](/documentation/introactive-images/login.png)
 - Register
-### ![text](/documentation/introactive-images/register.png)
+   ### ![text](/documentation/introactive-images/register.png)
 - User loged in display name
     - User loged in
     ### ![text](/documentation/introactive-images/user-loged-in.png)
@@ -242,7 +242,7 @@ Am I Responsive has been used for the responsive image at the top of README.md y
 1. [omdb.py](https://omdbpy.readthedocs.io/en/latest/)
     - Python wrapper around The Open Movie Database API (OMDb API): [http://omdbapi.com/](http://omdbapi.com/). Used for the movie search.
 1. [Heroku](https://id.heroku.com/login)
-    - A cloud based platform for hosting python web aplications. 
+    - A cloud based platform for that is used for hosting this python web based aplication. 
 
 ***
 ## Testing
