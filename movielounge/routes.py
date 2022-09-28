@@ -31,7 +31,7 @@ def get_questions():
         "message_board.html", questions=questions, answers=answers)
 
 
-# --- Add a question to messge board --- #
+# --- Add a question to message board --- #
 @app.route("/add_question", methods=["GET", "POST"])
 def add_question():
     """
@@ -67,15 +67,15 @@ def edit_question(question_id):
     message question in mongo database.
     """
 
-    question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
-
     if "user" not in session:
         flash("You can only edit your own messages")
         return redirect(url_for("get_questions"))
 
+    question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
+
     if request.method == "POST":
         submit = {
-            "category_name": question.get("category_name"),
+            "category_name": request.form.get("category_name"),
             "question_description": request.form.get("question_description"),
             "created_by": session["user"]
         }
