@@ -216,17 +216,15 @@ Am I Responsive has been used for the responsive image at the top of README.md y
 1. [Bootstrap 5.2.0:](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
     - Bootstrap was used to assist with the responsiveness and styling of the website.
 1. [Google Fonts:](https://fonts.google.com/)
-    - Google fonts were used to import the 'Lato', 'Poppins' and 'Pacifico' fonts into the style.css file which is used on all pages throughout the project.
+    - Google fonts is used to import the Google font 'Lato' with a fallback of sans-serif into the style.css file which is used on all pages throughout the project.
 1. [Font Awesome:](https://fontawesome.com/)
     - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
-1. [jQuery:](https://jquery.com/)
-    - jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript.
 1. [Git](https://git-scm.com/)
     - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 1. [GitHub:](https://github.com/)
     - GitHub is used to store the projects code after being pushed from Git.
 1. [Balsamiq:](https://balsamiq.com/)
-    - Balsamiq was used to create the wireframes
+    - Balsamiq was used to create the wireframes.
 1. [Am I Responsive Design:](http://ami.responsivedesign.is/)
     - Am I Responsive Design was used for the responsive image in Readme.
 1. [Pymongo](https://pypi.org/project/pymongo/) and [Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)
@@ -242,7 +240,9 @@ Am I Responsive has been used for the responsive image at the top of README.md y
 1. [SQLAlchemy](https://www.sqlalchemy.org/)
     - Used to filter and search through the database.
 1. [omdb.py](https://omdbpy.readthedocs.io/en/latest/)
-    - Python wrapper around The Open Movie Database API (a.k.a. OMDb API): [http://omdbapi.com/](http://omdbapi.com/). Used for the movie search.
+    - Python wrapper around The Open Movie Database API (OMDb API): [http://omdbapi.com/](http://omdbapi.com/). Used for the movie search.
+1. [Heroku](https://id.heroku.com/login)
+    - A cloud based platform for hosting python web aplications. 
 
 ###  keys: 
 -
@@ -256,7 +256,6 @@ Am I Responsive has been used for the responsive image at the top of README.md y
 
 ## Deployment
 ***
-
 
 ### Forking the GitHub Repository
 
@@ -294,6 +293,45 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://github.com/Ed-Whyatt/movie-lounge-ms-3.git)
 
+***
+
+## Setting up MongoDB Atlas for database use
+
+You will need to go to MonGoDB Atlas and create an accout first, Details on how to do this can be found here: [MongoDB Atlas](https://www.mongodb.com/docs/atlas/)
+
+1. Once you have loged in navgate click to create a cluster.
+2. Select a clound service aws is free and used for this database.
+3. Select the region that is nearest to you e.g Europe (Ireland).
+4. Select cluster Tier M0 has been used for this site and is free.
+5. Scroll down to the bottom and choose a cluster name e.g. movielounge, This will be used in your own env.py with your own vars and keys witch will never be stored in your git hub repo.
+6. Then click on create cluster. This will take a few minits to create your Database and take you to your database page.
+7. Click on Database Access, Then Add New Database User.
+8. Create a new user and password do not use non-alphanumeric characters (e.g.: ?, %,@ or &) in your username or password! Make sure your user privileges are set to Read and Write to any database.
+9. Then click add user.
+10. Next click on Network Access and add the IP address you will use to access your database.
+10, Click on clusters tab and select your cluster e.g. My First Cluster.
+11. Then select collections tab and click on Add My Own Data.
+12. Fill out the new database name e.g Database name - myFirstDB , Collection name - movies, questions and ancers. Then click create.
+13. Once you have created the databases click on insert document and fill in the details for each database. The databases for the three mongo database documents used for this project are:
+### - answers
+![text](/documentation/mongo-db-documents-images/answers.png)
+### - questions
+![text](/documentation/mongo-db-documents-images/questions.png)
+### - movies
+![text](/documentation/mongo-db-documents-images/movies.png)
+***
+## Setting up Prosgres local Database
+1. Open the terminal in your gidpod workspace
+2. Type:
+```bash
+pip3 install Flask-SQLAlchemy psycopg2
+```
+
+***
+Setting up Flask Development env.py file with vars and key.
+***
+
+## Deployment on Heroku and linking git repo
 
 ## Credits
 ***
