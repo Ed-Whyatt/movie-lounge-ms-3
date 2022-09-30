@@ -155,6 +155,7 @@ def edit_reply(answer_id):
         submit = {
             "answer_message": request.form.get("answer_message"),
             "question_id": answer.get("question_id"),
+            "category_name": answer.get("category_name"),
             "created_by": session["user"]
         }
         mongo.db.answers.replace_one({"_id": ObjectId(answer_id)}, submit)
@@ -367,7 +368,14 @@ def edit_category(category_id):
         return redirect(url_for("get_movies"))
 
     category = Category.query.get_or_404(category_id)
+
     if request.method == "POST":
+        old_category = {"category_name": str(category)}
+        new_category = request.form.get("category_name")
+        new_category_val = {"$set": {"category_name": str(new_category)}}
+        mongo.db.movies.update_many(old_category, new_category_val)
+        mongo.db.questions.update_many(old_category, new_category_val)
+        mongo.db.answers.update_many(old_category, new_category_val)
         category.category_name = request.form.get("category_name")
         db.session.commit()
         flash("Category Edit Successful")
