@@ -532,6 +532,94 @@ movielounge-#
 ```
 
 ## Deployment on Heroku and linking git repo
+1. To deploy the project online to a Heroku application, we need to
+set up some required files that Heroku needs in order to run the app.
+First, we need to tell Heroku which applications and dependencies are required to run our app,
+which must be in a file called 'requirements.txt'.
+while in the gitpod woekspace terminal type.
+```bash
+pip3 freeze --local > requirements.txt
+```
+you shold now have a requirements.txt wuth all of the installed packages needed.
+```txt
+click==8.1.3
+dnspython==2.2.1
+Flask==2.2.2
+Flask-PyMongo==2.3.0
+Flask-SQLAlchemy==2.5.1
+greenlet==1.1.3
+itsdangerous==2.1.2
+omdb==0.10.1
+psycopg2==2.9.3
+pymongo==4.2.0
+SQLAlchemy==1.4.41
+Werkzeug==2.2.2
+```
+2. Next, you need a Procfile witch is what Heroku looks for to know which file runs the app, and how to run it, so we'll use the echo command: "echo web: python run.py > Procfile".
+```bash
+echo web: python run.py > Procfile
+```
+you should now have a Procfile with the folling in it:
+```bash
+web: python run.py
+```
+2. Head over to the Heroku website [https://devcenter.heroku.com/](https://devcenter.heroku.com/) now, where you should created an account and account if you do not have one allready. Navigate to the dashboard once logged in, and click on the button for creating a new app on your profile.
+3. Heroku apps must have a unique name, which generally use a 'dash' or 'hyphen' instead of spaces, and should use all lowercase letters e.g. movie-lounge.
+Make sure to select the region closest to you, and then click "Create App".
+4. On the "Resources" tab, underneath the "Add-ons" section.
+Search for "Heroku Postgres", which will provide us with various Plans to choose from.
+For our purposes, the free 'Hobby Dev' is perfectly suitable.
+5. Once the Postgres database has been attached to our app, click on the "Settings" tab, and scroll to the section called "Config Vars".
+Config Variables are the same thing as Environment Variables, which contain confidential key-value pairs located in the Setting up Flask Development env.py in this README.md
+As you can see after revealing the config vars, our new Postgres database URL has been
+automatically applied for us, and is being hosted on Amazon AWS.
+5. Back within our Heroku config vars, we need to add the other variables that are currently saved within the env.py file. The only two that we do not want to include are the "DEVELOPMENT" and "DB_URL" variables. So your Heroku vars shuld look like the follwing.
+![text](/documentation/heroku-images/heroku-vars.png)
+6. Now go back in the gitpod workspace, and open the ```__init__.py``` file.
+As you can see, the app is currently configured to look for the local database, so we can add a conditional check for Heroku's Postgres database.
+If the "DEVELOPMENT" environment variable is set to True, then we are working with our local database.
+Otherwise, since we didn't set that variable on Heroku, then it should use Heroku's "DATABASE_URL" instead.
+The updated information in the ```__init__.py``` file should now look like the following.
+```python
+app = Flask(__name__)
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.config["API_KEY"] = os.environ.get("API_KEY")
+
+if os.environ.get("DEVELOPMENT") == "True":
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")  # local
+else:
+    uri = os.environ.get("DATABASE_URL")
+    if uri.startswith("postgres://"):
+        uri = uri.replace("postgres://", "postgresql://", 1)
+    app.config["SQLALCHEMY_DATABASE_URI"] = uri  # heroku
+```
+7. From within the "Deploy" tab in heroku, You can now deploy directly from the GitHub repository clone. Click on the Github tab and, Make sure your own GitHub profile is displayed, then add your repository name and click Search.
+If successfully found, you can now click "Connect" which will link your app to the repository. On this project, we were pushing all changes to the main or master branch, so now we can select "Enable Automatic Deploys", followed by "Deploy Branch".
+You should see the message, "Your app was successfully deployed".
+8. After we can see the updates being made on Heroku’s Activity tab, and the build is
+complete, the final step we need to perform is to create our tables on the database.
+Scroll to the top, and click the "More" dropdown button, then select "Run console".
+9. within the console terminal type "python3" to access the Python interpreter.
+from movielounge import db db.create_all()
+Our Heroku database should now have the tables and columns created from our models.py file,
+from movielounge import db
+```psql
+Python 3.8.11 (default, Sep  7 2022, 11:13:18) 
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from movielounge import db
+````
+- Now, using db, we need to perform the .create_all() method:
+```psql
+Python 3.8.11 (default, Sep  7 2022, 11:13:18) 
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from movielounge import db
+>>> db.create_all()
+````
+11. once thats done we can exit() this console. Everything should be linked up properly now, so we can finally click on the "Open App" button.
 
 ## Credits
 ***
