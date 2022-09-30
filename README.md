@@ -243,11 +243,13 @@ Am I Responsive has been used for the responsive image at the top of README.md y
     - Python wrapper around The Open Movie Database API (OMDb API): [http://omdbapi.com/](http://omdbapi.com/). Used for the movie search.
 1. [Heroku](https://id.heroku.com/login)
     - A cloud based platform for that is used for hosting this python web based aplication. 
+1. [SmartDraw](https://cloud.smartdraw.com/)
+    - SmartDraw helps us create compelling visual content - including Org Charts, Business Processes and Work Flowcharts and has been used for the DataModal.
 
 ***
 ## Testing
 
-### Testing is in TESTING.md - [Link to TESTING.md](#) NO LINK
+### Testing is in TESTING.md - [Link to TESTING.md](/TESTING.md)
 ***
 
 ## Deployment
@@ -633,16 +635,6 @@ Type "help", "copyright", "credits" or "license" for more information.
    -   [Bootstrap5](https://getbootstrap.com/docs/5.4/getting-started/introduction/): Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System.
 
    -   [W3 Schools](https://www.w3schools.com/): W3 Schools has been used with some elements in this project.
-
-
-   -   OTHERS
-   -
-   -
-
- - ### Tutorials used
-    - ####  DOCUMTATION FOR OMDB
-   
-
 
 ### Content
    -   All content was written by the developer.
