@@ -42,7 +42,7 @@
 
                             <select id="category_name" name="category_name" class="form-select lounge-opaque-gray-bg"
                                 aria-label="Default select example" required>
-                                <option selected>Choose A Category</option>
+                                <option value="" selected>Choose A Category</option>
                                 {% for category in categories %}
                                 <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                                 {% endfor %}
@@ -67,7 +67,7 @@
                             <div class="mb-3">
                                 <label for="user_notes" class="form-label ">User Notes:</label>
                                 <textarea class="form-control lounge-opaque-gray-bg" id="user_notes" name="user_notes"
-                                    type="text" minlength="3" maxlength="200" required>None</textarea>
+                                    minlength="3" maxlength="200" required>None</textarea>
                             </div>
 
                             <div class="card-body d-grid gap-2 col-6 mx-auto">
