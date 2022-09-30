@@ -21,7 +21,7 @@
 
                             <select id="category_name" name="category_name" class="form-select lounge-white-bg"
                                 aria-label="Default select example" required>
-                                <option selected>Choose A Category</option>
+                                <option value="" selected>Choose A Category</option>
                                 {% for category in categories %}
                                 <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                                 {% endfor %}
@@ -30,8 +30,7 @@
                             <div class="mb-3">
                                 <label for="question_description" class="form-label ">Message: </label>
                                 <textarea class="form-control lounge-white-bg" id="question_description"
-                                    name="question_description" type="text" minlength="3" maxlength="200" row="10"
-                                    col="8" required>None</textarea>
+                                    name="question_description" minlength="3" maxlength="200" placeholder="None" required></textarea>
                             </div>
 
                             <div class="card-body d-grid gap-2 col-6 mx-auto">
