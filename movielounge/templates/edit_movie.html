@@ -36,7 +36,7 @@
 
                             <select id="category_name" name="category_name" class="form-select lounge-opaque-gray-bg"
                                 aria-label="Default select example" required>
-                                <option selected>Choose A Category</option>
+                                <option value="" disabled>Choose Category</option>
                                 {% for category in categories %}
                                 {% if category.category_name == movie.category_name %}
                                 <option value="{{ category.category_name }}" selected>{{ category.category_name }}
@@ -66,8 +66,7 @@
                             <div class="mb-3">
                                 <label for="user_notes" class="form-label">User Notes:</label>
                                 <textarea class="form-control lounge-opaque-gray-bg" id="user_notes" name="user_notes"
-                                    type="text" minlength="3" maxlength="200"
-                                    required>{{- movie.user_notes -}}</textarea>
+                                    minlength="3" maxlength="200" required>{{- movie.user_notes -}}</textarea>
                             </div>
 
                             <div class="d-grid gap-2 col-6 mx-auto mb-1">
