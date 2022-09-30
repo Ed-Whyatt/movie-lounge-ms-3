@@ -125,7 +125,7 @@
                             <!-- Accordion button -->
                             <button class="accordion-button accordian-lounge accordian-message" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}"
-                                aria-expanded="false" aria-controls="collapseone">
+                                aria-expanded="false" aria-controls="collapse{{ loop.index }}">
                                 Click Here For Message Replies
                             </button>
 
@@ -163,6 +163,37 @@
                                                         </ul>
                                                     </div>
                                                     <div class="col-sm-12">
+                                                        <!-- bootstrap modal for deleting a answer -->
+                                                        <div class="modal fade" id="exampleModal-{{ answer._id }}"
+                                                            tabindex="-1"
+                                                            aria-labelledby="answerModalLabel{{ loop.index }}"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content lounge-white-bg">
+                                                                    <div class="modal-header">
+                                                                        <h4 class="modal-title lounge-blue-text"
+                                                                            id="answerModalLabel{{ loop.index }}">
+                                                                            Delete Reply Message
+                                                                        </h4>
+                                                                        <button type="button" class="btn-close"
+                                                                            data-bs-dismiss="modal"
+                                                                            aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body lounge-blue-text">
+                                                                        Are you sure you want to delete this
+                                                                        message, There's no going
+                                                                        back!
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-secondary lounge-white-text"
+                                                                            data-bs-dismiss="modal">Cancel</button>
+                                                                        <a href="{{ url_for('delete_reply', answer_id=answer._id) }}"
+                                                                            class="btn btn-danger">Delete</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         {% if session["user"] %}
                                                         <ul class="list-group list-group-horizontal mt-1">
                                                             <li class="list-group-item">
@@ -172,37 +203,6 @@
 
                                                             {% if session.user|lower == answer.created_by|lower or session["user"] == "admin" %}
 
-                                                            <!-- bootstrap modal for deleting a answer -->
-                                                            <div class="modal fade" id="exampleModal-{{ answer._id }}"
-                                                                tabindex="-1"
-                                                                aria-labelledby="answerModalLabel{{ loop.index }}"
-                                                                aria-hidden="true">
-                                                                <div class="modal-dialog">
-                                                                    <div class="modal-content lounge-white-bg">
-                                                                        <div class="modal-header">
-                                                                            <h4 class="modal-title lounge-blue-text"
-                                                                                id="answerModalLabel{{ loop.index }}">
-                                                                                Delete Reply Message
-                                                                            </h4>
-                                                                            <button type="button" class="btn-close"
-                                                                                data-bs-dismiss="modal"
-                                                                                aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body lounge-blue-text">
-                                                                            Are you sure you want to delete this
-                                                                            message, There's no going
-                                                                            back!
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button"
-                                                                                class="btn btn-secondary lounge-white-text"
-                                                                                data-bs-dismiss="modal">Cancel</button>
-                                                                            <a href="{{ url_for('delete_reply', answer_id=answer._id) }}"
-                                                                                class="btn btn-danger">Delete</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
 
                                                             <li class="list-group-item">
                                                                 <div>
