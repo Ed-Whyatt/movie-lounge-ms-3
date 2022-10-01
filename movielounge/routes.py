@@ -74,6 +74,10 @@ def edit_question(question_id):
     question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
 
     if request.method == "POST":
+        answer_question_id = {"question_id": str(question_id)}
+        new_category = request.form.get("category_name")
+        new_category_val = {"$set": {"category_name": str(new_category)}}
+        mongo.db.answers.update_many(answer_question_id, new_category_val)
         submit = {
             "category_name": request.form.get("category_name"),
             "question_description": request.form.get("question_description"),
@@ -358,9 +362,9 @@ def add_category():
 @app.route("/edit_category/<int:category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
     """
-    Checks if the admin user is in session then,
-    Gets the updated category name from the form and replaces the category
-    in the catorys database
+    Checks if the admin user is in session then, Gets the updated category
+    name from the form and replaces the category name in the category database
+    and all related movies, questions and ancers mongo databases.
     """
 
     if "user" not in session or session["user"] != "admin":
