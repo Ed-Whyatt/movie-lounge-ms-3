@@ -1,6 +1,7 @@
 # Testing
 
 ## W3C Markup Validator [link](https://validator.w3.org/#validate_by_uri)
+***
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 All pages have been checked with the base page active for meta data to be loaded for errors.
 - Base html used for main nvagation and footer on all pages base.html.
@@ -39,4 +40,59 @@ All pages have been checked with the base page active for meta data to be loaded
 ### w3c CSS [link](https://jigsaw.w3.org/css-validator/#validate_by_input)
 - CSS style.css
 ### ![text](/documentation/w3-validator/w3c-css-validator.png)
+***
+## Google Chrome Developer Tools
+***
+Google Chrome Developer Tools has been used throughout the development of this page, To use it in Google Crome browser Right click anywhere on the screen and click inspect on the menu then select lighthouse.
 
+### Google Chrome Developer Tool Lighthouse results
+- Home page
+    - Before bugs fixed details in bugs section below.
+        ### ![text](/documentation/dev-lighthouse/home-page-lh/home-page-before.png)
+    - After bugs fixed.
+        ### ![text](/documentation/dev-lighthouse/home-page-lh/home-page-lh-after.png)
+- Edit movie page
+### ![text](/documentation/dev-lighthouse/edit-movie-lh.png)
+- Message board page
+### ![text](/documentation/dev-lighthouse/message-bord-lh.png)
+- Message board add question page
+### ![text](/documentation/dev-lighthouse/add-question.png)
+- Message board edit question page
+### ![text](/documentation/dev-lighthouse/edit-question-lh.png)
+- Message board add reply to question page
+### ![text](/documentation/dev-lighthouse/question-reply-lh.png)
+- Message board edit reply message
+### ![text](/documentation/dev-lighthouse/edit-reply-lh.png)
+- Add movie search and search results page
+### ![text](/documentation/dev-lighthouse/add-movie-lh.png)
+- Select movie page
+### ![text](/documentation/dev-lighthouse/select-movie-lh.png)
+- Manage categories
+### ![text](/documentation/dev-lighthouse/categories-lh.png)
+- Add category
+### ![text](/documentation/dev-lighthouse/add-cat-lh.png)
+- Edit category
+### ![text](/documentation/dev-lighthouse/edit-categorg-lh/edit-cat-lh-after.png)
+- Login
+### ![text](/documentation/dev-lighthouse/login-lh.png)
+- Register
+### ![text](/documentation/dev-lighthouse/register-lh.png)
+***
+### Bugs Fixed
+***
+- Google dev tool lighhouse hilighted bugs.
+    - Home page
+        - Dev tools hilighted modal aria ids and element order witch have been fixed by adding loop-index to modal ids and aria attributes.
+        ### ![text](/documentation/dev-lighthouse/home-page-lh/home-lh-aria-bug.png)
+        ### ![text](/documentation/dev-lighthouse/home-page-lh/heme-page-h5-bug.png)
+
+    - Edit category
+    Dev tools hilighted the contrast in the edit category page these have been changed.
+        - Dev tools image
+        ### ![text](/documentation/dev-lighthouse/edit-categorg-lh/edit-cat-dev.png)
+        - Code before
+        ### ![text](/documentation/dev-lighthouse/edit-categorg-lh/edit-cat-code-before.png)
+        - Code after
+        ### ![text](/documentation/dev-lighthouse/edit-categorg-lh/edit-cat-code-after.png)
+        - Edit category after fix
+        ### ![text](/documentation/dev-lighthouse/edit-categorg-lh/edit-cat-after.png)
