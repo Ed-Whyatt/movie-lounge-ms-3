@@ -1,5 +1,7 @@
 # Testing
 
+## pep8
+***
 ## W3C Markup Validator [link](https://validator.w3.org/#validate_by_uri)
 ***
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
@@ -80,14 +82,14 @@ Google Chrome Developer Tools has been used throughout the development of this p
 ***
 ### Bugs Fixed
 ***
-- Google dev tool lighhouse hilighted bugs.
-    - Home page
-        - Dev tools hilighted modal aria ids and element order witch have been fixed by adding loop-index to modal ids and aria attributes.
-        ### ![text](/documentation/dev-lighthouse/home-page-lh/home-lh-aria-bug.png)
-        ### ![text](/documentation/dev-lighthouse/home-page-lh/heme-page-h5-bug.png)
+## Google dev tool lighhouse hilighted bugs.
+- Home page
+    - Dev tools hilighted modal aria ids and element order witch have been fixed by adding loop-index to modal ids and aria attributes.
+    ### ![text](/documentation/dev-lighthouse/home-page-lh/home-lh-aria-bug.png)
+    ### ![text](/documentation/dev-lighthouse/home-page-lh/heme-page-h5-bug.png)
 
-    - Edit category
-    Dev tools hilighted the contrast in the edit category page these have been changed.
+- Edit category
+    - Dev tools hilighted the contrast in the edit category page these have been changed.
         - Dev tools image
         ### ![text](/documentation/dev-lighthouse/edit-categorg-lh/edit-cat-dev.png)
         - Code before
@@ -96,3 +98,54 @@ Google Chrome Developer Tools has been used throughout the development of this p
         ### ![text](/documentation/dev-lighthouse/edit-categorg-lh/edit-cat-code-after.png)
         - Edit category after fix
         ### ![text](/documentation/dev-lighthouse/edit-categorg-lh/edit-cat-after.png)
+
+### Bugs hilighted during the development
+ - Add movie button
+ The add movie search button contrast needed ajusting so the text color has been change from lounge blue lounge white.
+    - Button before
+        ### ![text](/documentation/development-bugs/add-movie-button/add-movie-before.png)
+    - Code before
+        ### ![text](/documentation/development-bugs/add-movie-button/search-movie-code-before.png)
+    - Button after
+        ### ![text](/documentation/development-bugs/add-movie-button/search-movie-after.png)
+    - Code after
+        ### ![text](/documentation/development-bugs/add-movie-button/search-code-after.png)
+- Log inn button
+The log in button mouse over was not displaying correctly so a lounge colour and bootstap button class has been added.
+    - Button before
+        ### ![text](/documentation/development-bugs/log-in-button/login-button-before.png)
+    - Button hover before
+        ### ![text](/documentation/development-bugs/log-in-button/login-button-befor-mouse-over.png)
+    - Code before
+        ### ![text](/documentation/development-bugs/log-in-button/login-button-code-before.png)
+    - Button after
+        ### ![text](/documentation/development-bugs/log-in-button/login-button-after.png)
+    - Code after
+        ### ![text](/documentation/development-bugs/log-in-button/login-button-code-after.png)
+
+- Category delete modal bug fix
+The modal ids for button and modal needed a jinja id added for the category modal to work.
+    - Code before
+    ### ![text](/documentation/development-bugs/modal-bug/modal-bug-before.png)
+    ### ![text](/documentation/development-bugs/modal-bug/modal-button-before.png)
+    - Code after
+    ### ![text](/documentation/development-bugs/modal-bug/modal-bug-before.png)
+    ### ![text](/documentation/development-bugs/modal-bug/modal-button-after.png)
+
+- Python error for add category build error.
+During development with development set to on, errors are hinted when errors are made. In this case the rendered template did need to be changed to the correct template.
+    - Error message
+    ### ![text](/documentation/development-bugs/catgory-error/cat-build-error.png)
+    - Code before
+    ### ![text](/documentation/development-bugs/catgory-error/fixed-correct-url.png)
+    - Code after
+    ### ![text](/documentation/development-bugs/catgory-error/not-correct-ur.png)
+
+- Movie href error for movie reset button.
+During development with development set to on, errors are hinted when errors are made. In this case the movie reset button did not have the needed colon ).
+    - Error message
+    ### ![text](/documentation/development-bugs/movie-reset-button-error/reset-error.png)
+    - Code before
+    ### ![text](/documentation/development-bugs/movie-reset-button-error/reset-code-before.png)
+    - Code after
+    ### ![text](/documentation/development-bugs/movie-reset-button-error/reset-code-after.png)
