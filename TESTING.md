@@ -50,7 +50,7 @@ Google Chrome Developer Tools has been used throughout the development of this p
 ### Google Chrome Developer Tool Lighthouse results
 - Home page
     - Before bugs fixed details in bugs section below.
-        ### ![text](/documentation/dev-lighthouse/home-page-lh/home-page-before.png)
+   ### ![text](/documentation/dev-lighthouse/home-page-lh/home-page-before.png)
     - After bugs fixed.
         ### ![text](/documentation/dev-lighthouse/home-page-lh/home-page-lh-after.png)
 - Edit movie page
@@ -142,10 +142,46 @@ During development with development set to on, errors are hinted when errors are
     ### ![text](/documentation/development-bugs/catgory-error/not-correct-ur.png)
 
 - Movie href error for movie reset button.
-During development with development set to on, errors are hinted when errors are made. In this case the movie reset button did not have the needed colon ).
+During development with development set to on, errors are hinted when errors are made. In this case the movie reset button did not have correct jinja syntax.
     - Error message
     ### ![text](/documentation/development-bugs/movie-reset-button-error/reset-error.png)
     - Code before
     ### ![text](/documentation/development-bugs/movie-reset-button-error/reset-code-before.png)
     - Code after
     ### ![text](/documentation/development-bugs/movie-reset-button-error/reset-code-after.png)
+***
+ ### Further Testing
+
+-   The website has been tested on such browsers as: 
+    -  Google Chrome [view](documentation/broswer-and-device-images/desktop-crome.png)
+    -  Microsoft Edge [view](documentation/broswer-and-device-images/ms-edge.png)
+    -  Firefox [view](documentation/broswer-and-device-images/firefox.png)
+-   The website was viewed on such devices as: 
+     - Desktop [view](documentation/broswer-and-device-images/desktop-crome.png)
+     - Laptop [view](/documentation/broswer-and-device-images/laptop.png)
+     - Samsung Galaxy note 10 [view](documentation/broswer-and-device-images/note-10.jpg)
+     - Samsung tablet 3 [view](documentation/broswer-and-device-images/note-3.png)
+-   A large amount of testing was done to ensure that all pages were linking correctly.
+
+### User Testing
+-   The website has been tested by friends and family members to review the site and documentation to point out any bugs and/ or user experience issues.
+    #### User testing bugs
+    - The delete message modal was found to stiil say delete movie because it was copyied form the delete movie modal. This has to fixed with the correct Delete question message.
+        - Bofore fix
+        #### ![text](/documentation/user-bugs/del-q-before.png)
+        - After fix
+        #### ![text](/documentation/user-bugs/del-q-after.png)
+    - The Edit Reply messsgae page title was found too still say Message Reply as it was copied ffrom the message reply passge and was fixed to say Edit Reply Message.
+        - Before fix
+        #### ![text](/documentation/user-bugs/edit-reply-before.png)
+        - After fix
+        #### ![text](/documentation/user-bugs/edit-reply-after.png)
+    -  The edit message function for edit message method post was not update the new selected category_name in the movieloung routes.py python file, and has been fixed.
+        - Code before fix
+        #### ![text](/documentation/user-bugs/edit-msg-code.png)
+        - Code after fix
+        #### ![text](/documentation/user-bugs/edit-msg-code-after.png)
+
+### User stories
+***
+
