@@ -2,6 +2,31 @@
 
 ## pep8
 ***
+[pep8online.com](https://pep8online.com) has been used throughout the development of this application to test that the python code is pep8 complient. At the wrting and testing of this app pep8online.com is currently down.
+As a workaround, PEP8 validator has been added to the Gitpod Workspace directly by following these steps:
+1. Run the command pip3 install pycodestyle  Note that this extension may already be installed, in which case this command will do nothing.
+2. In your workspace, press Ctrl+Shift+P (or Cmd+Shift+P on Mac).
+3. Type the word linter into the search bar that appears, and click on Python: Select Linter from the filtered results (image 1).
+4. Select pycodestyle from the list (image 2).
+5. PEP8 errors will now be underlined in red, as well as being listed in the PROBLEMS tab beside your terminal.
+- Image 1
+#### ![text](/documentation/pep8/pep8-walkaround/pep8-image-1.png)
+- Image 2
+#### ![text](/documentation/pep8/pep8-walkaround/pep-8-image-2.png)
+- Image 3
+#### ![text](/documentation/pep8/pep8-walkaround/pep8-image-3.png)
+
+### PEP8 Results
+- ```__init__.py```
+#### ![text](/documentation/pep8/pep8-images/init-pep8.png)
+- ```models.py```
+#### ![text](/documentation/pep8/pep8-images/models.png)
+- ```routes.py```
+#### ![text](/documentation/pep8/pep8-images/routes.png)
+- ```run.py```
+#### ![text](/documentation/pep8/pep8-images/run.png)
+
+
 ## W3C Markup Validator [link](https://validator.w3.org/#validate_by_uri)
 ***
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
@@ -152,10 +177,12 @@ During development with development set to on, errors are hinted when errors are
 ***
  ### Further Testing
 
+#### Browswers
 -   The website has been tested on such browsers as: 
     -  Google Chrome [view](documentation/broswer-and-device-images/desktop-crome.png)
     -  Microsoft Edge [view](documentation/broswer-and-device-images/ms-edge.png)
     -  Firefox [view](documentation/broswer-and-device-images/firefox.png)
+#### Devices
 -   The website was viewed on such devices as: 
      - Desktop [view](documentation/broswer-and-device-images/desktop-crome.png)
      - Laptop [view](/documentation/broswer-and-device-images/laptop.png)
