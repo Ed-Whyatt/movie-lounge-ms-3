@@ -81,19 +81,22 @@ def edit_question(question_id):
             mongo.db.answers.update_many(answer_question_id, new_category_val)
             submit = {
                 "category_name": request.form.get("category_name"),
-                "question_description": request.form.get("question_description"),
+                "question_description": request.form.get(
+                    "question_description"),
                 "created_by": session["user"]
             }
-            mongo.db.questions.replace_one({"_id": ObjectId(question_id)}, submit)
+            mongo.db.questions.replace_one(
+                {"_id": ObjectId(question_id)}, submit)
             flash("Message Successfully Updated")
             return redirect(url_for("get_questions"))
 
-        categories = list(Category.query.order_by(Category.category_name).all())
+        categories = list(Category.query.order_by(
+            Category.category_name).all())
         return render_template(
             "/edit_question.html", question=question, categories=categories)
     else:
         flash("You can not edit other users messages")
-    
+
     return redirect("/get_questions")
 
 
@@ -322,7 +325,8 @@ def edit_movie(movie_id):
                 }
             mongo.db.movies.replace_one({"_id": ObjectId(movie_id)}, submit)
             flash("Movie Successfully Updated")
-        categories = list(Category.query.order_by(Category.category_name).all())
+        categories = list(Category.query.order_by(
+            Category.category_name).all())
         return render_template(
             "edit_movie.html", movie=movie, categories=categories)
     else:
