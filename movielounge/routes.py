@@ -35,13 +35,13 @@ def get_questions():
 @app.route("/add_question", methods=["GET", "POST"])
 def add_question():
     """
-    Checks if user is loged in if not returns to message bord page,
-    If the user is loged in then returns add question template then,
+    Checks if user is logged in if not returns to message bord page,
+    If the user is logged in then returns add question template then,
     Add the new question info from the form to the mongo database.
     """
 
     if "user" not in session:
-        flash("You have to be loged in to add a message")
+        flash("You have to be logged in to add a message")
         return redirect("get_questions")
 
     if request.method == "POST":
@@ -62,7 +62,7 @@ def add_question():
 @app.route("/edit_question/<question_id>", methods=["GET", "POST"])
 def edit_question(question_id):
     """
-    Checks if a user is loged in then,
+    Checks if a user is logged in then,
     Gets the new message details from the form and edits the
     message question in mongo database.
     """
@@ -96,22 +96,21 @@ def edit_question(question_id):
 @app.route("/delete_question/<question_id>")
 def delete_question(question_id):
     """
-    Checks if user and the message created user is loged in then,
+    Checks if user and the message created user is logged in then,
     Deletes the question message in the mongo database
     """
 
     if "user" not in session:
-        flash("You have to be loged in to delete a message!")
+        flash("You can only delete your own message!")
         return redirect(url_for("get_questions"))
 
-    question = mongo.db.question.find_one({"_id": ObjectId(question_id)})
-
+    question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
     if session["user"] == question["created_by"]:
         mongo.db.questions.delete_one({"_id": ObjectId(question_id)})
         mongo.db.answers.delete_many({"question_id": (question_id)})
         flash("Question Successfully Deleted")
     else:
-        flash("You can not delete this question")
+        flash("you can not delete another users message")
 
     return redirect(url_for("get_questions"))
 
@@ -120,7 +119,7 @@ def delete_question(question_id):
 @app.route("/add_reply/<question_id>", methods=["GET", "POST"])
 def add_reply(question_id):
     """
-    Checks if user is loged in then, gets the information from the
+    Checks if user is logged in then, gets the information from the
     form for a new answer message and adds it to the mongo database.
     """
     answers = list(mongo.db.answers.find())
@@ -201,7 +200,7 @@ def delete_reply(answer_id):
         mongo.db.answers.delete_one({"_id": ObjectId(answer_id)})
         flash("Question Successfully Deleted")
     else:
-        flash("You can not delete this reply")
+        flash("You can not delete another users reply")
 
     return redirect(url_for("get_questions"))
 
@@ -243,7 +242,7 @@ def search():
 @app.route("/select_movie/<movie_title>", methods=["GET", "POST"])
 def select_movie(movie_title):
     """
-    Checks if a user is loged in then,
+    Checks if a user is logged in then,
     Gets the movie tile from movie search results then,
     Adds search results and form data to the mongo movies database.
     """
@@ -282,41 +281,44 @@ def select_movie(movie_title):
 @app.route("/edit_movie/<movie_id>", methods=["GET", "POST"])
 def edit_movie(movie_id):
     """
-    Checks if a user is loged in then,
+    Checks if a user is logged in then,
     Gets the movie id from movie.html then,
     Replaces the new form data to mongo movies database.
     """
 
     if "user" not in session:
-        flash("You need to be logged in to add a movie")
+        flash("You need to be logged in to edit a movie")
         return redirect(url_for("get_movies"))
 
     movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
 
-    if request.method == "POST":
-        submit = {
-            "category_name": request.form.get("category_name"),
-            "user_rating": request.form.get("user_rating"),
-            "user_notes": request.form.get("user_notes"),
-            "title": movie.get("title"),
-            "poster": movie.get("poster"),
-            "director": movie.get("director"),
-            "genre": movie.get("genre"),
-            "actors": movie.get("actors"),
-            "year": movie.get("year"),
-            "type": movie.get("type"),
-            "rated": movie.get("rated"),
-            "imdb_rating": movie.get("imdb_rating"),
-            "plot": movie.get("plot"),
-            "created_by": session["user"]
-        }
-        mongo.db.movies.replace_one({"_id": ObjectId(movie_id)}, submit)
-        flash("Movie Successfully Updated")
-        return redirect("/get_movies")
+    if session["user"] == movie["created_by"]:
+        if request.method == "POST":
+            submit = {
+                "category_name": request.form.get("category_name"),
+                "user_rating": request.form.get("user_rating"),
+                "user_notes": request.form.get("user_notes"),
+                "title": movie.get("title"),
+                "poster": movie.get("poster"),
+                "director": movie.get("director"),
+                "genre": movie.get("genre"),
+                "actors": movie.get("actors"),
+                "year": movie.get("year"),
+                "type": movie.get("type"),
+                "rated": movie.get("rated"),
+                "imdb_rating": movie.get("imdb_rating"),
+                "plot": movie.get("plot"),
+                "created_by": session["user"]
+                }
+            mongo.db.movies.replace_one({"_id": ObjectId(movie_id)}, submit)
+            flash("Movie Successfully Updated")
+        categories = list(Category.query.order_by(Category.category_name).all())
+        return render_template(
+            "edit_movie.html", movie=movie, categories=categories)
+    else:
+        flash("you can not edit other users movies")
 
-    categories = list(Category.query.order_by(Category.category_name).all())
-    return render_template(
-        "edit_movie.html", movie=movie, categories=categories)
+    return redirect("/get_movies")
 
 
 @app.route("/delete_movie/<movie_id>")
@@ -336,9 +338,8 @@ def delete_movie(movie_id):
         mongo.db.movies.delete_one({"_id": ObjectId(movie_id)})
         flash("Movie Successfully Deleted")
     else:
-        flash("You can not delete this movie")
+        flash("You can not delete another users this movie")
 
-    flash("Movie Successfully Deleted")
     return redirect(url_for("get_movies"))
 
 
@@ -470,7 +471,7 @@ def register():
 def login():
     """
     Gets login.html template and form to Post,
-    then checks if user is loged in the session
+    then checks if user is logged in the session
     then logs them into session.
     """
     if request.method == "POST":
