@@ -63,6 +63,10 @@ All pages have been checked with the base page active for meta data to be loaded
 ### ![text](/documentation/w3-validator/search-results.png)
 - Selected movie that displays the selected movie for a user to add to their list select_movie.html
 ### ![text](/documentation/w3-validator/select-movie.png)
+- Error 404.html
+### ![text](/documentation/error-pages/404-val.png)
+- Error 500.html
+### ![text](/documentation/error-pages/500-val.png)
 
 ### w3c CSS [link](https://jigsaw.w3.org/css-validator/#validate_by_input)
 - CSS style.css
@@ -177,21 +181,36 @@ During development with development set to on, errors are hinted when errors are
     ### ![text](/documentation/development-bugs/movie-reset-button-error/reset-code-after.png)
 ***
 
-### Further Testing
+## Further Testing
 
 #### Browswers
 -   The website has been tested on such browsers as: 
-    -  Google Chrome [view](documentation/broswer-and-device-images/desktop-crome.png)
-    -  Microsoft Edge [view](documentation/broswer-and-device-images/ms-edge.png)
-    -  Firefox [view](documentation/broswer-and-device-images/firefox.png)
+    -  Google Chrome 
+    ### ![view](/documentation/broswer-and-device-images/desktop-crome.png)
+    -  Microsoft Edge 
+    ### ![view](/documentation/broswer-and-device-images/ms-edge.png)
+    -  Firefox
+    ### ![view](/documentation/broswer-and-device-images/firefox.png)
 #### Devices
 -   The website was viewed on such devices as: 
-     - Desktop [view](documentation/broswer-and-device-images/desktop-crome.png)
-     - Laptop [view](/documentation/broswer-and-device-images/laptop.png)
-     - Samsung Galaxy note 10 [view](documentation/broswer-and-device-images/note-10.jpg)
-     - Samsung tablet 3 [view](documentation/broswer-and-device-images/note-3.png)
+     - Desktop 
+     ### ![view](/documentation/broswer-and-device-images/desktop-crome.png)
+     - Laptop 
+     ### ![view](/documentation/broswer-and-device-images/laptop.png)
+     - Samsung Galaxy note 10 
+     ### ![view](/documentation/broswer-and-device-images/note-10.jpg)
+     - Samsung tablet 3 
+     ### ![view](/documentation/broswer-and-device-images/note-3.png)
 -   A large amount of testing was done to ensure that all pages were linking correctly.
 
+
+***
+### Testing error messages
+- Error 404
+### ![view](/documentation/error-pages/error-404.png)
+- Error 500
+### ![view](/documentation/error-pages/error-500.png)
+***
 ### User Testing
 -   The website has been tested by friends and family members to review the site and documentation to point out any bugs and/ or user experience issues.
     #### User testing bugs
