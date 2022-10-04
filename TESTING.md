@@ -209,6 +209,113 @@ During development with development set to on, errors are hinted when errors are
         - Code after fix
         #### ![text](/documentation/user-bugs/edit-msg-code-after.png)
 
-### User stories
+### Testing User Stories from User Experience (UX) section in README.md
 ***
+## User stories
+- ### First time user goals
+    
+    1. As a First time user, I want to easily navigate to register and then log in when first entering the website application.
+        - As a first time user, i can easily navigate to register.
+        #### ![text](/documentation/introactive-images/nav.png) 
+        #### ![text](/documentation/introactive-images/register.png)
+        - As a first time user, i can am redirected to the login in page once registered.
+        #### ![text](/documentation/introactive-images/login.png)
+    2. As a First Time User, I want to navigate the website easily and interact with the content.
+        - As a fisrt time user i can easily navigate the website on small and large screens.
+        #### ![text](/documentation/introactive-images/nav.png) 
+        #### ![text](/documentation/introactive-images/nav-small.png)
+        #### ![text](/documentation/introactive-images/nav-small-open.png)  
+    3. As a first time user i want to easily navigate to search for movies and add them to my list.
+        - As a first time user i can easily navigate to search for movies.
+        #### ![text](/documentation/introactive-images/movie-search.png)
+        - Ass a first time user i can easily add movies to my list.
+        #### ![text](/documentation/introactive-images/movie-results.png) 
+        #### ![text](/documentation/introactive-images/movie-add.png)  
+    4. As a first time user i want to easily navigate to the message board and add a message question or reply to a message.
+        - As a first time user i can easily add a question in the message board.
+        #### ![text](/documentation/introactive-images/add-msg.png)
+        - As a first time user i can easlity add a reply to a question in the message board.
+        #### ![text](/documentation/introactive-images/msg-reply-btn.png) 
 
+- ### Returning user goals
+    1. As a Returning User, I want to edit and delete my messages.
+        - As a returning user i can edit my messages.
+        #### ![text](/documentation/introactive-images/edit-msg-page.png)
+        #### ![text](/documentation/introactive-images/edit-reply-msg.png)
+        - As a returning user i can delete my messages.
+        #### ![text](/documentation/introactive-images/add-edi-del-msg.png)
+        #### ![text](/documentation/introactive-images/del-msg-modal.png) 
+        #### ![text](/documentation/introactive-images/del-reply-modal.png)  
+
+    2. As a Returning User, I want to edit and delete my movie list.
+        - As a returning user i can edit my movies.
+        #### ![text](/documentation/introactive-images/edit-movie.png)
+        - As a returning user i can delete my movies.
+        #### ![text](/documentation/introactive-images/movie-info-after.png)
+        #### ![text](/documentation/introactive-images/del-movie-modal.png)
+     
+    3. As a Returning User, I want to see any new messages.
+        - As a returning user i can see any new messages.
+        #### ![text](/documentation/introactive-images/add-edi-del-msg.png)
+    4. As a Returning User, I want to see if anyone has replyed to my questions.
+        - As a returning user i can see any new message replys.
+        #### ![text](/documentation/introactive-images/msg-reply-open.png)
+
+- ### Frequent user goals
+    1. As a Frequent user, I want to easily reply to any messages or questions.
+        - As a frequent user i can eeasily reply to any message.
+        #### ![text](/documentation/introactive-images/msg-reply-open.png)
+        - As a frequent user i can easily reply to any message questions.
+        #### ![text](/documentation/introactive-images/add-edi-del-msg.png)
+
+    2. As a Frequent user, I want to easily edit and delete my movie list.
+        - As a frequent user i can easily edit my movies.
+        #### ![text](/documentation/introactive-images/edit-movie.png)
+        - As a frequent user i can easily delete my movies.
+        #### ![text](/documentation/introactive-images/del-movie-modal.png)
+
+    3. As a Frequent user, I want to easily edit or delete any messages or questions.
+        - As a frequent user i can easily edit my messages.
+        #### ![text](/documentation/introactive-images/msg-reply-open.png)
+        - As a frequent user i can easily edit my message questions.
+        #### ![text](/documentation/introactive-images/add-edi-del-msg.png)
+        - As a frequent user i can easily delete my messages.
+        #### ![text](/documentation/introactive-images/del-msg-modal.png) 
+        - As a frequent user i can easily delete my message questions.
+        #### ![text](/documentation/introactive-images/del-reply-modal.png)
+
+- ### End of user goals
+    1. As a End of User, I want to delete all my messages and questions.
+        - As a end of user i can delete all my messages.
+    2. As a End of User, I want to delete my movie list.
+        - As a end of user i can delete all my movies.
+
+- ### Admin user goals
+    1. As an Admin User, I want access to add questions and edit and delete  all questions on the movie lounge message board.
+        - As an admin user i have access to add questions.
+        #### ![text](/documentation/introactive-images/add-msg.png)
+        - As an admin user i have full access to edit all questions.
+        - As an admin user i have full access to delete all questions
+        #### ![text](/documentation/introactive-images/add-edi-del-msg.png)
+        - As an admin user i have full access to edit all reply messages.
+        - As an admin user i have full access to delete all reply messages.
+        #### ![text](/documentation/introactive-images/msg-reply-open.png)
+        
+    2. As an Admin User, I want access to add movies and edit and delete all users movie lists.
+        - As an admin user i have full access to add a movie.
+        #### ![text](/documentation/introactive-images/movie-add.png)
+        - As an admin user i have full access to edit all user and my movies.
+        #### ![text](/documentation/introactive-images/edit-movie.png)
+        - As an admin user i have full access to delete all user and my movies.
+        #### ![text](/documentation/introactive-images/movie-info-after.png)
+        #### ![text](/documentation/introactive-images/del-movie-modal.png)
+
+    3. As an Admin User, I want access to add, edit and delete all categorys and related questions, messages and movie lists.
+        - As an admin user i have full access to add categorys.
+        #### ![text](/documentation/introactive-images/add-cat.png)
+        #### ![text](/documentation/introactive-images/add-a-cat.png)
+        - As an admin user i have full access to edit all categorys and questions, messages and movie lists.
+        #### ![text](/documentation/introactive-images/edit-cat.png)
+        - As an admin user i have full access to delete all categorys and related questions, messages and movie lists.
+        #### ![text](/documentation/introactive-images/add-cat.png)
+        #### ![text](/documentation/introactive-images/del-cat.png)
