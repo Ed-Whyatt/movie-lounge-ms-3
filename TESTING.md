@@ -2,8 +2,8 @@
 
 ## pep8
 ***
-[pep8online.com](https://pep8online.com) has been used throughout the development of this application to test that the python code is pep8 complient. At the wrting and testing of this app pep8online.com is currently down.
-As a workaround, PEP8 validator has been added to the Gitpod Workspace directly by following these steps:
+[pep8online.com](https://pep8online.com) has been used throughout the development of this application to test that the python code is pep8 compliant. At the writing  and testing of this app pep8online.com is currently down.
+As a workaround, PEP8 validator has been added to the GitPod Workspace directly by following these steps:
 1. Run the command pip3 install pycodestyle  Note that this extension may already be installed, in which case this command will do nothing.
 2. In your workspace, press Ctrl+Shift+P (or Cmd+Shift+P on Mac).
 3. Type the word linter into the search bar that appears, and click on Python: Select Linter from the filtered results (image 1).
@@ -31,19 +31,19 @@ As a workaround, PEP8 validator has been added to the Gitpod Workspace directly 
 ***
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 All pages have been checked with the base page active for meta data to be loaded for errors.
-- Base html used for main nvagation and footer on all pages base.html.
+- Base html used for main navigation and footer on all pages base.html.
 ### ![text](/documentation/w3-validator/base.png)
 - Add category page add_category.html
 ### ![text](/documentation/w3-validator/add-cat.png)
 - Add movie search page add_movie.html
 ### ![text](/documentation/w3-validator/add-movie.png)
-- Add a question for the message booard questions add_questuion.html
+- Add a question for the message board questions add_questuion.html
 ### ![text](/documentation/w3-validator/add-question.png)
-- Add a reply to the question on the message borad add_reply.html
+- Add a reply to the question on the message board add_reply.html
 ### ![text](/documentation/w3-validator/add-reply.png)
-- Categorys view categories.html
+- Categories view categories.html
 ### ![text](/documentation/w3-validator/categories.png)
-- Edit categorys edit_category.html
+- Edit categories edit_category.html
 ### ![text](/documentation/w3-validator/edit-cat.png)
 - Edit movie page edit_movie.html
 ### ![text](/documentation/w3-validator/edit-movie.png)
@@ -53,20 +53,21 @@ All pages have been checked with the base page active for meta data to be loaded
 ### ![text](/documentation/w3-validator/edit-reply.png)
 - Login page login.html
 ### ![text](/documentation/w3-validator/login.png)
-- Message borad displays the message questions and replys message_board.html
+- Message board displays the message questions and replies message_board.html
 ### ![text](/documentation/w3-validator/message-board.png)
-- Movie pahe witch is the home page displaying users movies movie.html
+- Movie page witch is the home page displaying users movies movie.html
 ### ![text](/documentation/w3-validator/movie.jpg)
 - Register page register.html
 ### ![text](/documentation/w3-validator/register.png)
-- Search results that displays the add movie seach results search_results.html
+- Search results that displays the add movie search results search_results.html
 ### ![text](/documentation/w3-validator/search-results.png)
-- Selected movie that displays the selected movie for a user to add to there list select_movie.html
+- Selected movie that displays the selected movie for a user to add to their list select_movie.html
 ### ![text](/documentation/w3-validator/select-movie.png)
 
 ### w3c CSS [link](https://jigsaw.w3.org/css-validator/#validate_by_input)
 - CSS style.css
 ### ![text](/documentation/w3-validator/w3c-css-validator.png)
+
 ***
 ## Google Chrome Developer Tools
 ***
@@ -107,14 +108,14 @@ Google Chrome Developer Tools has been used throughout the development of this p
 ***
 ### Bugs Fixed
 ***
-## Google dev tool lighhouse hilighted bugs.
+## Google dev tool lighthouse highlighted bugs.
 - Home page
-    - Dev tools hilighted modal aria ids and element order witch have been fixed by adding loop-index to modal ids and aria attributes.
+    - Dev tools highlighted modal aria ids and element order which have been fixed by adding loop-index to modal ids and aria attributes.
     ### ![text](/documentation/dev-lighthouse/home-page-lh/home-lh-aria-bug.png)
     ### ![text](/documentation/dev-lighthouse/home-page-lh/heme-page-h5-bug.png)
 
 - Edit category
-    - Dev tools hilighted the contrast in the edit category page these have been changed.
+    - Dev tools highlighted the contrast in the edit category page these have been changed.
         - Dev tools image
         ### ![text](/documentation/dev-lighthouse/edit-categorg-lh/edit-cat-dev.png)
         - Code before
@@ -124,9 +125,9 @@ Google Chrome Developer Tools has been used throughout the development of this p
         - Edit category after fix
         ### ![text](/documentation/dev-lighthouse/edit-categorg-lh/edit-cat-after.png)
 
-### Bugs hilighted during the development
+### Bugs highlighted during the development
  - Add movie button
- The add movie search button contrast needed ajusting so the text color has been change from lounge blue lounge white.
+ The add movie search button contrast needed adjusting so the text colour has been change from lounge blue lounge white.
     - Button before
         ### ![text](/documentation/development-bugs/add-movie-button/add-movie-before.png)
     - Code before
@@ -136,7 +137,7 @@ Google Chrome Developer Tools has been used throughout the development of this p
     - Code after
         ### ![text](/documentation/development-bugs/add-movie-button/search-code-after.png)
 - Log inn button
-The log in button mouse over was not displaying correctly so a lounge colour and bootstap button class has been added.
+The log in button mouse over was not displaying correctly so a lounge colour and bootstrap button class has been added.
     - Button before
         ### ![text](/documentation/development-bugs/log-in-button/login-button-before.png)
     - Button hover before
@@ -175,7 +176,8 @@ During development with development set to on, errors are hinted when errors are
     - Code after
     ### ![text](/documentation/development-bugs/movie-reset-button-error/reset-code-after.png)
 ***
- ### Further Testing
+
+### Further Testing
 
 #### Browswers
 -   The website has been tested on such browsers as: 
@@ -215,107 +217,107 @@ During development with development set to on, errors are hinted when errors are
 - ### First time user goals
     
     1. As a First time user, I want to easily navigate to register and then log in when first entering the website application.
-        - As a first time user, i can easily navigate to register.
+        - As a first time user, I can easily navigate to register.
         #### ![text](/documentation/introactive-images/nav.png) 
         #### ![text](/documentation/introactive-images/register.png)
-        - As a first time user, i can am redirected to the login in page once registered.
+        - As a first time user, I can am redirected to the login in page once registered.
         #### ![text](/documentation/introactive-images/login.png)
     2. As a First Time User, I want to navigate the website easily and interact with the content.
-        - As a fisrt time user i can easily navigate the website on small and large screens.
+        - As a firsst time user I can easily navigate the website on small and large screens.
         #### ![text](/documentation/introactive-images/nav.png) 
         #### ![text](/documentation/introactive-images/nav-small.png)
         #### ![text](/documentation/introactive-images/nav-small-open.png)  
-    3. As a first time user i want to easily navigate to search for movies and add them to my list.
-        - As a first time user i can easily navigate to search for movies.
+    3. As a first time user I want to easily navigate to search for movies and add them to my list.
+        - As a first time user I can easily navigate to search for movies.
         #### ![text](/documentation/introactive-images/movie-search.png)
-        - Ass a first time user i can easily add movies to my list.
+        - Ass a first time user I can easily add movies to my list.
         #### ![text](/documentation/introactive-images/movie-results.png) 
         #### ![text](/documentation/introactive-images/movie-add.png)  
-    4. As a first time user i want to easily navigate to the message board and add a message question or reply to a message.
-        - As a first time user i can easily add a question in the message board.
+    4. As a first time user I want to easily navigate to the message board and add a message question or reply to a message.
+        - As a first time user I can easily add a question in the message board.
         #### ![text](/documentation/introactive-images/add-msg.png)
-        - As a first time user i can easlity add a reply to a question in the message board.
+        - As a first time user I can easlity add a reply to a question in the message board.
         #### ![text](/documentation/introactive-images/msg-reply-btn.png) 
 
 - ### Returning user goals
     1. As a Returning User, I want to edit and delete my messages.
-        - As a returning user i can edit my messages.
+        - As a returning user I can edit my messages.
         #### ![text](/documentation/introactive-images/edit-msg-page.png)
         #### ![text](/documentation/introactive-images/edit-reply-msg.png)
-        - As a returning user i can delete my messages.
+        - As a returning user I can delete my messages.
         #### ![text](/documentation/introactive-images/add-edi-del-msg.png)
         #### ![text](/documentation/introactive-images/del-msg-modal.png) 
         #### ![text](/documentation/introactive-images/del-reply-modal.png)  
 
     2. As a Returning User, I want to edit and delete my movie list.
-        - As a returning user i can edit my movies.
+        - As a returning user I can edit my movies.
         #### ![text](/documentation/introactive-images/edit-movie.png)
-        - As a returning user i can delete my movies.
+        - As a returning user I can delete my movies.
         #### ![text](/documentation/introactive-images/movie-info-after.png)
         #### ![text](/documentation/introactive-images/del-movie-modal.png)
      
     3. As a Returning User, I want to see any new messages.
         - As a returning user i can see any new messages.
         #### ![text](/documentation/introactive-images/add-edi-del-msg.png)
-    4. As a Returning User, I want to see if anyone has replyed to my questions.
-        - As a returning user i can see any new message replys.
+    4. As a Returning User, I want to see if anyone has replied to my questions.
+        - As a returning user I can see any new message replies.
         #### ![text](/documentation/introactive-images/msg-reply-open.png)
 
 - ### Frequent user goals
     1. As a Frequent user, I want to easily reply to any messages or questions.
-        - As a frequent user i can eeasily reply to any message.
+        - As a frequent user I can easily reply to any message.
         #### ![text](/documentation/introactive-images/msg-reply-open.png)
-        - As a frequent user i can easily reply to any message questions.
+        - As a frequent user I can easily reply to any message questions.
         #### ![text](/documentation/introactive-images/add-edi-del-msg.png)
 
     2. As a Frequent user, I want to easily edit and delete my movie list.
-        - As a frequent user i can easily edit my movies.
+        - As a frequent user I can easily edit my movies.
         #### ![text](/documentation/introactive-images/edit-movie.png)
-        - As a frequent user i can easily delete my movies.
+        - As a frequent user I can easily delete my movies.
         #### ![text](/documentation/introactive-images/del-movie-modal.png)
 
     3. As a Frequent user, I want to easily edit or delete any messages or questions.
-        - As a frequent user i can easily edit my messages.
+        - As a frequent user I can easily edit my messages.
         #### ![text](/documentation/introactive-images/msg-reply-open.png)
-        - As a frequent user i can easily edit my message questions.
+        - As a frequent user I can easily edit my message questions.
         #### ![text](/documentation/introactive-images/add-edi-del-msg.png)
-        - As a frequent user i can easily delete my messages.
+        - As a frequent user I can easily delete my messages.
         #### ![text](/documentation/introactive-images/del-msg-modal.png) 
-        - As a frequent user i can easily delete my message questions.
+        - As a frequent user I can easily delete my message questions.
         #### ![text](/documentation/introactive-images/del-reply-modal.png)
 
 - ### End of user goals
     1. As a End of User, I want to delete all my messages and questions.
-        - As a end of user i can delete all my messages.
+        - As a end of user I can delete all my messages.
     2. As a End of User, I want to delete my movie list.
-        - As a end of user i can delete all my movies.
+        - As a end of user I can delete all my movies.
 
 - ### Admin user goals
     1. As an Admin User, I want access to add questions and edit and delete  all questions on the movie lounge message board.
-        - As an admin user i have access to add questions.
+        - As an admin user I have access to add questions.
         #### ![text](/documentation/introactive-images/add-msg.png)
-        - As an admin user i have full access to edit all questions.
-        - As an admin user i have full access to delete all questions
+        - As an admin user I have full access to edit all questions.
+        - As an admin user I have full access to delete all questions
         #### ![text](/documentation/introactive-images/add-edi-del-msg.png)
-        - As an admin user i have full access to edit all reply messages.
-        - As an admin user i have full access to delete all reply messages.
+        - As an admin user I have full access to edit all reply messages.
+        - As an admin user I have full access to delete all reply messages.
         #### ![text](/documentation/introactive-images/msg-reply-open.png)
         
     2. As an Admin User, I want access to add movies and edit and delete all users movie lists.
-        - As an admin user i have full access to add a movie.
+        - As an admin user I have full access to add a movie.
         #### ![text](/documentation/introactive-images/movie-add.png)
-        - As an admin user i have full access to edit all user and my movies.
+        - As an admin user I have full access to edit all user and my movies.
         #### ![text](/documentation/introactive-images/edit-movie.png)
-        - As an admin user i have full access to delete all user and my movies.
+        - As an admin user I have full access to delete all user and my movies.
         #### ![text](/documentation/introactive-images/movie-info-after.png)
         #### ![text](/documentation/introactive-images/del-movie-modal.png)
 
-    3. As an Admin User, I want access to add, edit and delete all categorys and related questions, messages and movie lists.
-        - As an admin user i have full access to add categorys.
+    3. As an Admin User, I want access to add, edit and delete all categories and related questions, messages and movie lists.
+        - As an admin user I have full access to add categorys.
         #### ![text](/documentation/introactive-images/add-cat.png)
         #### ![text](/documentation/introactive-images/add-a-cat.png)
-        - As an admin user i have full access to edit all categorys and questions, messages and movie lists.
+        - As an admin user I have full access to edit all categorys and questions, messages and movie lists.
         #### ![text](/documentation/introactive-images/edit-cat.png)
-        - As an admin user i have full access to delete all categorys and related questions, messages and movie lists.
+        - As an admin user I have full access to delete all categorys and related questions, messages and movie lists.
         #### ![text](/documentation/introactive-images/add-cat.png)
         #### ![text](/documentation/introactive-images/del-cat.png)
