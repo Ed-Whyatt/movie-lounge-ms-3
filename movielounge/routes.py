@@ -73,23 +73,28 @@ def edit_question(question_id):
 
     question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
 
-    if request.method == "POST":
-        answer_question_id = {"question_id": str(question_id)}
-        new_category = request.form.get("category_name")
-        new_category_val = {"$set": {"category_name": str(new_category)}}
-        mongo.db.answers.update_many(answer_question_id, new_category_val)
-        submit = {
-            "category_name": request.form.get("category_name"),
-            "question_description": request.form.get("question_description"),
-            "created_by": session["user"]
-        }
-        mongo.db.questions.replace_one({"_id": ObjectId(question_id)}, submit)
-        flash("Message Successfully Updated")
-        return redirect(url_for("get_questions"))
+    if session["user"] == question["created_by"]:
+        if request.method == "POST":
+            answer_question_id = {"question_id": str(question_id)}
+            new_category = request.form.get("category_name")
+            new_category_val = {"$set": {"category_name": str(new_category)}}
+            mongo.db.answers.update_many(answer_question_id, new_category_val)
+            submit = {
+                "category_name": request.form.get("category_name"),
+                "question_description": request.form.get("question_description"),
+                "created_by": session["user"]
+            }
+            mongo.db.questions.replace_one({"_id": ObjectId(question_id)}, submit)
+            flash("Message Successfully Updated")
+            return redirect(url_for("get_questions"))
 
-    categories = list(Category.query.order_by(Category.category_name).all())
-    return render_template(
-        "/edit_question.html", question=question, categories=categories)
+        categories = list(Category.query.order_by(Category.category_name).all())
+        return render_template(
+            "/edit_question.html", question=question, categories=categories)
+    else:
+        flash("You can not edit other users messages")
+    
+    return redirect("/get_questions")
 
 
 # --- Delete a question on message board --- #
@@ -101,7 +106,7 @@ def delete_question(question_id):
     """
 
     if "user" not in session:
-        flash("You can only delete your own message!")
+        flash("You have to be logged in to delete a message!")
         return redirect(url_for("get_questions"))
 
     question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
