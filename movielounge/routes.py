@@ -101,12 +101,18 @@ def delete_question(question_id):
     """
 
     if "user" not in session:
-        flash("You can only delete your own message!")
+        flash("You have to be loged in to delete a message!")
         return redirect(url_for("get_questions"))
 
-    mongo.db.questions.delete_one({"_id": ObjectId(question_id)})
-    mongo.db.answers.delete_many({"question_id": (question_id)})
-    flash("Question Successfully Deleted")
+    question = mongo.db.question.find_one({"_id": ObjectId(question_id)})
+
+    if session["user"] == question["created_by"]:
+        mongo.db.questions.delete_one({"_id": ObjectId(question_id)})
+        mongo.db.answers.delete_many({"question_id": (question_id)})
+        flash("Question Successfully Deleted")
+    else:
+        flash("You can not delete this question")
+
     return redirect(url_for("get_questions"))
 
 
@@ -186,8 +192,17 @@ def delete_reply(answer_id):
     Gets the answer message and deletes it in the mongo database
     """
 
-    mongo.db.answers.delete_one({"_id": ObjectId(answer_id)})
-    flash("Question Successfully Deleted")
+    if "user" not in session:
+        flash("You need to be logged in to delete a reply message")
+        return redirect(url_for("get_questions"))
+
+    answer = mongo.db.answers.find_one({"_id": ObjectId(answer_id)})
+    if session["user"] == answer["created_by"]:
+        mongo.db.answers.delete_one({"_id": ObjectId(answer_id)})
+        flash("Question Successfully Deleted")
+    else:
+        flash("You can not delete this reply")
+
     return redirect(url_for("get_questions"))
 
 
@@ -315,7 +330,14 @@ def delete_movie(movie_id):
         flash("You can only delete your own movie!")
         return redirect(url_for("get_movies"))
 
-    mongo.db.movies.delete_one({"_id": ObjectId(movie_id)})
+    movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
+
+    if session["user"] == movie["created_by"]:
+        mongo.db.movies.delete_one({"_id": ObjectId(movie_id)})
+        flash("Movie Successfully Deleted")
+    else:
+        flash("You can not delete this movie")
+
     flash("Movie Successfully Deleted")
     return redirect(url_for("get_movies"))
 
@@ -457,7 +479,6 @@ def login():
             "username").lower()).all()
 
         if existing_user:
-            print(request.form.get("username"))
             # ensure hashed password matches user input
             if check_password_hash(existing_user[0].password, request.form.get(
                     "password")):
