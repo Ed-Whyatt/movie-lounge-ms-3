@@ -160,28 +160,33 @@ def edit_reply(answer_id):
 
     answer = mongo.db.answers.find_one({"_id": ObjectId(answer_id)})
 
-    if request.method == "POST":
-        submit = {
-            "answer_message": request.form.get("answer_message"),
-            "question_id": answer.get("question_id"),
-            "category_name": answer.get("category_name"),
-            "created_by": session["user"]
-        }
-        mongo.db.answers.replace_one({"_id": ObjectId(answer_id)}, submit)
-        flash("Reply Successfully Updated")
-        return redirect(url_for("get_questions"))
+    if session["user"] == answer["created_by"]:
+        if request.method == "POST":
+            submit = {
+                "answer_message": request.form.get("answer_message"),
+                "question_id": answer.get("question_id"),
+                "category_name": answer.get("category_name"),
+                "created_by": session["user"]
+            }
+            mongo.db.answers.replace_one({"_id": ObjectId(answer_id)}, submit)
+            flash("Reply Successfully Updated")
+            return redirect(url_for("get_questions"))
 
-    answer_question_id = answer.get("question_id")
-    question = mongo.db.questions.find_one(
-        {"_id": ObjectId(answer_question_id)}
-        )
-    answer_reply = list(mongo.db.answers.find())
-    return render_template(
-        "edit_reply.html",
-        answer=answer,
-        question=question,
-        answer_reply=answer_reply
-        )
+        answer_question_id = answer.get("question_id")
+        question = mongo.db.questions.find_one(
+            {"_id": ObjectId(answer_question_id)}
+            )
+        answer_reply = list(mongo.db.answers.find())
+        return render_template(
+            "edit_reply.html",
+            answer=answer,
+            question=question,
+            answer_reply=answer_reply
+            )
+    else:
+        flash("You can not edit other users messages")
+
+    return redirect("/get_questions")
 
 
 # Delete reply
