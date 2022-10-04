@@ -73,7 +73,7 @@ def edit_question(question_id):
 
     question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
 
-    if session["user"] == question["created_by"]:
+    if session["user"] == question["created_by"] or session["user"] == "admin":
         if request.method == "POST":
             answer_question_id = {"question_id": str(question_id)}
             new_category = request.form.get("category_name")
@@ -113,7 +113,7 @@ def delete_question(question_id):
         return redirect(url_for("get_questions"))
 
     question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
-    if session["user"] == question["created_by"]:
+    if session["user"] == question["created_by"] or session["user"] == "admin":
         mongo.db.questions.delete_one({"_id": ObjectId(question_id)})
         mongo.db.answers.delete_many({"question_id": (question_id)})
         flash("Question Successfully Deleted")
@@ -168,7 +168,7 @@ def edit_reply(answer_id):
 
     answer = mongo.db.answers.find_one({"_id": ObjectId(answer_id)})
 
-    if session["user"] == answer["created_by"]:
+    if session["user"] == answer["created_by"] or session["user"] == "admin":
         if request.method == "POST":
             submit = {
                 "answer_message": request.form.get("answer_message"),
@@ -209,7 +209,7 @@ def delete_reply(answer_id):
         return redirect(url_for("get_questions"))
 
     answer = mongo.db.answers.find_one({"_id": ObjectId(answer_id)})
-    if session["user"] == answer["created_by"]:
+    if session["user"] == answer["created_by"] or session["user"] == "admin":
         mongo.db.answers.delete_one({"_id": ObjectId(answer_id)})
         flash("Question Successfully Deleted")
     else:
@@ -305,7 +305,7 @@ def edit_movie(movie_id):
 
     movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
 
-    if session["user"] == movie["created_by"]:
+    if session["user"] == movie["created_by"] or session["user"] == "admin":
         if request.method == "POST":
             submit = {
                 "category_name": request.form.get("category_name"),
@@ -343,16 +343,16 @@ def delete_movie(movie_id):
     """
 
     if "user" not in session:
-        flash("You can only delete your own movie!")
+        flash("You need to be logged in to delete a movie!")
         return redirect(url_for("get_movies"))
 
     movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
 
-    if session["user"] == movie["created_by"]:
+    if session["user"] == movie["created_by"] or session["user"] == "admin":
         mongo.db.movies.delete_one({"_id": ObjectId(movie_id)})
         flash("Movie Successfully Deleted")
     else:
-        flash("You can not delete another users this movie")
+        flash("You can not delete another users movie!")
 
     return redirect(url_for("get_movies"))
 
