@@ -325,6 +325,8 @@ def edit_movie(movie_id):
                 }
             mongo.db.movies.replace_one({"_id": ObjectId(movie_id)}, submit)
             flash("Movie Successfully Updated")
+            return redirect("/get_movies")
+
         categories = list(Category.query.order_by(
             Category.category_name).all())
         return render_template(
