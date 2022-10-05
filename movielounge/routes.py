@@ -211,7 +211,7 @@ def delete_reply(answer_id):
     answer = mongo.db.answers.find_one({"_id": ObjectId(answer_id)})
     if session["user"] == answer["created_by"] or session["user"] == "admin":
         mongo.db.answers.delete_one({"_id": ObjectId(answer_id)})
-        flash("Question Successfully Deleted")
+        flash("Message Successfully Deleted")
     else:
         flash("You can not delete another users reply")
 
