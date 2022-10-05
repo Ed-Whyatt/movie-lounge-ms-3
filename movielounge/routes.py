@@ -68,7 +68,7 @@ def edit_question(question_id):
     """
 
     if "user" not in session:
-        flash("You can only edit your own messages")
+        flash("You you have to be logged in to edit a messages")
         return redirect(url_for("get_questions"))
 
     question = mongo.db.questions.find_one({"_id": ObjectId(question_id)})
