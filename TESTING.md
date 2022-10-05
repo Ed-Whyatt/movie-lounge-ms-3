@@ -202,8 +202,49 @@ During development with development set to on, errors are hinted when errors are
      - Samsung tablet 3 
      ### ![view](/documentation/broswer-and-device-images/note-3.png)
 -   A large amount of testing was done to ensure that all pages were linking correctly.
-
-
+***
+### Defencive testing
+Defencive programing has been used to stop users not logged in, or users that have not created messages answers or movies from adding, editing or deleteing them in the database. A flash message is displayed when access is denied.
+- Question messages
+    - Add message when a user is not logged in.
+    ## ![text](/documentation/defencive-prog/logged-out-add-msg.png)
+    - Edit message when a user is not logged in.
+    ## ![text](/documentation/defencive-prog/logged-out-edit-msg.png)
+    - Delete message when a user is not logged in.
+    ## ![text](/documentation/defencive-prog/logged-out-del-msg.png)
+    - Edit message when the user who created it is not logged in.
+    ## ![text](/documentation/defencive-prog/non-user-edit-msg.png)
+    - Delete message when the user who created it is is not logged in.
+    ## ![text](/documentation/defencive-prog/non-user-del-msg.png)
+- Answer/Reply messages
+    - Add reply message when a user is not logged in.
+    ## ![text](/documentation/defencive-prog/logged-out-add-reply.png)
+    - Edit message when a user is not logged in.
+    ## ![text](/documentation/defencive-prog/loged-out-edit-reply.png)
+    - Delete message when a user is not logged in.
+    ## ![text](/documentation/defencive-prog/logged-out-del-reply.png)
+    - Edit message when the user who created it is not logged in.
+    ## ![text](/documentation/defencive-prog/non-user-edit-reply.png)
+    - Delete message when the user who created it is not logged in.
+    ## ![text](/documentation/defencive-prog/non-user-del-reply.png)
+- Movies
+    - Add movie when a user is not logged in.
+    ## ![text](/documentation/defencive-prog/logged-out-add-movie.png)
+    - Edit movie when a user is not logged in.
+    ## ![text](/documentation/defencive-prog/loged-out-edit-movie.png)
+    - Delete movie when a user is not logged in.
+    ## ![text](/documentation/defencive-prog/logged-out-del-movie.png)
+    - Edit movie when the user who created is not loggged in.
+    ## ![text](/documentation/defencive-prog/non-user-edit-movie.png)
+    - Delete movie when the user who created is is not logged in.
+    ## ![text](/documentation/defencive-prog/non-user-del-movie.png)
+- Categories
+    - Not admin logged in add category.
+    ## ![text](/documentation/defencive-prog/add-cat.png)
+    - Not admin logged in edit category.
+    ## ![text](/documentation/defencive-prog/add-cat.png)
+    - Not admin logged in delete category.
+    ## ![text](/documentation/defencive-prog/add-cat.png)
 ***
 ### Testing error messages
 - Error 404
